@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     height: 64 + getStatusBarHeight(),
     backgroundColor: COLORS.WHITE
   },
-  header: {
+  row: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 export default function Header() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
+      <View style={styles.row}>
         <Image source={TextMeIcon} />
         <Text style={styles.title}>{APP_NAME}</Text>
         <Image source={AvatarIcon} />
