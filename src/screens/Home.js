@@ -3,10 +3,10 @@ import { View, StyleSheet } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import Messages from "./Messages";
-import Peoples from "./Peoples";
+import Contacts from "./Contacts";
 import { Header } from "../components";
 import { FONT_SIZES, COLORS } from "../theme";
-import { MESSAGES_SCREEN, PEOPLES_SCREEN } from "../constants";
+import { MESSAGES_SCREEN, CONTACTS_SCREEN } from "../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 const TabNavigator = createMaterialTopTabNavigator(
   {
     [MESSAGES_SCREEN]: Messages,
-    [PEOPLES_SCREEN]: Peoples
+    [CONTACTS_SCREEN]: Contacts
   },
   {
     initialRouteName: MESSAGES_SCREEN,

@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Peoples() {
+export default function Contacts() {
   return (
     <View style={styles.container}>
-      <Text>Peoples</Text>
+      <Text>Contacts</Text>
     </View>
   );
 }

@@ -7,4 +7,4 @@ export const HOME_SCREEN = "Home";
 export const GROUPS_SCREEN = "Groups";
 export const SETTINGS_SCREEN = "Settings";
 export const MESSAGES_SCREEN = "Messages";
-export const PEOPLES_SCREEN = "Peoples";
+export const CONTACTS_SCREEN = "Contacts";
