@@ -7,12 +7,16 @@ import { HOME_SCREEN, GROUPS_SCREEN, SETTINGS_SCREEN } from "./src/constants";
 import ChatIcon from "./assets/icons/chat.png";
 import GroupsIcon from "./assets/icons/groups.png";
 import SettingsIcon from "./assets/icons/settings.png";
+import { SPACING, FONT_SIZES } from "./src/theme";
 
 const MainNavigator = createBottomTabNavigator(
   {
     [HOME_SCREEN]: {
       screen: Home,
-      navigationOptions: { tabBarIcon: <Image source={ChatIcon} /> }
+      navigationOptions: {
+        tabBarLabel: "Chat",
+        tabBarIcon: <Image source={ChatIcon} />
+      }
     },
     [GROUPS_SCREEN]: {
       screen: Groups,
@@ -25,7 +29,13 @@ const MainNavigator = createBottomTabNavigator(
       }
     }
   },
-  { initialRouteName: HOME_SCREEN }
+  {
+    initialRouteName: HOME_SCREEN,
+    tabBarOptions: {
+      style: { height: 60, paddingTop: SPACING.SMALL },
+      labelStyle: { fontFamily: "Nunito-Light", fontSize: FONT_SIZES.SMALL }
+    }
+  }
 );
 
 export default createAppContainer(MainNavigator);
