@@ -9,5 +9,22 @@ export const SPACING = {
 };
 
 export const COLORS = {
-  BACKGROUND: "#fff"
+  WHITE: "#fff",
+  BLACK: "#000",
+  RED: "#ff0000",
+  BACKGROUND: "#D5D5D5"
+};
+
+export const FONT_SIZES = {
+  EXTRA_SMALL: 8,
+  SMALL: 12,
+  MEDIUM: 15,
+  LARGE: 17,
+  EXTRA_LARGE: 20,
+  EXTRA_EXTRA_LARGE: 25
+};
+
+export const DEBUG = {
+  borderWidth: 1,
+  borderColor: COLORS.RED
 };
