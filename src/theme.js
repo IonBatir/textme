@@ -12,11 +12,12 @@ export const COLORS = {
   WHITE: "#fff",
   BLACK: "#000",
   RED: "#ff0000",
-  BACKGROUND: "#D5D5D5"
+  BACKGROUND: "#fff"
 };
 
 export const FONT_SIZES = {
-  EXTRA_SMALL: 8,
+  EXTRA_EXTRA_SMALL: 8,
+  EXTRA_SMALL: 10,
   SMALL: 12,
   MEDIUM: 15,
   LARGE: 17,
