@@ -948,6 +948,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/app-types/-/app-types-0.4.3.tgz#9c31bf02032b089d598a5f98495d794ae560fcbd"
   integrity sha512-rw+GX9tNsr9v3oq4jNaZ0di85TGuXTTYHTPN1pmonl4czO3J9PZON8Ouse/4bxY5wouZ9/yR5+eO5KTW+34EpA==
 
+"@react-native-firebase/app-types@6.0.0-alpha.25":
+  version "6.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app-types/-/app-types-6.0.0-alpha.25.tgz#b3da34754c06ad035499aa2e8372747ca413d295"
+  integrity sha512-GEGnfxEtfFPwU7ex8mRRPpJepStT3pDPRFwnkV237zCCYt+iaM7jniqN0xVGVfywo7A09j9jTfgLeyPHWrX/uQ==
+
 "@react-native-firebase/app@0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-0.4.3.tgz#3442d87053f3e1bdf48616d4c1be60442fa70b1b"
@@ -956,6 +961,19 @@
     "@react-native-firebase/app-types" "0.4.3"
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
+
+"@react-native-firebase/auth@^6.0.0-alpha.25":
+  version "6.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-6.0.0-alpha.25.tgz#26710e2429391dfc138298c69f7e431818aa1933"
+  integrity sha512-XcdTtd/8fPzWElq0JBQQcVKgqQCNybobOo9SD7KjNNOVvXuKIOXKB1l8S/M4YtKyrAc6luqoKF4g704RURZAtg==
+  dependencies:
+    "@react-native-firebase/app-types" "6.0.0-alpha.25"
+    "@react-native-firebase/common" "6.0.0-alpha.25"
+
+"@react-native-firebase/common@6.0.0-alpha.25":
+  version "6.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/common/-/common-6.0.0-alpha.25.tgz#e35b308a6ec90a3b27c59ff43bf92ba8e5c47f71"
+  integrity sha512-79UDyLaH19400Amuh4jTb4M6JpS8eZNOd2+SejV3HcjdTvg6dM77d4Cjz+/Wzp9gUv4KVnhvrkBka9STAIQ+wA==
 
 "@react-navigation/core@^3.5.1":
   version "3.5.1"
@@ -6185,6 +6203,11 @@ react-native-screens@^2.0.0-alpha.3:
   integrity sha512-SA3uGrc3UM1V9y6gfVU1UPf1a3dMyQCj3p5J7y6g81Of8rV5Pc34s6fWzOKNAWgOiviAktZB1z7Jngdl7+acZg==
   dependencies:
     debounce "^1.2.0"
+
+react-native-status-bar-height@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.4.0.tgz#de8cee4bb733a196167210d2d0bc1fa10acba3e3"
+  integrity sha512-pWvZFlyIHiuxLugLioq97vXiaGSovFXEyxt76wQtbq0gxv4dGXMPqYow46UmpwOgeJpBhqL1E0EKxnfJRrFz5w==
 
 react-native-tab-view@^2.9.0:
   version "2.10.0"
