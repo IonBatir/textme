@@ -54,7 +54,12 @@ export default function Contacts() {
       <FlatList
         data={contacts}
         renderItem={({ item }) => (
-          <Contact avatar={item.avatar} name={item.name} status={item.status} />
+          <Contact
+            key={item.id}
+            avatar={item.avatar}
+            name={item.name}
+            status={item.status}
+          />
         )}
         keyExtractor={item => item.id}
       />

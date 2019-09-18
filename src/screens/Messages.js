@@ -2,10 +2,15 @@ import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { Message } from "../components";
 import Avatar from "../../assets/images/avatar.png";
+import { CHAT_SCREEN } from "../constants";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  header: {
+    position: "absolute",
+    top: 0
   }
 });
 
@@ -60,7 +65,7 @@ const messages = [
   }
 ];
 
-export default function Messages() {
+export default function Messages({ navigation }) {
   return (
     <View style={styles.container}>
       <FlatList
@@ -68,6 +73,9 @@ export default function Messages() {
         renderItem={({ item }) => (
           <Message
             key={item.id}
+            openChat={() => {
+              navigation.navigate(CHAT_SCREEN);
+            }}
             avatar={item.avatar}
             name={item.name}
             text={item.text}
@@ -75,7 +83,6 @@ export default function Messages() {
             time={item.time}
           />
         )}
-        keyExtractor={item => item.id}
       />
     </View>
   );

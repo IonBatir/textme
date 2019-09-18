@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Image, Text } from "react-native";
+import {
+  StyleSheet,
+  TouchableHighlight,
+  View,
+  Image,
+  Text
+} from "react-native";
 import { SPACING, FONT_SIZES } from "../theme";
 
 const styles = StyleSheet.create({
@@ -52,30 +58,32 @@ const styles = StyleSheet.create({
 
 const MAX_TEXT_LENGTH = 25;
 
-export default function Message({ avatar, name, text, date, time }) {
+export default function Message({ openChat, avatar, name, text, date, time }) {
   const message =
     text.length > MAX_TEXT_LENGTH
       ? text.substring(0, MAX_TEXT_LENGTH - 3).concat("...")
       : text;
 
   return (
-    <View style={styles.container}>
-      <View style={styles.row}>
-        <View style={styles.content}>
-          <Image source={avatar} />
-          <View style={styles.textContent}>
-            <Text style={styles.nameText}>{name}</Text>
-            <Text style={styles.messageText}>{message}</Text>
+    <TouchableHighlight onPress={openChat}>
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <View style={styles.content}>
+            <Image source={avatar} />
+            <View style={styles.textContent}>
+              <Text style={styles.nameText}>{name}</Text>
+              <Text style={styles.messageText}>{message}</Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.content}>
-          <View style={styles.verticalLine} />
-          <View>
-            <Text style={styles.dateText}>{date}</Text>
-            <Text style={styles.timeText}>{time}</Text>
+          <View style={styles.content}>
+            <View style={styles.verticalLine} />
+            <View>
+              <Text style={styles.dateText}>{date}</Text>
+              <Text style={styles.timeText}>{time}</Text>
+            </View>
           </View>
         </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 }

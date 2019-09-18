@@ -1,4 +1,6 @@
 /* eslint-disable import/prefer-default-export */
+import { Platform } from "react-native";
+import { getStatusBarHeight } from "react-native-status-bar-height";
 
 export const SPACING = {
   EXTRA_SMALL: 4,
@@ -29,3 +31,10 @@ export const DEBUG = {
   borderWidth: 1,
   borderColor: COLORS.RED
 };
+
+export const STATUS_BAR_HEIGHT = getStatusBarHeight();
+
+export const HEADER_HEIGHT =
+  40 + (Platform.OS === "ios" ? STATUS_BAR_HEIGHT : 0);
+
+export const HEADER_MARGIN_TOP = Platform.OS === "ios" ? 0 : SPACING.MEDIUM;

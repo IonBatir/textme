@@ -4,8 +4,9 @@ export const APP_NAME = "TextMe";
 
 // SCREENS
 export const APP_STACK = "APP_STACK";
-export const HOME_SCREEN = "Home";
-export const PROFILE_SCREEN = "Profile";
+export const HOME_STACK = "HOME_STACK";
+export const CHAT_STACK = "CHAT_STACK";
+export const CHAT_SCREEN = "Chat";
 export const GROUPS_SCREEN = "Groups";
 export const SETTINGS_SCREEN = "Settings";
 export const MESSAGES_SCREEN = "Messages";

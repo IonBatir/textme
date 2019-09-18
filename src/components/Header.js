@@ -1,22 +1,20 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Image,
-  Text,
-  Platform
-} from "react-native";
-import { getStatusBarHeight } from "react-native-status-bar-height";
+import { View, StyleSheet, Image, Text } from "react-native";
 import TextMeIcon from "../../assets/icons/textme.png";
 import AvatarIcon from "../../assets/icons/avatar.png";
-import { COLORS, SPACING, FONT_SIZES } from "../theme";
+import {
+  COLORS,
+  SPACING,
+  FONT_SIZES,
+  HEADER_HEIGHT,
+  HEADER_MARGIN_TOP
+} from "../theme";
 import { APP_NAME } from "../constants";
 
 const styles = StyleSheet.create({
   container: {
-    height: 40 + (Platform.OS === "ios" ? getStatusBarHeight() : 0),
-    marginTop: Platform.OS === "ios" ? 0 : SPACING.MEDIUM,
+    height: HEADER_HEIGHT,
+    marginTop: HEADER_MARGIN_TOP,
     backgroundColor: COLORS.WHITE
   },
   row: {
@@ -34,12 +32,12 @@ const styles = StyleSheet.create({
 
 export default function Header() {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.row}>
         <Image source={TextMeIcon} />
         <Text style={styles.title}>{APP_NAME}</Text>
         <Image source={AvatarIcon} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
