@@ -1,5 +1,12 @@
 import React from "react";
-import { SafeAreaView, View, StyleSheet, Image, Text } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  Platform
+} from "react-native";
 import { getStatusBarHeight } from "react-native-status-bar-height";
 import TextMeIcon from "../../assets/icons/textme.png";
 import AvatarIcon from "../../assets/icons/avatar.png";
@@ -8,7 +15,8 @@ import { APP_NAME } from "../constants";
 
 const styles = StyleSheet.create({
   container: {
-    height: 64 + getStatusBarHeight(),
+    height: 40 + (Platform.OS === "ios" ? getStatusBarHeight() : 0),
+    marginTop: Platform.OS === "ios" ? 0 : SPACING.MEDIUM,
     backgroundColor: COLORS.WHITE
   },
   row: {
