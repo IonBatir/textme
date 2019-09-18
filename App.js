@@ -32,7 +32,7 @@ const MainNavigator = createBottomTabNavigator(
   {
     initialRouteName: HOME_SCREEN,
     tabBarOptions: {
-      style: { height: 60, paddingTop: SPACING.SMALL },
+      style: { height: 50, paddingTop: SPACING.SMALL },
       labelStyle: { fontFamily: "Nunito-Light", fontSize: FONT_SIZES.SMALL }
     }
   }
