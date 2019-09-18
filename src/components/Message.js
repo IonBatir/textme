@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  TouchableHighlight,
-  View,
-  Image,
-  Text
-} from "react-native";
+import { StyleSheet, TouchableOpacity, View, Image, Text } from "react-native";
 import { SPACING, FONT_SIZES } from "../theme";
 
 const styles = StyleSheet.create({
@@ -65,7 +59,7 @@ export default function Message({ openChat, avatar, name, text, date, time }) {
       : text;
 
   return (
-    <TouchableHighlight onPress={openChat}>
+    <TouchableOpacity onPress={openChat}>
       <View style={styles.container}>
         <View style={styles.row}>
           <View style={styles.content}>
@@ -84,6 +78,6 @@ export default function Message({ openChat, avatar, name, text, date, time }) {
           </View>
         </View>
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 }
