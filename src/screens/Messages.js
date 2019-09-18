@@ -74,7 +74,7 @@ export default function Messages({ navigation }) {
           <Message
             key={item.id}
             openChat={() => {
-              navigation.navigate(CHAT_SCREEN);
+              navigation.navigate(CHAT_SCREEN, { name: item.name });
             }}
             avatar={item.avatar}
             name={item.name}

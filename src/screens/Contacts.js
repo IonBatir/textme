@@ -2,6 +2,7 @@ import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { Contact } from "../components";
 import Avatar from "../../assets/images/avatar.png";
+import { CHAT_SCREEN } from "../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -48,7 +49,7 @@ const contacts = [
   }
 ];
 
-export default function Contacts() {
+export default function Contacts({ navigation }) {
   return (
     <View style={styles.container}>
       <FlatList
@@ -56,12 +57,14 @@ export default function Contacts() {
         renderItem={({ item }) => (
           <Contact
             key={item.id}
+            openChat={() => {
+              navigation.navigate(CHAT_SCREEN, { name: item.name });
+            }}
             avatar={item.avatar}
             name={item.name}
             status={item.status}
           />
         )}
-        keyExtractor={item => item.id}
       />
     </View>
   );

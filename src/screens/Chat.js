@@ -12,3 +12,7 @@ export default function Chat() {
     </View>
   );
 }
+
+Chat.navigationOptions = ({ navigation }) => ({
+  title: navigation.getParam("name")
+});

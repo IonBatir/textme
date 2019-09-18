@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, View, Image, Text } from "react-native";
 import { SPACING, FONT_SIZES } from "../theme";
 
 const styles = StyleSheet.create({
@@ -27,16 +27,18 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Contact({ avatar, name, status }) {
+export default function Contact({ openChat, avatar, name, status }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.row}>
-        <Image source={avatar} />
-        <View style={styles.textContent}>
-          <Text style={styles.nameText}>{name}</Text>
-          <Text style={styles.statusText}>{status}</Text>
+    <TouchableOpacity onPress={openChat}>
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <Image source={avatar} />
+          <View style={styles.textContent}>
+            <Text style={styles.nameText}>{name}</Text>
+            <Text style={styles.statusText}>{status}</Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
