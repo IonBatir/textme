@@ -1,5 +1,4 @@
 import React from "react";
-import { Image } from "react-native";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import HomeStack from "./HomeStack";
 import { Groups, Settings } from "../screens";
@@ -10,9 +9,7 @@ import {
   FONT_FAMILY,
   BOTTOM_NAVIGATOR_HEIGHT
 } from "../theme";
-import ChatIcon from "../../assets/icons/chat.png";
-import GroupsIcon from "../../assets/icons/groups.png";
-import SettingsIcon from "../../assets/icons/settings.png";
+import { ChatIcon, GroupsIcon, SettingsIcon } from "../../assets/icons";
 
 export default createBottomTabNavigator(
   {
@@ -20,17 +17,17 @@ export default createBottomTabNavigator(
       screen: HomeStack,
       navigationOptions: {
         tabBarLabel: "Chat",
-        tabBarIcon: <Image source={ChatIcon} />
+        tabBarIcon: <ChatIcon />
       }
     },
     [GROUPS_SCREEN]: {
       screen: Groups,
-      navigationOptions: { tabBarIcon: <Image source={GroupsIcon} /> }
+      navigationOptions: { tabBarIcon: <GroupsIcon /> }
     },
     [SETTINGS_SCREEN]: {
       screen: Settings,
       navigationOptions: {
-        tabBarIcon: <Image source={SettingsIcon} />
+        tabBarIcon: <SettingsIcon />
       }
     }
   },

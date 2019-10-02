@@ -1,7 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
-import TextMeIcon from "../../assets/icons/textme.png";
-import AvatarIcon from "../../assets/icons/avatar.png";
+import { View, StyleSheet, Text } from "react-native";
+import { TextMeIcon, AvatarIcon } from "../../assets/icons";
 import {
   COLOR,
   SPACING,
@@ -33,9 +32,9 @@ export default function Header() {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Image source={TextMeIcon} />
+        <TextMeIcon />
         <Text style={styles.title}>{APP_NAME}</Text>
-        <Image source={AvatarIcon} />
+        <AvatarIcon />
       </View>
     </View>
   );

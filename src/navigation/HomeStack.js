@@ -3,7 +3,7 @@ import ChatStack from "./ChatStack";
 import { Chat } from "../screens";
 import { CHAT_STACK, CHAT_SCREEN } from "../constants";
 
-export default createStackNavigator(
+const HomeStack = createStackNavigator(
   {
     [CHAT_STACK]: {
       screen: ChatStack,
@@ -17,3 +17,16 @@ export default createStackNavigator(
     initialRouteName: CHAT_STACK
   }
 );
+
+HomeStack.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+  if (navigation.state.index > 0) {
+    tabBarVisible = false;
+  }
+
+  return {
+    tabBarVisible
+  };
+};
+
+export default HomeStack;
