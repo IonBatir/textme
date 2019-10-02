@@ -2,13 +2,19 @@ import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import TextMeIcon from "../../assets/icons/textme.png";
 import AvatarIcon from "../../assets/icons/avatar.png";
-import { COLORS, SPACING, FONT_SIZES, HEADER_HEIGHT } from "../theme";
+import {
+  COLOR,
+  SPACING,
+  FONT_SIZE,
+  FONT_FAMILY,
+  HEADER_HEIGHT
+} from "../theme";
 import { APP_NAME } from "../constants";
 
 const styles = StyleSheet.create({
   container: {
     height: HEADER_HEIGHT,
-    backgroundColor: COLORS.WHITE
+    backgroundColor: COLOR.WHITE
   },
   row: {
     flex: 1,
@@ -18,8 +24,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.MEDIUM
   },
   title: {
-    fontFamily: "Nunito-Bold",
-    fontSize: FONT_SIZES.EXTRA_LARGE
+    fontFamily: FONT_FAMILY.NUNITO_BOLD,
+    fontSize: FONT_SIZE.EXTRA_LARGE
   }
 });
 

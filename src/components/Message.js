@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View, Image, Text } from "react-native";
-import { LIST_ITEM_HEIGHT, SPACING, FONT_SIZES } from "../theme";
+import { LIST_ITEM_HEIGHT, SPACING, FONT_SIZE, FONT_FAMILY } from "../theme";
 
 const styles = StyleSheet.create({
   container: {
@@ -17,16 +17,17 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   textContent: {
+    maxWidth: "64%",
     paddingLeft: SPACING.SMALL
   },
   nameText: {
-    fontFamily: "Nunito-SemiBold",
-    fontSize: FONT_SIZES.EXTRA_LARGE,
+    fontFamily: FONT_FAMILY.NUNITO_SEMI_BOLD,
+    fontSize: FONT_SIZE.EXTRA_LARGE,
     color: "#3C444C"
   },
   messageText: {
-    fontFamily: "Nunito-Light",
-    fontSize: FONT_SIZES.SMALL,
+    fontFamily: FONT_FAMILY.NUNITO_LIGHT,
+    fontSize: FONT_SIZE.SMALL,
     color: "#8B8B8B"
   },
   verticalLine: {
@@ -36,28 +37,21 @@ const styles = StyleSheet.create({
     paddingRight: SPACING.EXTRA_SMALL
   },
   dateText: {
-    fontFamily: "Nunito-LightItalic",
-    fontSize: FONT_SIZES.EXTRA_SMALL,
+    fontFamily: FONT_FAMILY.NUNITO_LIGHT_ITALIC,
+    fontSize: FONT_SIZE.EXTRA_SMALL,
     color: "#E9A823",
     textAlign: "right",
     paddingBottom: SPACING.EXTRA_SMALL
   },
   timeText: {
-    fontFamily: "Nunito-LightItalic",
-    fontSize: FONT_SIZES.EXTRA_SMALL,
+    fontFamily: FONT_FAMILY.NUNITO_LIGHT_ITALIC,
+    fontSize: FONT_SIZE.EXTRA_SMALL,
     color: "#E9A823",
     textAlign: "right"
   }
 });
 
-const MAX_TEXT_LENGTH = 25;
-
 export default function Message({ openChat, avatar, name, text, date, time }) {
-  const message =
-    text.length > MAX_TEXT_LENGTH
-      ? text.substring(0, MAX_TEXT_LENGTH - 3).concat("...")
-      : text;
-
   return (
     <TouchableOpacity onPress={openChat}>
       <View style={styles.container}>
@@ -66,7 +60,9 @@ export default function Message({ openChat, avatar, name, text, date, time }) {
             <Image source={avatar} />
             <View style={styles.textContent}>
               <Text style={styles.nameText}>{name}</Text>
-              <Text style={styles.messageText}>{message}</Text>
+              <Text style={styles.messageText} numberOfLines={1}>
+                {text}
+              </Text>
             </View>
           </View>
           <View style={styles.content}>

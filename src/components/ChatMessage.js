@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
-import { SPACING, FONT_SIZES, AVATAR_SIZE } from "../theme";
+import { SPACING, FONT_SIZE, FONT_FAMILY, AVATAR_SIZE } from "../theme";
 
 const styles = StyleSheet.create({
   container: {
@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
     borderRadius: 4
   },
   messageText: {
-    fontFamily: "Nunito-Regular",
-    fontSize: FONT_SIZES.MEDIUM,
+    fontFamily: FONT_FAMILY.NUNITO_REGULAR,
+    fontSize: FONT_SIZE.MEDIUM,
     color: "#0E2A47"
   },
   timeText: {
-    fontFamily: "Nunito-Light",
-    fontSize: FONT_SIZES.EXTRA_EXTRA_SMALL,
+    fontFamily: FONT_FAMILY.NUNITO_LIGHT,
+    fontSize: FONT_SIZE.EXTRA_EXTRA_SMALL,
     color: "#8B8B8B"
   }
 });

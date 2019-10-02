@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import HomeStack from "./HomeStack";
 import { Groups, Settings } from "../screens";
 import { HOME_STACK, GROUPS_SCREEN, SETTINGS_SCREEN } from "../constants";
-import { SPACING, FONT_SIZES } from "../theme";
+import { SPACING, FONT_SIZE, FONT_FAMILY } from "../theme";
 import ChatIcon from "../../assets/icons/chat.png";
 import GroupsIcon from "../../assets/icons/groups.png";
 import SettingsIcon from "../../assets/icons/settings.png";
@@ -33,7 +33,10 @@ export default createBottomTabNavigator(
     initialRouteName: HOME_STACK,
     tabBarOptions: {
       style: { height: 50, paddingTop: SPACING.SMALL },
-      labelStyle: { fontFamily: "Nunito-Light", fontSize: FONT_SIZES.SMALL }
+      labelStyle: {
+        fontFamily: FONT_FAMILY.NUNITO_LIGHT,
+        fontSize: FONT_SIZE.SMALL
+      }
     }
   }
 );

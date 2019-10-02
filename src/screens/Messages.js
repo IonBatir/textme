@@ -8,10 +8,6 @@ import { LIST_ITEM_HEIGHT } from "../theme";
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  header: {
-    position: "absolute",
-    top: 0
   }
 });
 

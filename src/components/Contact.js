@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View, Image, Text } from "react-native";
-import { LIST_ITEM_HEIGHT, SPACING, FONT_SIZES } from "../theme";
+import { LIST_ITEM_HEIGHT, SPACING, FONT_SIZE, FONT_FAMILY } from "../theme";
 
 const styles = StyleSheet.create({
   container: {
@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
     paddingLeft: SPACING.SMALL
   },
   nameText: {
-    fontFamily: "Nunito-SemiBold",
-    fontSize: FONT_SIZES.EXTRA_LARGE,
+    fontFamily: FONT_FAMILY.NUNITO_SEMI_BOLD,
+    fontSize: FONT_SIZE.EXTRA_LARGE,
     color: "#3C444C"
   },
   statusText: {
-    fontFamily: "Nunito-Light",
-    fontSize: FONT_SIZES.MEDIUM,
+    fontFamily: FONT_FAMILY.NUNITO_LIGHT,
+    fontSize: FONT_SIZE.MEDIUM,
     color: "#8B8B8B"
   }
 });

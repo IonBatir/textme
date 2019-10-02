@@ -10,14 +10,14 @@ export const SPACING = {
   EXTRA_LARGE: 32
 };
 
-export const COLORS = {
+export const COLOR = {
   WHITE: "#fff",
   BLACK: "#000",
   RED: "#ff0000",
   BACKGROUND: "#fff"
 };
 
-export const FONT_SIZES = {
+export const FONT_SIZE = {
   EXTRA_EXTRA_SMALL: 8,
   EXTRA_SMALL: 10,
   SMALL: 12,
@@ -27,9 +27,17 @@ export const FONT_SIZES = {
   EXTRA_EXTRA_LARGE: 25
 };
 
+export const FONT_FAMILY = {
+  NUNITO_LIGHT: "Nunito-Light",
+  NUNITO_LIGHT_ITALIC: "Nunito-LightItalic",
+  NUNITO_REGULAR: "Nunito-Regular",
+  NUNITO_SEMI_BOLD: "Nunito-SemiBold",
+  NUNITO_BOLD: "Nunito-Bold"
+};
+
 export const DEBUG = {
   borderWidth: 1,
-  borderColor: COLORS.RED
+  borderColor: COLOR.RED
 };
 
 export const STATUS_BAR_HEIGHT =

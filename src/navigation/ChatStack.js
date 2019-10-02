@@ -1,7 +1,7 @@
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { Messages, Contacts } from "../screens";
 import { MESSAGES_SCREEN, CONTACTS_SCREEN } from "../constants";
-import { COLORS, FONT_SIZES, STATUS_BAR_HEIGHT } from "../theme";
+import { COLOR, FONT_SIZE, FONT_FAMILY, STATUS_BAR_HEIGHT } from "../theme";
 
 export default createMaterialTopTabNavigator(
   {
@@ -12,12 +12,12 @@ export default createMaterialTopTabNavigator(
     initialRouteName: MESSAGES_SCREEN,
     tabBarOptions: {
       style: {
-        backgroundColor: COLORS.WHITE,
+        backgroundColor: COLOR.WHITE,
         marginTop: STATUS_BAR_HEIGHT
       },
       labelStyle: {
-        fontFamily: "Nunito-Regular",
-        fontSize: FONT_SIZES.EXTRA_LARGE,
+        fontFamily: FONT_FAMILY.NUNITO_REGULAR,
+        fontSize: FONT_SIZE.EXTRA_LARGE,
         color: "#0E2A47"
       },
       indicatorStyle: { backgroundColor: "#3DBA91" }
