@@ -2,19 +2,12 @@ import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import TextMeIcon from "../../assets/icons/textme.png";
 import AvatarIcon from "../../assets/icons/avatar.png";
-import {
-  COLORS,
-  SPACING,
-  FONT_SIZES,
-  HEADER_HEIGHT,
-  HEADER_MARGIN_TOP
-} from "../theme";
+import { COLORS, SPACING, FONT_SIZES, HEADER_HEIGHT } from "../theme";
 import { APP_NAME } from "../constants";
 
 const styles = StyleSheet.create({
   container: {
     height: HEADER_HEIGHT,
-    marginTop: HEADER_MARGIN_TOP,
     backgroundColor: COLORS.WHITE
   },
   row: {

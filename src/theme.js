@@ -32,9 +32,8 @@ export const DEBUG = {
   borderColor: COLORS.RED
 };
 
-export const STATUS_BAR_HEIGHT = getStatusBarHeight();
+export const STATUS_BAR_HEIGHT =
+  Platform.OS === "ios" ? getStatusBarHeight() : 0;
 
 export const HEADER_HEIGHT =
   40 + (Platform.OS === "ios" ? STATUS_BAR_HEIGHT : 0);
-
-export const HEADER_MARGIN_TOP = Platform.OS === "ios" ? 0 : SPACING.MEDIUM;
