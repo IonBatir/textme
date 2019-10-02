@@ -39,3 +39,5 @@ export const HEADER_HEIGHT =
   40 + (Platform.OS === "ios" ? STATUS_BAR_HEIGHT : 0);
 
 export const LIST_ITEM_HEIGHT = 76;
+
+export const AVATAR_SIZE = 38;
