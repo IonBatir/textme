@@ -3,6 +3,7 @@ import { View, FlatList, StyleSheet } from "react-native";
 import { Message } from "../components";
 import Avatar from "../../assets/images/avatar.png";
 import { CHAT_SCREEN } from "../constants";
+import { LIST_ITEM_HEIGHT } from "../theme";
 
 const styles = StyleSheet.create({
   container: {
@@ -66,23 +67,30 @@ const messages = [
 ];
 
 export default function Messages({ navigation }) {
+  const renderItem = ({ item }) => (
+    <Message
+      key={item.id}
+      openChat={() => {
+        navigation.navigate(CHAT_SCREEN, { name: item.name });
+      }}
+      avatar={item.avatar}
+      name={item.name}
+      text={item.text}
+      date={item.date}
+      time={item.time}
+    />
+  );
+
   return (
     <View style={styles.container}>
       <FlatList
         data={messages}
-        renderItem={({ item }) => (
-          <Message
-            key={item.id}
-            openChat={() => {
-              navigation.navigate(CHAT_SCREEN, { name: item.name });
-            }}
-            avatar={item.avatar}
-            name={item.name}
-            text={item.text}
-            date={item.date}
-            time={item.time}
-          />
-        )}
+        renderItem={renderItem}
+        getItemLayout={(_, index) => ({
+          length: LIST_ITEM_HEIGHT,
+          offset: LIST_ITEM_HEIGHT * index,
+          index
+        })}
       />
     </View>
   );

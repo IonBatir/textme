@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View, Image, Text } from "react-native";
-import { SPACING, FONT_SIZES } from "../theme";
+import { LIST_ITEM_HEIGHT, SPACING, FONT_SIZES } from "../theme";
 
 const styles = StyleSheet.create({
   container: {
-    height: 76,
+    height: LIST_ITEM_HEIGHT,
     margin: SPACING.MEDIUM
   },
   row: {
