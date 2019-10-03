@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { SafeAreaView, View, StyleSheet, Text } from "react-native";
 import { TextMeIcon, AvatarIcon } from "../../assets/icons";
 import {
   COLOR,
@@ -13,7 +13,8 @@ import { APP_NAME } from "../constants";
 const styles = StyleSheet.create({
   container: {
     height: HEADER_HEIGHT,
-    backgroundColor: COLOR.WHITE
+    borderBottomColor: COLOR.HORIZONTAL_LINE,
+    borderBottomWidth: 0.5
   },
   row: {
     flex: 1,
@@ -28,14 +29,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Header() {
+export default function Header({ label }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.row}>
         <TextMeIcon />
-        <Text style={styles.title}>{APP_NAME}</Text>
+        <Text style={styles.title}>{label || APP_NAME}</Text>
         <AvatarIcon />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

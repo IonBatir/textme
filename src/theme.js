@@ -13,7 +13,8 @@ export const COLOR = {
   WHITE: "#fff",
   BLACK: "#000",
   RED: "#ff0000",
-  BACKGROUND: "#fff"
+  BACKGROUND: "#fff",
+  HORIZONTAL_LINE: "rgba(44, 44, 44, 0.2)"
 };
 
 export const FONT_SIZE = {
@@ -41,7 +42,7 @@ export const DEBUG = {
 
 export const STATUS_BAR_HEIGHT = getStatusBarHeight(true);
 
-export const HEADER_HEIGHT = 40 + STATUS_BAR_HEIGHT;
+export const HEADER_HEIGHT = 50 + STATUS_BAR_HEIGHT;
 
 export const BOTTOM_NAVIGATOR_HEIGHT = 60;
 
