@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
-  Platform,
   StyleSheet,
+  SafeAreaView,
   View,
   FlatList,
   TextInput,
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingTop: SPACING.MEDIUM,
     paddingHorizontal: SPACING.MEDIUM,
-    marginBottom: Platform.OS === "ios" ? SPACING.MEDIUM : 0,
     borderTopColor: "rgba(44,44,44, 0.2)",
     borderTopWidth: 0.5
   },
@@ -110,7 +109,7 @@ export default function Chat() {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList data={messages} renderItem={renderItem} />
       <View style={styles.bottom}>
         <View style={styles.textInputView}>
@@ -140,7 +139,7 @@ export default function Chat() {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
