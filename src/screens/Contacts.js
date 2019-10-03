@@ -54,9 +54,7 @@ export default function Contacts({ navigation }) {
   const renderItem = ({ item }) => (
     <Contact
       key={item.id}
-      openChat={() => {
-        navigation.navigate(CHAT_SCREEN, { name: item.name });
-      }}
+      openChat={() => navigation.navigate(CHAT_SCREEN, { name: item.name })}
       avatar={item.avatar}
       name={item.name}
       status={item.status}
