@@ -8,7 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { ChatMessage } from "../components";
-import { SPACING, FONT_FAMILY, FONT_SIZE } from "../theme";
+import { COLOR, SPACING, FONT_FAMILY, FONT_SIZE } from "../theme";
 import {
   RightArrowIcon,
   SmileIcon,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingTop: SPACING.MEDIUM,
     paddingHorizontal: SPACING.MEDIUM,
-    borderTopColor: "rgba(44,44,44, 0.2)",
+    borderTopColor: COLOR.HORIZONTAL_LINE,
     borderTopWidth: 0.5
   },
   textInputView: {
