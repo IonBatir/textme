@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Login({ navigation }) {
+export default function ForgotPassword({ navigation }) {
   const [email, setEmail] = useState("");
 
   return (
