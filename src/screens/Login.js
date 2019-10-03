@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Platform,
   StyleSheet,
   View,
   Text,
@@ -30,10 +31,11 @@ const styles = StyleSheet.create({
   input: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     borderBottomColor: "rgba(112, 112, 112, 0.5)",
     borderBottomWidth: 1,
     marginBottom: SPACING.LARGE,
-    paddingBottom: SPACING.SMALL
+    paddingBottom: Platform.OS === "ios" ? SPACING.SMALL : 0
   },
   textInput: {
     flex: 1,
@@ -81,6 +83,9 @@ export default function Login({ navigation }) {
           value={email}
           placeholder="Email Address"
           returnKeyType="next"
+          autoCompleteType="email"
+          keyboardType="email-address"
+          textContentType="emailAddress"
         />
       </View>
       <View style={styles.input}>
@@ -90,6 +95,9 @@ export default function Login({ navigation }) {
           value={password}
           placeholder="Password"
           returnKeyType="go"
+          autoCompleteType="password"
+          secureTextEntry
+          textContentType="password"
         />
         <TouchableOpacity
           onPress={() => navigation.navigate(FORGOT_PASSWORD_SCREEN)}
