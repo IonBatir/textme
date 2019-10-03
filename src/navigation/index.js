@@ -5,5 +5,5 @@ import { APP_STACK, AUTH_STACK } from "../constants";
 
 export default createSwitchNavigator(
   { [APP_STACK]: AppStack, [AUTH_STACK]: AuthStack },
-  { initialRouteName: APP_STACK }
+  { initialRouteName: AUTH_STACK }
 );

@@ -8,9 +8,20 @@ import {
 
 export default createStackNavigator(
   {
-    [LOGIN_SCREEN]: Login,
-    [REGISTER_SCREEN]: Register,
-    [FORGOT_PASSWORD_SCREEN]: ForgotPassword
+    [LOGIN_SCREEN]: {
+      screen: Login,
+      navigationOptions: {
+        header: null
+      }
+    },
+    [REGISTER_SCREEN]: {
+      screen: Register,
+      navigationOptions: { headerTitle: "Register" }
+    },
+    [FORGOT_PASSWORD_SCREEN]: {
+      screen: ForgotPassword,
+      navigationOptions: { headerTitle: "Forgot Password" }
+    }
   },
   { initialRouteName: LOGIN_SCREEN }
 );
