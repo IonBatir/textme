@@ -1,6 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import { StyleSheet, Platform, View, TextInput, Text } from "react-native";
+import {
+  StyleSheet,
+  Platform,
+  View,
+  TextInput,
+  Text,
+  TouchableOpacity
+} from "react-native";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
 
 const styles = StyleSheet.create({
@@ -22,14 +29,26 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY.NUNITO_LIGHT_ITALIC,
     fontSize: FONT_SIZE.EXTRA_EXTRA_SMALL,
     color: COLOR.RED
+  },
+  forgotButtonText: {
+    fontFamily: FONT_FAMILY.NUNITO_REGULAR,
+    fontSize: FONT_SIZE.MEDIUM,
+    color: "#0052FF"
   }
 });
+
+const ForgotButton = ({ navigateToForgot }) => (
+  <TouchableOpacity onPress={navigateToForgot}>
+    <Text style={styles.forgotButtonText}>Forgot?</Text>
+  </TouchableOpacity>
+);
 
 export default function TextField({
   inputRef,
   onChangeText,
   value,
   error,
+  navigateToForgot,
   ...other
 }) {
   return (
@@ -46,7 +65,11 @@ export default function TextField({
         value={value}
         {...other}
       />
-      {error && <Text style={styles.errorText}>{error}</Text>}
+      {error ? (
+        <Text style={styles.errorText}>{error}</Text>
+      ) : (
+        navigateToForgot && <ForgotButton navigateToForgot={navigateToForgot} />
+      )}
     </View>
   );
 }
