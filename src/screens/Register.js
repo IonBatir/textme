@@ -66,9 +66,7 @@ export default class Register extends Component {
 
     this.setState({ loading: true });
     register({ email: email.value, password: password.value })
-      .then(user => {
-        navigation.navigate(APP_STACK, { user });
-      })
+      .then(user => navigation.navigate(APP_STACK, { user }))
       .catch(error => {
         if (error.code.includes("email")) {
           this.setFieldError("email", error.nativeErrorMessage);
