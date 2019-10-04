@@ -1,14 +1,9 @@
-import React, { useState } from "react";
-import {
-  Platform,
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity
-} from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { Spinner, TextField } from "../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
-import { LOGIN_SCREEN } from "../constants";
+import { APP_STACK } from "../constants";
+import { register } from "../api";
 
 const styles = StyleSheet.create({
   container: {
@@ -28,21 +23,6 @@ const styles = StyleSheet.create({
     opacity: 0.6,
     marginBottom: SPACING.EXTRA_LARGE
   },
-  input: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderBottomColor: "rgba(112, 112, 112, 0.5)",
-    borderBottomWidth: 1,
-    marginBottom: SPACING.LARGE,
-    paddingBottom: Platform.OS === "ios" ? SPACING.SMALL : 0
-  },
-  textInput: {
-    flex: 1,
-    fontFamily: FONT_FAMILY.NUNITO_REGULAR,
-    fontSize: FONT_SIZE.MEDIUM,
-    color: "rgba(11, 13, 15, 0.5)"
-  },
   registerButton: {
     height: 52,
     justifyContent: "center",
@@ -57,81 +37,124 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Register({ navigation }) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+export default class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      form: {
+        email: { value: "", error: null },
+        password: { value: "", error: null },
+        confirmPassword: { value: "", error: null }
+      },
+      loading: false
+    };
+    this.passwordInput = React.createRef();
+    this.passwordConfirmInput = React.createRef();
+    this.onRegister = this.onRegister.bind(this);
+  }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome!</Text>
-      <Text style={styles.subTitle}>Please enter your account data.</Text>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={setFirstName}
-          value={firstName}
-          placeholder="First Name"
-          returnKeyType="next"
-          autoCompleteType="name"
-          textContentType="givenName"
-        />
-      </View>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={setLastName}
-          value={lastName}
-          placeholder="Last Name"
-          returnKeyType="next"
-          autoCompleteType="name"
-          textContentType="familyName"
-        />
-      </View>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={setEmail}
-          value={email}
+  onRegister() {
+    const {
+      form: { email, password, confirmPassword }
+    } = this.state;
+    const { navigation } = this.props;
+
+    if (password.value !== confirmPassword.value) {
+      this.setFieldError("confirmPassword", "Passwords do not match!");
+      return;
+    }
+
+    this.setState({ loading: true });
+    register({ email: email.value, password: password.value })
+      .then(user => {
+        navigation.navigate(APP_STACK, { user });
+      })
+      .catch(error => {
+        if (error.code.includes("email")) {
+          this.setFieldError("email", error.nativeErrorMessage);
+          return;
+        }
+        if (error.code.includes("password")) {
+          this.setFieldError("password", error.nativeErrorMessage);
+        }
+      });
+  }
+
+  setFieldValue(field, value) {
+    this.setState(previousState => ({
+      ...previousState,
+      form: {
+        ...previousState.form,
+        [field]: { ...previousState.form.field, value }
+      }
+    }));
+  }
+
+  setFieldError(field, error) {
+    this.setState(previousState => ({
+      ...previousState,
+      form: {
+        ...previousState.form,
+        [field]: { ...previousState.form.field, error }
+      },
+      loading: false
+    }));
+  }
+
+  render() {
+    const {
+      form: { email, password, confirmPassword },
+      loading
+    } = this.state;
+
+    return loading ? (
+      <Spinner />
+    ) : (
+      <View style={styles.container}>
+        <Text style={styles.title}>Welcome!</Text>
+        <Text style={styles.subTitle}>Please enter your account data.</Text>
+        <TextField
+          onChangeText={text => this.setFieldValue("email", text)}
+          onFocus={() => this.setFieldError("email", null)}
+          onSubmitEditing={() => this.passwordInput.current.focus()}
+          value={email.value}
+          error={email.error}
           placeholder="Email Address"
           returnKeyType="next"
           autoCompleteType="email"
           keyboardType="email-address"
           textContentType="emailAddress"
+          autoCapitalize="none"
         />
-      </View>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={setPassword}
-          value={password}
+        <TextField
+          inputRef={this.passwordInput}
+          onChangeText={text => this.setFieldValue("password", text)}
+          onFocus={() => this.setFieldError("password", null)}
+          onSubmitEditing={() => this.passwordConfirmInput.current.focus()}
+          value={password.value}
+          error={password.error}
           placeholder="Password"
           returnKeyType="next"
-          autoCompleteType="password"
           secureTextEntry
-          textContentType="newPassword"
         />
-      </View>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={setConfirmPassword}
-          value={confirmPassword}
+        <TextField
+          inputRef={this.passwordConfirmInput}
+          onChangeText={text => this.setFieldValue("confirmPassword", text)}
+          onFocus={() => this.setFieldError("confirmPassword", null)}
+          onSubmitEditing={this.onRegister}
+          value={confirmPassword.value}
+          error={confirmPassword.error}
           placeholder="Confirm Password"
           returnKeyType="go"
-          autoCompleteType="password"
           secureTextEntry
-          textContentType="newPassword"
         />
+        <TouchableOpacity
+          style={styles.registerButton}
+          onPress={this.onRegister}
+        >
+          <Text style={styles.registerButtonText}>REGISTER</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={styles.registerButton}
-        onPress={() => navigation.navigate(LOGIN_SCREEN)}
-      >
-        <Text style={styles.registerButtonText}>REGISTER</Text>
-      </TouchableOpacity>
-    </View>
-  );
+    );
+  }
 }
