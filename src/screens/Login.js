@@ -7,7 +7,7 @@ import {
   REGISTER_SCREEN,
   APP_STACK
 } from "../constants";
-import { login } from "../api";
+import { login, subscribeOnAuthStateChanged } from "../api";
 
 const styles = StyleSheet.create({
   container: {
@@ -59,6 +59,21 @@ export default class Login extends Component {
     };
     this.passwordInput = React.createRef();
     this.onLogin = this.onLogin.bind(this);
+    this.unsubscribe = null;
+  }
+
+  componentDidMount() {
+    const { navigation } = this.props;
+    this.setState({ loading: true });
+    this.unsubscribe = subscribeOnAuthStateChanged(user =>
+      user
+        ? navigation.navigate(APP_STACK, { user })
+        : this.setState({ loading: false })
+    );
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscribe) this.unsubscribe();
   }
 
   onLogin() {
