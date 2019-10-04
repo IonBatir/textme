@@ -6,4 +6,6 @@ export const login = ({ email, password }) =>
 export const register = ({ email, password }) =>
   auth().createUserWithEmailAndPassword(email, password);
 export const recoverPassword = ({ email }) =>
-  auth().sendPasswordResetEmail({ email });
+  auth().sendPasswordResetEmail(email);
+export const subscribeOnAuthStateChanged = callback =>
+  auth().onAuthStateChanged(callback);
