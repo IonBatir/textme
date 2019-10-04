@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import {
-  Platform,
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity
-} from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
+import { TextField, Spinner } from "../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
-import { FORGOT_PASSWORD_SCREEN, REGISTER_SCREEN } from "../constants";
+import {
+  FORGOT_PASSWORD_SCREEN,
+  REGISTER_SCREEN,
+  APP_STACK
+} from "../constants";
+import { login } from "../api";
 
 const styles = StyleSheet.create({
   container: {
@@ -27,26 +26,6 @@ const styles = StyleSheet.create({
     color: "#1D2226",
     opacity: 0.6,
     marginBottom: SPACING.EXTRA_LARGE
-  },
-  input: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderBottomColor: "rgba(112, 112, 112, 0.5)",
-    borderBottomWidth: 1,
-    marginBottom: SPACING.LARGE,
-    paddingBottom: Platform.OS === "ios" ? SPACING.SMALL : 0
-  },
-  textInput: {
-    flex: 1,
-    fontFamily: FONT_FAMILY.NUNITO_REGULAR,
-    fontSize: FONT_SIZE.MEDIUM,
-    color: "rgba(11, 13, 15, 0.5)"
-  },
-  forgotButtonText: {
-    fontFamily: FONT_FAMILY.NUNITO_REGULAR,
-    fontSize: FONT_SIZE.MEDIUM,
-    color: "#0052FF"
   },
   loginButton: {
     height: 52,
@@ -68,49 +47,111 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Login({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      form: {
+        email: { value: "", error: null },
+        password: { value: "", error: null }
+      },
+      loading: false
+    };
+    this.passwordInput = React.createRef();
+    this.onLogin = this.onLogin.bind(this);
+  }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome back!</Text>
-      <Text style={styles.subTitle}>Please login to your account.</Text>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={setEmail}
-          value={email}
+  onLogin() {
+    const {
+      form: { email, password }
+    } = this.state;
+    const { navigation } = this.props;
+
+    this.setState({ loading: true });
+    login({ email: email.value, password: password.value })
+      .then(user => navigation.navigate(APP_STACK, { user }))
+      .catch(error => {
+        if (error.code.includes("email")) {
+          this.setFieldError("email", error.nativeErrorMessage);
+          return;
+        }
+        if (error.code.includes("password")) {
+          this.setFieldError("password", error.nativeErrorMessage);
+          return;
+        }
+        this.setState({ loading: false });
+        Alert.alert("Login Error", error.nativeErrorMessage, [
+          { text: "OK", onPress: () => {} }
+        ]);
+      });
+  }
+
+  setFieldValue(field, value) {
+    this.setState(previousState => ({
+      ...previousState,
+      form: {
+        ...previousState.form,
+        [field]: { ...previousState.form.field, value }
+      }
+    }));
+  }
+
+  setFieldError(field, error) {
+    this.setState(previousState => ({
+      ...previousState,
+      form: {
+        ...previousState.form,
+        [field]: { ...previousState.form.field, error }
+      },
+      loading: false
+    }));
+  }
+
+  render() {
+    const {
+      form: { email, password },
+      loading
+    } = this.state;
+    const { navigation } = this.props;
+
+    return loading ? (
+      <Spinner />
+    ) : (
+      <View style={styles.container}>
+        <Text style={styles.title}>Welcome back!</Text>
+        <Text style={styles.subTitle}>Please login to your account.</Text>
+        <TextField
+          onChangeText={text => this.setFieldValue("email", text)}
+          onFocus={() => this.setFieldError("email", null)}
+          onSubmitEditing={() => this.passwordInput.current.focus()}
+          value={email.value}
+          error={email.error}
           placeholder="Email Address"
           returnKeyType="next"
           autoCompleteType="email"
           keyboardType="email-address"
           textContentType="emailAddress"
+          autoCapitalize="none"
         />
-      </View>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={setPassword}
-          value={password}
+        <TextField
+          inputRef={this.passwordInput}
+          onChangeText={text => this.setFieldValue("password", text)}
+          onFocus={() => this.setFieldError("password", null)}
+          onSubmitEditing={this.onLogin}
+          value={password.value}
+          error={password.error}
           placeholder="Password"
           returnKeyType="go"
-          autoCompleteType="password"
           secureTextEntry
-          textContentType="password"
+          navigateToForgot={() => navigation.navigate(FORGOT_PASSWORD_SCREEN)}
         />
-        <TouchableOpacity
-          onPress={() => navigation.navigate(FORGOT_PASSWORD_SCREEN)}
-        >
-          <Text style={styles.forgotButtonText}>Forgot?</Text>
+        <TouchableOpacity style={styles.loginButton} onPress={this.onLogin}>
+          <Text style={styles.loginButtonText}>LOGIN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate(REGISTER_SCREEN)}>
+          <Text style={styles.registerButtonText}>REGISTER NOW</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.loginButton} onPress={() => {}}>
-        <Text style={styles.loginButtonText}>LOGIN</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate(REGISTER_SCREEN)}>
-        <Text style={styles.registerButtonText}>REGISTER NOW</Text>
-      </TouchableOpacity>
-    </View>
-  );
+    );
+  }
 }
