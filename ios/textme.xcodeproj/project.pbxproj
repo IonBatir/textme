@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		009C78DE2F2120386A17FE16 /* libPods-textmeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C6B6F2D7620606F63D9490 /* libPods-textmeTests.a */; };
 		00E356F31AD99517003FC87E /* textmeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* textmeTests.m */; };
@@ -13,30 +14,30 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1680CFCED415DC1655C3ED25 /* libPods-textme-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E5697275F02D9DE0CCA468 /* libPods-textme-tvOSTests.a */; };
+		1D595C4BAA2C497E8586547A /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4BF4F7B8A448629951B792 /* Nunito-ExtraLight.ttf */; };
+		20D1D3EA7D12429AA9E707F8 /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55E74BD6D5FF4DD294D8DAF5 /* Nunito-BlackItalic.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* textmeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* textmeTests.m */; };
+		3B2C6EFEEE514E5FB1864C76 /* Nunito-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 249C74B7B78448CF9D75E610 /* Nunito-ExtraBoldItalic.ttf */; };
+		4687CDF311BB45919D4F5AAF /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52FCA583656D436A8F1D9268 /* Nunito-ExtraBold.ttf */; };
+		50CE6B9C393E4CFDB1B4C2AD /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 376CCD1EB8B94FDB94747985 /* Nunito-Black.ttf */; };
+		629AB27EAF8B4F47A156C4E1 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 934285A9194149728946BD25 /* Nunito-Light.ttf */; };
+		7A2FD7E7532B43148BBFBE02 /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEEDFE72593E4067A5EAD9D8 /* Nunito-BoldItalic.ttf */; };
+		80D5215518BC48A6B116A23A /* Nunito-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1586EA26D724778A92DD02B /* Nunito-RegularItalic.ttf */; };
+		81FD5BC53FC24FE99F44E1B1 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 176D5DC006F14C348628F715 /* Nunito-SemiBold.ttf */; };
+		8B4E24470AEF470D8A4DF82F /* Nunito-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14958CE202D44D72B698B95D /* Nunito-ExtraLightItalic.ttf */; };
+		9DDDF813EE384DC9959646DD /* Nunito-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36E643684B4142F5B5F4793F /* Nunito-SemiBoldItalic.ttf */; };
+		BD04E74BD9F149EBA4840296 /* Nunito-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0F71FEE25894927832DFE30 /* Nunito-LightItalic.ttf */; };
 		D1B459F2232FEF9000B62495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */; };
 		D1B459F3232FEF9000B62495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */; };
 		D1B459F4232FEF9000B62495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */; };
 		D1B459F5232FEF9000B62495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */; };
-		E52EDB121C7E0051E307CF95 /* libPods-textme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D629C81BE54B5EB7C317B6F6 /* libPods-textme.a */; };
-		FFED166FEE426CE17F0175C8 /* libPods-textme-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC0CB265E8087270E9DA135 /* libPods-textme-tvOS.a */; };
-		50CE6B9C393E4CFDB1B4C2AD /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 376CCD1EB8B94FDB94747985 /* Nunito-Black.ttf */; };
-		20D1D3EA7D12429AA9E707F8 /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55E74BD6D5FF4DD294D8DAF5 /* Nunito-BlackItalic.ttf */; };
-		EE9429402E114945ABD9EAA0 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 050FC195A4504F9E995BD846 /* Nunito-Bold.ttf */; };
-		7A2FD7E7532B43148BBFBE02 /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEEDFE72593E4067A5EAD9D8 /* Nunito-BoldItalic.ttf */; };
-		4687CDF311BB45919D4F5AAF /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52FCA583656D436A8F1D9268 /* Nunito-ExtraBold.ttf */; };
-		3B2C6EFEEE514E5FB1864C76 /* Nunito-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 249C74B7B78448CF9D75E610 /* Nunito-ExtraBoldItalic.ttf */; };
-		1D595C4BAA2C497E8586547A /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4BF4F7B8A448629951B792 /* Nunito-ExtraLight.ttf */; };
-		8B4E24470AEF470D8A4DF82F /* Nunito-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14958CE202D44D72B698B95D /* Nunito-ExtraLightItalic.ttf */; };
-		629AB27EAF8B4F47A156C4E1 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 934285A9194149728946BD25 /* Nunito-Light.ttf */; };
-		BD04E74BD9F149EBA4840296 /* Nunito-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0F71FEE25894927832DFE30 /* Nunito-LightItalic.ttf */; };
 		DCEE54FEEA9B44FDAA75D340 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AAE98DCA27C41FE972333CF /* Nunito-Regular.ttf */; };
-		80D5215518BC48A6B116A23A /* Nunito-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1586EA26D724778A92DD02B /* Nunito-RegularItalic.ttf */; };
-		81FD5BC53FC24FE99F44E1B1 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 176D5DC006F14C348628F715 /* Nunito-SemiBold.ttf */; };
-		9DDDF813EE384DC9959646DD /* Nunito-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36E643684B4142F5B5F4793F /* Nunito-SemiBoldItalic.ttf */; };
+		E52EDB121C7E0051E307CF95 /* libPods-textme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D629C81BE54B5EB7C317B6F6 /* libPods-textme.a */; };
+		EE9429402E114945ABD9EAA0 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 050FC195A4504F9E995BD846 /* Nunito-Bold.ttf */; };
+		FFED166FEE426CE17F0175C8 /* libPods-textme-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC0CB265E8087270E9DA135 /* libPods-textme-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* textmeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = textmeTests.m; sourceTree = "<group>"; };
 		0188A77A574B21A479C4B8BB /* Pods-textme-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOS.release.xcconfig"; path = "Target Support Files/Pods-textme-tvOS/Pods-textme-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		050FC195A4504F9E995BD846 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Bold.ttf"; path = "../assets/fonts/Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		05E5697275F02D9DE0CCA468 /* libPods-textme-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* textme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = textme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = textme/AppDelegate.h; sourceTree = "<group>"; };
@@ -70,35 +72,34 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = textme/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = textme/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = textme/main.m; sourceTree = "<group>"; };
+		14958CE202D44D72B698B95D /* Nunito-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-ExtraLightItalic.ttf"; path = "../assets/fonts/Nunito-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		176D5DC006F14C348628F715 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-SemiBold.ttf"; path = "../assets/fonts/Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		249C74B7B78448CF9D75E610 /* Nunito-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-ExtraBoldItalic.ttf"; path = "../assets/fonts/Nunito-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		2AAE98DCA27C41FE972333CF /* Nunito-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Regular.ttf"; path = "../assets/fonts/Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* textme-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "textme-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* textme-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "textme-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36E643684B4142F5B5F4793F /* Nunito-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-SemiBoldItalic.ttf"; path = "../assets/fonts/Nunito-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		376CCD1EB8B94FDB94747985 /* Nunito-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Black.ttf"; path = "../assets/fonts/Nunito-Black.ttf"; sourceTree = "<group>"; };
 		471C2DA5B906CB0449021ED8 /* Pods-textme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme.release.xcconfig"; path = "Target Support Files/Pods-textme/Pods-textme.release.xcconfig"; sourceTree = "<group>"; };
 		4C4DC48367CD26070F281018 /* Pods-textme-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-textme-tvOSTests/Pods-textme-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		52FCA583656D436A8F1D9268 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-ExtraBold.ttf"; path = "../assets/fonts/Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
 		53F9F1FD456A9230F9ED81CF /* Pods-textme-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-textme-tvOS/Pods-textme-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		55E74BD6D5FF4DD294D8DAF5 /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-BlackItalic.ttf"; path = "../assets/fonts/Nunito-BlackItalic.ttf"; sourceTree = "<group>"; };
 		67605C97378E534F055B7F63 /* Pods-textme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme.debug.xcconfig"; path = "Target Support Files/Pods-textme/Pods-textme.debug.xcconfig"; sourceTree = "<group>"; };
 		701FDDF0B27D32EF1CD778B8 /* Pods-textmeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textmeTests.debug.xcconfig"; path = "Target Support Files/Pods-textmeTests/Pods-textmeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		934285A9194149728946BD25 /* Nunito-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Light.ttf"; path = "../assets/fonts/Nunito-Light.ttf"; sourceTree = "<group>"; };
 		99C6B6F2D7620606F63D9490 /* libPods-textmeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textmeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1586EA26D724778A92DD02B /* Nunito-RegularItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-RegularItalic.ttf"; path = "../assets/fonts/Nunito-RegularItalic.ttf"; sourceTree = "<group>"; };
 		A6F739FCF9C103FF9C39AFC9 /* Pods-textmeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textmeTests.release.xcconfig"; path = "Target Support Files/Pods-textmeTests/Pods-textmeTests.release.xcconfig"; sourceTree = "<group>"; };
 		AEC0CB265E8087270E9DA135 /* libPods-textme-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F71FEE25894927832DFE30 /* Nunito-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-LightItalic.ttf"; path = "../assets/fonts/Nunito-LightItalic.ttf"; sourceTree = "<group>"; };
+		BEEDFE72593E4067A5EAD9D8 /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-BoldItalic.ttf"; path = "../assets/fonts/Nunito-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D629C81BE54B5EB7C317B6F6 /* libPods-textme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB4BF4F7B8A448629951B792 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-ExtraLight.ttf"; path = "../assets/fonts/Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
 		E499538D2A6DFF9C0B71C7B0 /* Pods-textme-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-textme-tvOSTests/Pods-textme-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		376CCD1EB8B94FDB94747985 /* Nunito-Black.ttf */ = {isa = PBXFileReference; name = "Nunito-Black.ttf"; path = "../assets/fonts/Nunito-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		55E74BD6D5FF4DD294D8DAF5 /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Nunito-BlackItalic.ttf"; path = "../assets/fonts/Nunito-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		050FC195A4504F9E995BD846 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; name = "Nunito-Bold.ttf"; path = "../assets/fonts/Nunito-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BEEDFE72593E4067A5EAD9D8 /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Nunito-BoldItalic.ttf"; path = "../assets/fonts/Nunito-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		52FCA583656D436A8F1D9268 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Nunito-ExtraBold.ttf"; path = "../assets/fonts/Nunito-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		249C74B7B78448CF9D75E610 /* Nunito-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Nunito-ExtraBoldItalic.ttf"; path = "../assets/fonts/Nunito-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DB4BF4F7B8A448629951B792 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Nunito-ExtraLight.ttf"; path = "../assets/fonts/Nunito-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		14958CE202D44D72B698B95D /* Nunito-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Nunito-ExtraLightItalic.ttf"; path = "../assets/fonts/Nunito-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		934285A9194149728946BD25 /* Nunito-Light.ttf */ = {isa = PBXFileReference; name = "Nunito-Light.ttf"; path = "../assets/fonts/Nunito-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B0F71FEE25894927832DFE30 /* Nunito-LightItalic.ttf */ = {isa = PBXFileReference; name = "Nunito-LightItalic.ttf"; path = "../assets/fonts/Nunito-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2AAE98DCA27C41FE972333CF /* Nunito-Regular.ttf */ = {isa = PBXFileReference; name = "Nunito-Regular.ttf"; path = "../assets/fonts/Nunito-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A1586EA26D724778A92DD02B /* Nunito-RegularItalic.ttf */ = {isa = PBXFileReference; name = "Nunito-RegularItalic.ttf"; path = "../assets/fonts/Nunito-RegularItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		176D5DC006F14C348628F715 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; name = "Nunito-SemiBold.ttf"; path = "../assets/fonts/Nunito-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		36E643684B4142F5B5F4793F /* Nunito-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Nunito-SemiBoldItalic.ttf"; path = "../assets/fonts/Nunito-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,23 +217,8 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A83BB9D08828645EB1E8A342 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				67605C97378E534F055B7F63 /* Pods-textme.debug.xcconfig */,
-				471C2DA5B906CB0449021ED8 /* Pods-textme.release.xcconfig */,
-				53F9F1FD456A9230F9ED81CF /* Pods-textme-tvOS.debug.xcconfig */,
-				0188A77A574B21A479C4B8BB /* Pods-textme-tvOS.release.xcconfig */,
-				4C4DC48367CD26070F281018 /* Pods-textme-tvOSTests.debug.xcconfig */,
-				E499538D2A6DFF9C0B71C7B0 /* Pods-textme-tvOSTests.release.xcconfig */,
-				701FDDF0B27D32EF1CD778B8 /* Pods-textmeTests.debug.xcconfig */,
-				A6F739FCF9C103FF9C39AFC9 /* Pods-textmeTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		9F8EE087F63842D5A6B7AFA2 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				376CCD1EB8B94FDB94747985 /* Nunito-Black.ttf */,
 				55E74BD6D5FF4DD294D8DAF5 /* Nunito-BlackItalic.ttf */,
@@ -250,8 +236,23 @@
 				36E643684B4142F5B5F4793F /* Nunito-SemiBoldItalic.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
+		};
+		A83BB9D08828645EB1E8A342 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67605C97378E534F055B7F63 /* Pods-textme.debug.xcconfig */,
+				471C2DA5B906CB0449021ED8 /* Pods-textme.release.xcconfig */,
+				53F9F1FD456A9230F9ED81CF /* Pods-textme-tvOS.debug.xcconfig */,
+				0188A77A574B21A479C4B8BB /* Pods-textme-tvOS.release.xcconfig */,
+				4C4DC48367CD26070F281018 /* Pods-textme-tvOSTests.debug.xcconfig */,
+				E499538D2A6DFF9C0B71C7B0 /* Pods-textme-tvOSTests.release.xcconfig */,
+				701FDDF0B27D32EF1CD778B8 /* Pods-textmeTests.debug.xcconfig */,
+				A6F739FCF9C103FF9C39AFC9 /* Pods-textmeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -285,7 +286,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				2A6565188C9412BE650DD309 /* [CP-User] RNFB app Build Script */,
+				FF4D4E23D31F5CB74C1B8D9A /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -473,19 +474,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2A6565188C9412BE650DD309 /* [CP-User] RNFB app Build Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "[CP-User] RNFB app Build Script";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=3;\n_SEARCH_RESULT=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n_PLIST_ENTRY_KEYS=(\n  'firebase_crashlytics_collection_enabled'            #1\n  'FirebaseMessagingAutoInitEnabled'                   #2\n  'firebase_json_raw'                                  #3 - must always be last entry\n)\n\n_PLIST_ENTRY_TYPES=(\n  'bool'                                               #1\n  'bool'                                               #2\n  'string'                                             #3 - must always be last entry\n)\n\n_PLIST_ENTRY_VALUES=(\n  'NO'                                                 #1\n  'YES'                                                #2\n  'e30='                                               #3 - must always be last entry - base64 of {}\n)\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=`pwd`\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=`dirname \"$_CURRENT_SEARCH_DIR\"`\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=`find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | head -n 1`\n\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  __JSON_OUTPUT_RAW=`cat ${_SEARCH_RESULT}`\n  _SEARCH_RESULT=\"'$_SEARCH_RESULT'\"\n  _JSON_OUTPUT=`python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('${_SEARCH_RESULT}').read())['${_JSON_ROOT}'])))' || echo \"e30=\"`\n  _PLIST_ENTRY_VALUES[${#_PLIST_ENTRY_VALUES[@]}-1]=\"${_JSON_OUTPUT}\"\n  echo \"info:      firebase.json value: ${_JSON_OUTPUT}\"\n\n  # TODO figure out a better way to do this\n  if [[ ${__JSON_OUTPUT_RAW} == *\"\\\"messaging_auto_init_enabled\\\": false\"* ]]; then\n    _PLIST_ENTRY_VALUES[${#_PLIST_ENTRY_VALUES[@]}-2]=\"NO\"\n  fi\nelse\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Adding Info.plist entries: \"\n\nfor plist in ${_TARGET_PLIST} ${_DSYM_PLIST} ; do\n  if [[ -f ${plist} ]]; then\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue ${_PLIST_ENTRY_KEYS[$i]} ${_PLIST_ENTRY_TYPES[$i]} ${_PLIST_ENTRY_VALUES[$i]} ${plist}\n    done\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n\n\n\n";
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -603,6 +591,16 @@
 			shellPath = /bin/sh;
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		FF4D4E23D31F5CB74C1B8D9A /* [CP-User] [RNFB] Core Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes usful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"firebase_crashlytics_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\n\n  # config.admob_delay_app_measurement_init\n  _ADMOB_DELAY_APP_MEASUREMENT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"admob_delay_app_measurement_init\")\n  if [[ $_ADMOB_DELAY_APP_MEASUREMENT == \"true\" ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GADDelayAppMeasurementInit\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"YES\")\n  fi\n\n  # config.admob_ios_app_id\n  _ADMOB_IOS_APP_ID=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"admob_ios_app_id\")\n  if [[ $_ADMOB_IOS_APP_ID ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GADApplicationIdentifier\")\n    _PLIST_ENTRY_TYPES+=(\"string\")\n    _PLIST_ENTRY_VALUES+=(\"$_ADMOB_IOS_APP_ID\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in ${_TARGET_PLIST} ${_DSYM_PLIST} ; do\n  if [[ -f ${plist} ]]; then\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
