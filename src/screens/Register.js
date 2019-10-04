@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
 import { Spinner, TextField } from "../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
 import { APP_STACK } from "../constants";
@@ -76,7 +76,12 @@ export default class Register extends Component {
         }
         if (error.code.includes("password")) {
           this.setFieldError("password", error.nativeErrorMessage);
+          return;
         }
+        this.setState({ loading: false });
+        Alert.alert("Register Error", error.nativeErrorMessage, [
+          { text: "OK", onPress: () => {} }
+        ]);
       });
   }
 
