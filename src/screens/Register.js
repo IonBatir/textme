@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-import { Spinner, TextField } from "../components";
+import { FormComponent, Spinner, TextField } from "../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
 import { APP_STACK } from "../constants";
 import { register } from "../api";
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Register extends Component {
+export default class Register extends FormComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,6 +59,14 @@ export default class Register extends Component {
     } = this.state;
     const { navigation } = this.props;
 
+    if (email.value.length === 0) {
+      this.setFieldError("email", "Please fill out this field");
+      return;
+    }
+    if (password.value.length === 0) {
+      this.setFieldError("password", "Please fill out this field");
+      return;
+    }
     if (password.value !== confirmPassword.value) {
       this.setFieldError("confirmPassword", "Passwords do not match!");
       return;
@@ -68,40 +76,20 @@ export default class Register extends Component {
     register({ email: email.value, password: password.value })
       .then(user => navigation.navigate(APP_STACK, { user }))
       .catch(error => {
-        if (error.code.includes("email")) {
-          this.setFieldError("email", error.nativeErrorMessage);
+        const { userInfo } = error;
+        if (userInfo.code.includes("email")) {
+          this.setFieldError("email", userInfo.message);
           return;
         }
-        if (error.code.includes("password")) {
-          this.setFieldError("password", error.nativeErrorMessage);
+        if (userInfo.code.includes("password")) {
+          this.setFieldError("password", userInfo.message);
           return;
         }
         this.setState({ loading: false });
-        Alert.alert("Register Error", error.nativeErrorMessage, [
+        Alert.alert("Register Error", userInfo.message, [
           { text: "OK", onPress: () => {} }
         ]);
       });
-  }
-
-  setFieldValue(field, value) {
-    this.setState(previousState => ({
-      ...previousState,
-      form: {
-        ...previousState.form,
-        [field]: { ...previousState.form.field, value }
-      }
-    }));
-  }
-
-  setFieldError(field, error) {
-    this.setState(previousState => ({
-      ...previousState,
-      form: {
-        ...previousState.form,
-        [field]: { ...previousState.form.field, error }
-      },
-      loading: false
-    }));
   }
 
   render() {
