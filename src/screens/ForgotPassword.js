@@ -75,7 +75,7 @@ export default class ForgotPassword extends FormComponent {
           return;
         }
         this.setState({ loading: false });
-        Alert.alert("Recover Password Error", error.nativeErrorMessage, [
+        Alert.alert("Recover Password Error", userInfo.message, [
           { text: "OK", onPress: () => {} }
         ]);
       });
