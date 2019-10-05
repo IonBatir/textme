@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-import { TextField, Spinner } from "../components";
+import { FormComponent, TextField, Spinner } from "../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
 import { LOGIN_SCREEN } from "../constants";
 import { recoverPassword } from "../api";
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class ForgotPassword extends Component {
+export default class ForgotPassword extends FormComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,6 +53,11 @@ export default class ForgotPassword extends Component {
     } = this.state;
     const { navigation } = this.props;
 
+    if (email.value.length === 0) {
+      this.setFieldError("email", "Please fill out this field");
+      return;
+    }
+
     this.setState({ loading: true });
     recoverPassword({ email: email.value })
       .then(() => {
@@ -64,8 +69,9 @@ export default class ForgotPassword extends Component {
         );
       })
       .catch(error => {
-        if (error.code.includes("email")) {
-          this.setFieldError("email", error.nativeErrorMessage);
+        const { userInfo } = error;
+        if (userInfo.code.includes("email")) {
+          this.setFieldError("email", userInfo.message);
           return;
         }
         this.setState({ loading: false });
@@ -73,27 +79,6 @@ export default class ForgotPassword extends Component {
           { text: "OK", onPress: () => {} }
         ]);
       });
-  }
-
-  setFieldValue(field, value) {
-    this.setState(previousState => ({
-      ...previousState,
-      form: {
-        ...previousState.form,
-        [field]: { ...previousState.form.field, value }
-      }
-    }));
-  }
-
-  setFieldError(field, error) {
-    this.setState(previousState => ({
-      ...previousState,
-      form: {
-        ...previousState.form,
-        [field]: { ...previousState.form.field, error }
-      },
-      loading: false
-    }));
   }
 
   render() {
