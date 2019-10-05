@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-import { TextField, Spinner } from "../components";
+import { FormComponent, TextField, Spinner } from "../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
 import {
   FORGOT_PASSWORD_SCREEN,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Login extends Component {
+export default class Login extends FormComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -82,44 +82,33 @@ export default class Login extends Component {
     } = this.state;
     const { navigation } = this.props;
 
+    if (email.value.length === 0) {
+      this.setFieldError("email", "Please fill out this field");
+      return;
+    }
+    if (password.value.length === 0) {
+      this.setFieldError("password", "Please fill out this field");
+      return;
+    }
+
     this.setState({ loading: true });
     login({ email: email.value, password: password.value })
       .then(user => navigation.navigate(APP_STACK, { user }))
       .catch(error => {
-        if (error.code.includes("email")) {
-          this.setFieldError("email", error.nativeErrorMessage);
+        const { userInfo } = error;
+        if (userInfo.code.includes("email")) {
+          this.setFieldError("email", userInfo.message);
           return;
         }
-        if (error.code.includes("password")) {
-          this.setFieldError("password", error.nativeErrorMessage);
+        if (userInfo.code.includes("password")) {
+          this.setFieldError("password", userInfo.message);
           return;
         }
         this.setState({ loading: false });
-        Alert.alert("Login Error", error.nativeErrorMessage, [
+        Alert.alert("Login Error", userInfo.message, [
           { text: "OK", onPress: () => {} }
         ]);
       });
-  }
-
-  setFieldValue(field, value) {
-    this.setState(previousState => ({
-      ...previousState,
-      form: {
-        ...previousState.form,
-        [field]: { ...previousState.form.field, value }
-      }
-    }));
-  }
-
-  setFieldError(field, error) {
-    this.setState(previousState => ({
-      ...previousState,
-      form: {
-        ...previousState.form,
-        [field]: { ...previousState.form.field, error }
-      },
-      loading: false
-    }));
   }
 
   render() {
