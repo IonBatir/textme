@@ -1,6 +1,13 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View, Image, Text } from "react-native";
-import { LIST_ITEM_HEIGHT, SPACING, FONT_SIZE, FONT_FAMILY } from "../theme";
+import {
+  LIST_ITEM_HEIGHT,
+  SPACING,
+  FONT_SIZE,
+  FONT_FAMILY,
+  AVATAR_SIZE
+} from "../theme";
+import { Avatar } from "../../assets/images";
 
 const styles = StyleSheet.create({
   container: {
@@ -32,6 +39,14 @@ export default function Contact({ openChat, avatar, name, status }) {
     <TouchableOpacity onPress={openChat}>
       <View style={styles.container}>
         <View style={styles.row}>
+          {avatar ? (
+            <Image
+              source={{ uri: avatar }}
+              style={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
+            />
+          ) : (
+            <Avatar />
+          )}
           <Image source={avatar} />
           <View style={styles.textContent}>
             <Text style={styles.nameText}>{name}</Text>

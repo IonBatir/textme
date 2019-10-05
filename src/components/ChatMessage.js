@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
-import { SPACING, FONT_SIZE, FONT_FAMILY, AVATAR_SIZE } from "../theme";
+import { SPACING, FONT_SIZE, FONT_FAMILY, AVATAR_ICON_SIZE } from "../theme";
+import { AvatarIcon } from "../../assets/icons";
 
 const styles = StyleSheet.create({
   container: {
@@ -46,13 +47,22 @@ export default function ChatMessage({
       {isMy ? (
         <>
           <View style={styles.leftContent}>
-            {isSameSender || <Image source={avatar} />}
+            {isSameSender ||
+              (avatar ? (
+                <Image
+                  source={{ uri: avatar }}
+                  style={{ width: AVATAR_ICON_SIZE, height: AVATAR_ICON_SIZE }}
+                />
+              ) : (
+                <AvatarIcon />
+              ))}
             <View
               style={[
                 styles.message,
                 {
                   backgroundColor: "#F5F5F5",
-                  marginLeft: SPACING.SMALL + (isSameSender ? AVATAR_SIZE : 0)
+                  marginLeft:
+                    SPACING.SMALL + (isSameSender ? AVATAR_ICON_SIZE : 0)
                 }
               ]}
             >

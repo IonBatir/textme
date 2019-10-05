@@ -48,4 +48,5 @@ export const BOTTOM_NAVIGATOR_HEIGHT = 60;
 
 export const LIST_ITEM_HEIGHT = 76;
 
-export const AVATAR_SIZE = 38;
+export const AVATAR_ICON_SIZE = 38;
+export const AVATAR_SIZE = 76;

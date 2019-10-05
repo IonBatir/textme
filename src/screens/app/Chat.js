@@ -16,7 +16,6 @@ import {
   PhotoCameraIcon,
   PictureIcon
 } from "../../../assets/icons";
-import AvatarIcon from "../../../assets/icons/avatar.png";
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
 const messages = [
   {
     id: "0",
-    avatar: AvatarIcon,
     text: "But I must explain to you how all this",
     time: "10.11 AM",
     my: true,
@@ -63,7 +61,6 @@ const messages = [
   },
   {
     id: "1",
-    avatar: AvatarIcon,
     text: "But I must explain to you how all this",
     time: "10.11 AM",
     my: true,
@@ -71,7 +68,6 @@ const messages = [
   },
   {
     id: "2",
-    avatar: AvatarIcon,
     text: "But I must explain to you how all this",
     time: "10.11 AM",
     my: false,
@@ -79,7 +75,6 @@ const messages = [
   },
   {
     id: "3",
-    avatar: AvatarIcon,
     text: "But I must explain to you how all this",
     time: "10.11 AM",
     my: false,
@@ -87,7 +82,6 @@ const messages = [
   },
   {
     id: "4",
-    avatar: AvatarIcon,
     text: "But I must explain to you how all this",
     time: "10.11 AM",
     my: true,
