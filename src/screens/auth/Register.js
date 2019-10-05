@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
 import { FormComponent, Spinner, TextField } from "../../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
-import { APP_STACK } from "../../constants";
+import { MESSAGES_SCREEN } from "../../constants";
 import { register } from "../../api";
 import commonStyles from "./styles";
 
@@ -58,7 +58,7 @@ export default class Register extends FormComponent {
 
     this.setState({ loading: true });
     register({ email: email.value, password: password.value })
-      .then(user => navigation.navigate(APP_STACK, { user }))
+      .then(user => navigation.navigate(MESSAGES_SCREEN, { user: user._user }))
       .catch(error => {
         const { userInfo } = error;
         if (userInfo.code.includes("email")) {

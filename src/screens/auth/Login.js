@@ -5,7 +5,7 @@ import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
 import {
   FORGOT_PASSWORD_SCREEN,
   REGISTER_SCREEN,
-  APP_STACK
+  MESSAGES_SCREEN
 } from "../../constants";
 import { login, subscribeOnAuthStateChanged } from "../../api";
 import commonStyles from "./styles";
@@ -51,7 +51,7 @@ export default class Login extends FormComponent {
     this.setState({ loading: true });
     this.unsubscribe = subscribeOnAuthStateChanged(user =>
       user
-        ? navigation.navigate(APP_STACK, { user })
+        ? navigation.navigate(MESSAGES_SCREEN, { user: user._user })
         : this.setState({ loading: false })
     );
   }
@@ -77,7 +77,7 @@ export default class Login extends FormComponent {
 
     this.setState({ loading: true });
     login({ email: email.value, password: password.value })
-      .then(user => navigation.navigate(APP_STACK, { user }))
+      .then(user => navigation.navigate(MESSAGES_SCREEN, { user: user._user }))
       .catch(error => {
         const { userInfo } = error;
         if (userInfo.code.includes("email")) {
