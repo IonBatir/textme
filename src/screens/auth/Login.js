@@ -1,61 +1,68 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-import { FormComponent, Spinner, TextField } from "../components";
-import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
-import { APP_STACK } from "../constants";
-import { register } from "../api";
+import { FormComponent, TextField, Spinner } from "../../components";
+import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
+import {
+  FORGOT_PASSWORD_SCREEN,
+  REGISTER_SCREEN,
+  APP_STACK
+} from "../../constants";
+import { login, subscribeOnAuthStateChanged } from "../../api";
+import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    marginHorizontal: SPACING.MEDIUM
-  },
-  title: {
-    fontFamily: FONT_FAMILY.NUNITO_BOLD,
-    fontSize: FONT_SIZE.EXTRA_EXTRA_LARGE,
-    color: "#1D2226"
-  },
-  subTitle: {
-    fontFamily: FONT_FAMILY.NUNITO_REGULAR,
-    fontSize: FONT_SIZE.LARGE,
-    color: "#1D2226",
-    opacity: 0.6,
-    marginBottom: SPACING.EXTRA_LARGE
-  },
-  registerButton: {
+  loginButton: {
     height: 52,
     justifyContent: "center",
     backgroundColor: "#4AD285",
     marginVertical: SPACING.LARGE
   },
-  registerButtonText: {
+  loginButtonText: {
     fontFamily: FONT_FAMILY.NUNITO_BOLD,
     fontSize: FONT_SIZE.MEDIUM,
     color: COLOR.WHITE,
     textAlign: "center"
+  },
+  registerButtonText: {
+    fontFamily: FONT_FAMILY.NUNITO_BOLD,
+    fontSize: FONT_SIZE.MEDIUM,
+    color: "rgba(11, 13, 15, 0.5)",
+    textAlign: "center"
   }
 });
 
-export default class Register extends FormComponent {
+export default class Login extends FormComponent {
   constructor(props) {
     super(props);
     this.state = {
       form: {
         email: { value: "", error: null },
-        password: { value: "", error: null },
-        confirmPassword: { value: "", error: null }
+        password: { value: "", error: null }
       },
       loading: false
     };
     this.passwordInput = React.createRef();
-    this.passwordConfirmInput = React.createRef();
-    this.onRegister = this.onRegister.bind(this);
+    this.onLogin = this.onLogin.bind(this);
+    this.unsubscribe = null;
   }
 
-  onRegister() {
+  componentDidMount() {
+    const { navigation } = this.props;
+    this.setState({ loading: true });
+    this.unsubscribe = subscribeOnAuthStateChanged(user =>
+      user
+        ? navigation.navigate(APP_STACK, { user })
+        : this.setState({ loading: false })
+    );
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscribe) this.unsubscribe();
+  }
+
+  onLogin() {
     const {
-      form: { email, password, confirmPassword }
+      form: { email, password }
     } = this.state;
     const { navigation } = this.props;
 
@@ -67,13 +74,9 @@ export default class Register extends FormComponent {
       this.setFieldError("password", "Please fill out this field");
       return;
     }
-    if (password.value !== confirmPassword.value) {
-      this.setFieldError("confirmPassword", "Passwords do not match!");
-      return;
-    }
 
     this.setState({ loading: true });
-    register({ email: email.value, password: password.value })
+    login({ email: email.value, password: password.value })
       .then(user => navigation.navigate(APP_STACK, { user }))
       .catch(error => {
         const { userInfo } = error;
@@ -86,7 +89,7 @@ export default class Register extends FormComponent {
           return;
         }
         this.setState({ loading: false });
-        Alert.alert("Register Error", userInfo.message, [
+        Alert.alert("Login Error", userInfo.message, [
           { text: "OK", onPress: () => {} }
         ]);
       });
@@ -94,16 +97,17 @@ export default class Register extends FormComponent {
 
   render() {
     const {
-      form: { email, password, confirmPassword },
+      form: { email, password },
       loading
     } = this.state;
+    const { navigation } = this.props;
 
     return loading ? (
       <Spinner />
     ) : (
-      <View style={styles.container}>
-        <Text style={styles.title}>Welcome!</Text>
-        <Text style={styles.subTitle}>Please enter your account data.</Text>
+      <View style={commonStyles.container}>
+        <Text style={commonStyles.title}>Welcome back!</Text>
+        <Text style={commonStyles.subTitle}>Please login to your account.</Text>
         <TextField
           onChangeText={text => this.setFieldValue("email", text)}
           onFocus={() => this.setFieldError("email", null)}
@@ -121,29 +125,19 @@ export default class Register extends FormComponent {
           inputRef={this.passwordInput}
           onChangeText={text => this.setFieldValue("password", text)}
           onFocus={() => this.setFieldError("password", null)}
-          onSubmitEditing={() => this.passwordConfirmInput.current.focus()}
+          onSubmitEditing={this.onLogin}
           value={password.value}
           error={password.error}
           placeholder="Password"
-          returnKeyType="next"
-          secureTextEntry
-        />
-        <TextField
-          inputRef={this.passwordConfirmInput}
-          onChangeText={text => this.setFieldValue("confirmPassword", text)}
-          onFocus={() => this.setFieldError("confirmPassword", null)}
-          onSubmitEditing={this.onRegister}
-          value={confirmPassword.value}
-          error={confirmPassword.error}
-          placeholder="Confirm Password"
           returnKeyType="go"
           secureTextEntry
+          navigateToForgot={() => navigation.navigate(FORGOT_PASSWORD_SCREEN)}
         />
-        <TouchableOpacity
-          style={styles.registerButton}
-          onPress={this.onRegister}
-        >
-          <Text style={styles.registerButtonText}>REGISTER</Text>
+        <TouchableOpacity style={styles.loginButton} onPress={this.onLogin}>
+          <Text style={styles.loginButtonText}>LOGIN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate(REGISTER_SCREEN)}>
+          <Text style={styles.registerButtonText}>REGISTER NOW</Text>
         </TouchableOpacity>
       </View>
     );

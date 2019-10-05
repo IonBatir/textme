@@ -7,16 +7,16 @@ import {
   TextInput,
   TouchableOpacity
 } from "react-native";
-import { ChatMessage } from "../components";
-import { COLOR, SPACING, FONT_FAMILY, FONT_SIZE } from "../theme";
+import { ChatMessage } from "../../components";
+import { COLOR, SPACING, FONT_FAMILY, FONT_SIZE } from "../../theme";
 import {
   RightArrowIcon,
   SmileIcon,
   AttachmentIcon,
   PhotoCameraIcon,
   PictureIcon
-} from "../../assets/icons";
-import AvatarIcon from "../../assets/icons/avatar.png";
+} from "../../../assets/icons";
+import AvatarIcon from "../../../assets/icons/avatar.png";
 
 const styles = StyleSheet.create({
   container: { flex: 1 },

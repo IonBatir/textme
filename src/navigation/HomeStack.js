@@ -1,6 +1,6 @@
 import { createStackNavigator } from "react-navigation-stack";
 import ChatStack from "./ChatStack";
-import { Chat } from "../screens";
+import { Chat } from "../screens/app";
 import { CHAT_STACK, CHAT_SCREEN } from "../constants";
 
 const HomeStack = createStackNavigator(

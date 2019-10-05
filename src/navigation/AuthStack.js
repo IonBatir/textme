@@ -1,5 +1,5 @@
 import { createStackNavigator } from "react-navigation-stack";
-import { Login, Register, ForgotPassword } from "../screens";
+import { Login, Register, ForgotPassword } from "../screens/auth";
 import {
   LOGIN_SCREEN,
   REGISTER_SCREEN,

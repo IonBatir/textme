@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import HomeStack from "./HomeStack";
-import { Groups, Settings } from "../screens";
+import { Groups, Settings } from "../screens/app";
 import { HOME_STACK, GROUPS_SCREEN, SETTINGS_SCREEN } from "../constants";
 import {
   SPACING,

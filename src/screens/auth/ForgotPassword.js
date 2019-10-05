@@ -1,28 +1,12 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-import { FormComponent, TextField, Spinner } from "../components";
-import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../theme";
-import { LOGIN_SCREEN } from "../constants";
-import { recoverPassword } from "../api";
+import { FormComponent, TextField, Spinner } from "../../components";
+import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
+import { LOGIN_SCREEN } from "../../constants";
+import { recoverPassword } from "../../api";
+import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    marginHorizontal: SPACING.MEDIUM
-  },
-  title: {
-    fontFamily: FONT_FAMILY.NUNITO_BOLD,
-    fontSize: FONT_SIZE.EXTRA_EXTRA_LARGE,
-    color: "#1D2226"
-  },
-  subTitle: {
-    fontFamily: FONT_FAMILY.NUNITO_REGULAR,
-    fontSize: FONT_SIZE.LARGE,
-    color: "#1D2226",
-    opacity: 0.6,
-    marginBottom: SPACING.EXTRA_LARGE
-  },
   recoverButton: {
     height: 52,
     justifyContent: "center",
@@ -90,24 +74,24 @@ export default class ForgotPassword extends FormComponent {
     return loading ? (
       <Spinner />
     ) : (
-      <View style={styles.container}>
-        <Text style={styles.title}>Forgot Password?</Text>
-        <Text style={styles.subTitle}>Please enter email to your account.</Text>
-        <View style={styles.input}>
-          <TextField
-            onChangeText={text => this.setFieldValue("email", text)}
-            onFocus={() => this.setFieldError("email", null)}
-            onSubmitEditing={this.onRecoverPassword}
-            value={email.value}
-            error={email.error}
-            placeholder="Email Address"
-            returnKeyType="go"
-            autoCompleteType="email"
-            keyboardType="email-address"
-            textContentType="emailAddress"
-            autoCapitalize="none"
-          />
-        </View>
+      <View style={commonStyles.container}>
+        <Text style={commonStyles.title}>Forgot Password?</Text>
+        <Text style={commonStyles.subTitle}>
+          Please enter email to your account.
+        </Text>
+        <TextField
+          onChangeText={text => this.setFieldValue("email", text)}
+          onFocus={() => this.setFieldError("email", null)}
+          onSubmitEditing={this.onRecoverPassword}
+          value={email.value}
+          error={email.error}
+          placeholder="Email Address"
+          returnKeyType="go"
+          autoCompleteType="email"
+          keyboardType="email-address"
+          textContentType="emailAddress"
+          autoCapitalize="none"
+        />
         <TouchableOpacity
           style={styles.recoverButton}
           onPress={this.onRecoverPassword}

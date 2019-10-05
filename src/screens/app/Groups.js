@@ -1,9 +1,9 @@
 import React from "react";
-import { View, FlatList, StyleSheet } from "react-native";
-import { Message } from "../components";
-import Avatar from "../../assets/images/avatar.png";
-import { CHAT_SCREEN } from "../constants";
-import { LIST_ITEM_HEIGHT } from "../theme";
+import { StyleSheet, View, FlatList } from "react-native";
+import { Header, Message } from "../../components";
+import { CHAT_SCREEN } from "../../constants";
+import { LIST_ITEM_HEIGHT } from "../../theme";
+import Avatar from "../../../assets/images/avatar.png";
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const messages = [
+const groups = [
   {
     id: "0",
     avatar: Avatar,
@@ -62,7 +62,7 @@ const messages = [
   }
 ];
 
-export default function Messages({ navigation }) {
+export default function Groups({ navigation }) {
   const renderItem = ({ item }) => (
     <Message
       key={item.id}
@@ -77,8 +77,9 @@ export default function Messages({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <Header label="Groups" />
       <FlatList
-        data={messages}
+        data={groups}
         renderItem={renderItem}
         getItemLayout={(_, index) => ({
           length: LIST_ITEM_HEIGHT,

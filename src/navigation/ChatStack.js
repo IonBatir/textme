@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
-import { Messages, Contacts } from "../screens";
+import { Messages, Contacts } from "../screens/app";
 import { MESSAGES_SCREEN, CONTACTS_SCREEN } from "../constants";
 import { COLOR, FONT_SIZE, FONT_FAMILY, STATUS_BAR_HEIGHT } from "../theme";
 

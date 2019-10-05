@@ -1,9 +1,9 @@
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
-import { Contact } from "../components";
-import Avatar from "../../assets/images/avatar.png";
-import { CHAT_SCREEN } from "../constants";
-import { LIST_ITEM_HEIGHT } from "../theme";
+import { Contact } from "../../components";
+import { CHAT_SCREEN } from "../../constants";
+import { LIST_ITEM_HEIGHT } from "../../theme";
+import Avatar from "../../../assets/images/avatar.png";
 
 const styles = StyleSheet.create({
   container: {
