@@ -58,6 +58,7 @@ export default class Register extends FormComponent {
 
     this.setState({ loading: true });
     register({ email: email.value, password: password.value })
+      // eslint-disable-next-line no-underscore-dangle
       .then(user => navigation.navigate(MESSAGES_SCREEN, { user: user._user }))
       .catch(error => {
         const { userInfo } = error;

@@ -51,7 +51,8 @@ export default class Login extends FormComponent {
     this.setState({ loading: true });
     this.unsubscribe = subscribeOnAuthStateChanged(user =>
       user
-        ? navigation.navigate(MESSAGES_SCREEN, { user: user._user })
+        ? // eslint-disable-next-line no-underscore-dangle
+          navigation.navigate(MESSAGES_SCREEN, { user: user._user })
         : this.setState({ loading: false })
     );
   }
@@ -77,6 +78,7 @@ export default class Login extends FormComponent {
 
     this.setState({ loading: true });
     login({ email: email.value, password: password.value })
+      // eslint-disable-next-line no-underscore-dangle
       .then(user => navigation.navigate(MESSAGES_SCREEN, { user: user._user }))
       .catch(error => {
         const { userInfo } = error;
