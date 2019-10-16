@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
 import { FormComponent, Spinner, TextField } from "../../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
 import { MESSAGES_SCREEN } from "../../constants";
-import { register } from "../../api";
+import { createUser } from "../../api";
 import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
@@ -26,12 +26,14 @@ export default class Register extends FormComponent {
     super(props);
     this.state = {
       form: {
+        username: { value: "", error: null },
         email: { value: "", error: null },
         password: { value: "", error: null },
         confirmPassword: { value: "", error: null }
       },
       loading: false
     };
+    this.emailInput = React.createRef();
     this.passwordInput = React.createRef();
     this.passwordConfirmInput = React.createRef();
     this.onRegister = this.onRegister.bind(this);
@@ -39,9 +41,14 @@ export default class Register extends FormComponent {
 
   onRegister() {
     const {
-      form: { email, password, confirmPassword }
+      form: { username, email, password, confirmPassword }
     } = this.state;
     const { navigation } = this.props;
+
+    if (!/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/.test(username.value)) {
+      this.setFieldError("username", "Please enter a valid username");
+      return;
+    }
 
     if (email.value.length === 0) {
       this.setFieldError("email", "Please fill out this field");
@@ -57,9 +64,12 @@ export default class Register extends FormComponent {
     }
 
     this.setState({ loading: true });
-    register({ email: email.value, password: password.value })
-      // eslint-disable-next-line no-underscore-dangle
-      .then(user => navigation.navigate(MESSAGES_SCREEN, { user: user._user }))
+    createUser({
+      username: username.value,
+      email: email.value,
+      password: password.value
+    })
+      .then(() => navigation.navigate(MESSAGES_SCREEN))
       .catch(error => {
         const { userInfo } = error;
         if (userInfo.code.includes("email")) {
@@ -79,7 +89,7 @@ export default class Register extends FormComponent {
 
   render() {
     const {
-      form: { email, password, confirmPassword },
+      form: { username, email, password, confirmPassword },
       loading
     } = this.state;
 
@@ -91,6 +101,17 @@ export default class Register extends FormComponent {
         <Text style={commonStyles.subTitle}>
           Please enter your account data.
         </Text>
+        <TextField
+          onChangeText={text => this.setFieldValue("username", text)}
+          onFocus={() => this.setFieldError("username", null)}
+          onSubmitEditing={() => this.emailInput.current.focus()}
+          value={username.value}
+          error={username.error}
+          placeholder="Username"
+          returnKeyType="next"
+          autoCompleteType="username"
+          textContentType="username"
+        />
         <TextField
           onChangeText={text => this.setFieldValue("email", text)}
           onFocus={() => this.setFieldError("email", null)}
