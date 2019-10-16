@@ -113,6 +113,7 @@ export default class Register extends FormComponent {
           textContentType="username"
         />
         <TextField
+          inputRef={this.emailInput}
           onChangeText={text => this.setFieldValue("email", text)}
           onFocus={() => this.setFieldError("email", null)}
           onSubmitEditing={() => this.passwordInput.current.focus()}
