@@ -3,7 +3,6 @@ import { View, FlatList, StyleSheet } from "react-native";
 import { Message } from "../../components";
 import { CHAT_SCREEN } from "../../constants";
 import { LIST_ITEM_HEIGHT } from "../../theme";
-import Avatar from "../../../assets/images/avatar.png";
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +13,6 @@ const styles = StyleSheet.create({
 const messages = [
   {
     id: "0",
-    avatar: Avatar,
     name: "Donatella Nobatti",
     text: "But I must explain to you how all this",
     date: "12 Dec",
@@ -22,7 +20,6 @@ const messages = [
   },
   {
     id: "1",
-    avatar: Avatar,
     name: "Paige Turner",
     text: "this application generates endless unique",
     date: "12 Dec",
@@ -30,7 +27,6 @@ const messages = [
   },
   {
     id: "2",
-    avatar: Avatar,
     name: "#New Year Party",
     text: "Just need one name?",
     date: "12 Dec",
@@ -38,7 +34,6 @@ const messages = [
   },
   {
     id: "3",
-    avatar: Avatar,
     name: "Petey Cruiser",
     text: "who avoids a pain that produces no resultant ",
     date: "12 Dec",
@@ -46,7 +41,6 @@ const messages = [
   },
   {
     id: "4",
-    avatar: Avatar,
     name: "Bob Frapples",
     text: "Pleasure of the moment",
     date: "12 Dec",
@@ -54,7 +48,6 @@ const messages = [
   },
   {
     id: "5",
-    avatar: Avatar,
     name: "Anna Mull",
     text: "behind the word mountain",
     date: "12 Dec",
