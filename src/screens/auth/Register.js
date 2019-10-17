@@ -45,8 +45,8 @@ export default class Register extends FormComponent {
     } = this.state;
     const { navigation } = this.props;
 
-    if (!/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/.test(username.value)) {
-      this.setFieldError("username", "Please enter a valid username");
+    if (username.value.length === 0) {
+      this.setFieldError("username", "Please fill out this field");
       return;
     }
 
