@@ -1,8 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator } from "react-navigation-tabs";
-import HomeStack from "./HomeStack";
-import { Groups, Settings } from "../screens/app";
-import { HOME_STACK, GROUPS_SCREEN, SETTINGS_SCREEN } from "../constants";
+import MessageStack from "./MessageStack";
+import GroupStack from "./GroupStack";
+import { Settings } from "../screens/app";
+import { MESSAGE_STACK, GROUP_STACK, SETTINGS_SCREEN } from "../constants";
 import {
   SPACING,
   FONT_SIZE,
@@ -13,16 +14,16 @@ import { ChatIcon, GroupsIcon, SettingsIcon } from "../../assets/icons";
 
 export default createBottomTabNavigator(
   {
-    [HOME_STACK]: {
-      screen: HomeStack,
+    [MESSAGE_STACK]: {
+      screen: MessageStack,
       navigationOptions: {
-        tabBarLabel: "Chat",
+        tabBarLabel: "Messages",
         tabBarIcon: <ChatIcon />
       }
     },
-    [GROUPS_SCREEN]: {
-      screen: Groups,
-      navigationOptions: { tabBarIcon: <GroupsIcon /> }
+    [GROUP_STACK]: {
+      screen: GroupStack,
+      navigationOptions: { tabBarLabel: "Groups", tabBarIcon: <GroupsIcon /> }
     },
     [SETTINGS_SCREEN]: {
       screen: Settings,
@@ -32,7 +33,7 @@ export default createBottomTabNavigator(
     }
   },
   {
-    initialRouteName: HOME_STACK,
+    initialRouteName: MESSAGE_STACK,
     tabBarOptions: {
       style: {
         height: BOTTOM_NAVIGATOR_HEIGHT,
