@@ -35,16 +35,23 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Header({ label, toContacts }) {
+function Header({ label, toContacts }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.row}>
         <TextMeIcon />
-        <Text style={styles.title}>{label || APP_NAME}</Text>
-        <TouchableOpacity onPress={toContacts || (() => {})}>
+        <Text style={styles.title}>{label}</Text>
+        <TouchableOpacity onPress={toContacts}>
           <AvatarIcon />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 }
+
+Header.defaultProps = {
+  label: APP_NAME,
+  toContacts: () => {}
+};
+
+export default Header;
