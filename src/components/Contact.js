@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Contact({ openChat, avatar, name, status }) {
+function Contact({ openChat, avatar, name, status }) {
   return (
     <TouchableOpacity onPress={openChat}>
       <View style={styles.container}>
@@ -57,3 +57,11 @@ export default function Contact({ openChat, avatar, name, status }) {
     </TouchableOpacity>
   );
 }
+
+Contact.defaultProps = {
+  openChat: () => {},
+  name: "Unknown",
+  status: "Status"
+};
+
+export default Contact;
