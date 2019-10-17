@@ -19,4 +19,4 @@ export const RightArrowIcon = () => (
 export const SettingsIcon = () => <Image source={require("./settings.png")} />;
 export const SmileIcon = () => <Image source={require("./smile.png")} />;
 export const TextMeIcon = () => <Image source={require("./textme.png")} />;
-export const Contacts = () => <Image source={require("./contacts.png")} />;
+export const ContactsIcon = () => <Image source={require("./contacts.png")} />;
