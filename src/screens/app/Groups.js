@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, FlatList } from "react-native";
-import { Header, Message } from "../../components";
+import { Message } from "../../components";
 import { CHAT_SCREEN } from "../../constants";
 import { LIST_ITEM_HEIGHT } from "../../theme";
 
@@ -70,7 +70,6 @@ export default function Groups({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Header label="Groups" />
       <FlatList
         data={groups}
         renderItem={renderItem}

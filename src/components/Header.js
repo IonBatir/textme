@@ -1,5 +1,11 @@
 import React from "react";
-import { SafeAreaView, View, StyleSheet, Text } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity
+} from "react-native";
 import { TextMeIcon, AvatarIcon } from "../../assets/icons";
 import {
   COLOR,
@@ -29,13 +35,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Header({ label }) {
+export default function Header({ label, toContacts }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.row}>
         <TextMeIcon />
         <Text style={styles.title}>{label || APP_NAME}</Text>
-        <AvatarIcon />
+        <TouchableOpacity onPress={toContacts || (() => {})}>
+          <AvatarIcon />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
