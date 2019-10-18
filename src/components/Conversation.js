@@ -89,8 +89,12 @@ export default function Conversation({
           <View style={styles.content}>
             <View style={styles.verticalLine} />
             <View>
-              <Text style={styles.dateText}>{getFormatedDate(timestamp)}</Text>
-              <Text style={styles.timeText}>{getFormatedTime(timestamp)}</Text>
+              <Text style={styles.dateText}>
+                {timestamp && getFormatedDate(timestamp)}
+              </Text>
+              <Text style={styles.timeText}>
+                {timestamp && getFormatedTime(timestamp)}
+              </Text>
             </View>
           </View>
         </View>
