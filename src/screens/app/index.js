@@ -1,4 +1,4 @@
-export { default as Messages } from "./Messages";
+export { default as Conversations } from "./Conversations";
 export { default as Contacts } from "./Contacts";
 export { default as Groups } from "./Groups";
 export { default as Chat } from "./Chat";

@@ -17,7 +17,7 @@ export default createBottomTabNavigator(
     [MESSAGE_STACK]: {
       screen: MessageStack,
       navigationOptions: {
-        tabBarLabel: "Messages",
+        tabBarLabel: "Conversations",
         tabBarIcon: <ChatIcon />
       }
     },

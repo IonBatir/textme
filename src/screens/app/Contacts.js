@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View, FlatList, StyleSheet } from "react-native";
-import firestore from "@react-native-firebase/firestore";
 import { Contact, Spinner } from "../../components";
 import { CHAT_SCREEN } from "../../constants";
 import { LIST_ITEM_HEIGHT } from "../../theme";
+import { fetchContacts } from "../../api";
 
 const styles = StyleSheet.create({
   container: {
@@ -16,12 +16,8 @@ export default function Contacts({ navigation }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    firestore()
-      .collection("users")
-      .get()
-      .then(querySnapshot => {
-        const users = [];
-        querySnapshot.forEach(doc => users.push({ ...doc.data(), id: doc.id }));
+    fetchContacts()
+      .then(users => {
         setContacts(users);
         setLoading(false);
       })

@@ -6,7 +6,7 @@ import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
 import {
   FORGOT_PASSWORD_SCREEN,
   REGISTER_SCREEN,
-  MESSAGES_SCREEN
+  CONVERSATIONS_SCREEN
 } from "../../constants";
 import commonStyles from "./styles";
 
@@ -40,7 +40,7 @@ export default function Login({ navigation }) {
   useEffect(
     () =>
       auth().onAuthStateChanged(user =>
-        user ? navigation.navigate(MESSAGES_SCREEN) : setLoading(false)
+        user ? navigation.navigate(CONVERSATIONS_SCREEN) : setLoading(false)
       ),
     []
   );
@@ -58,7 +58,7 @@ export default function Login({ navigation }) {
     setLoading(true);
     auth()
       .signInWithEmailAndPassword(email.value, password.value)
-      .then(() => navigation.navigate(MESSAGES_SCREEN))
+      .then(() => navigation.navigate(CONVERSATIONS_SCREEN))
       .catch(error => {
         setLoading(false);
         const { userInfo } = error;

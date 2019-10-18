@@ -1,93 +1,78 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View, Image, Text } from "react-native";
-import {
-  LIST_ITEM_HEIGHT,
-  SPACING,
-  FONT_SIZE,
-  FONT_FAMILY,
-  AVATAR_SIZE
-} from "../theme";
-import { Avatar } from "../../assets/images";
+import { StyleSheet, View, Image, Text } from "react-native";
+import { SPACING, FONT_SIZE, FONT_FAMILY, AVATAR_ICON_SIZE } from "../theme";
+import { AvatarIcon } from "../../assets/icons";
 
 const styles = StyleSheet.create({
   container: {
-    height: LIST_ITEM_HEIGHT,
-    margin: SPACING.MEDIUM
-  },
-  row: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginVertical: SPACING.MEDIUM,
+    marginHorizontal: SPACING.SMALL
   },
-  content: {
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  textContent: {
-    maxWidth: "64%",
-    paddingLeft: SPACING.SMALL
-  },
-  nameText: {
-    fontFamily: FONT_FAMILY.NUNITO_SEMI_BOLD,
-    fontSize: FONT_SIZE.EXTRA_LARGE,
-    color: "#3C444C"
+  leftContent: { flexDirection: "row" },
+  message: {
+    maxWidth: "80%",
+    justifyContent: "center",
+    padding: SPACING.SMALL,
+    borderRadius: 4
   },
   messageText: {
-    fontFamily: FONT_FAMILY.NUNITO_LIGHT,
-    fontSize: FONT_SIZE.SMALL,
-    color: "#8B8B8B"
-  },
-  verticalLine: {
-    height: 39,
-    borderLeftWidth: 0.5,
-    borderLeftColor: "#D5D5D5",
-    paddingRight: SPACING.EXTRA_SMALL
-  },
-  dateText: {
-    fontFamily: FONT_FAMILY.NUNITO_LIGHT_ITALIC,
-    fontSize: FONT_SIZE.EXTRA_SMALL,
-    color: "#E9A823",
-    textAlign: "right",
-    paddingBottom: SPACING.EXTRA_SMALL
+    fontFamily: FONT_FAMILY.NUNITO_REGULAR,
+    fontSize: FONT_SIZE.MEDIUM,
+    color: "#0E2A47"
   },
   timeText: {
-    fontFamily: FONT_FAMILY.NUNITO_LIGHT_ITALIC,
-    fontSize: FONT_SIZE.EXTRA_SMALL,
-    color: "#E9A823",
-    textAlign: "right"
+    fontFamily: FONT_FAMILY.NUNITO_LIGHT,
+    fontSize: FONT_SIZE.EXTRA_EXTRA_SMALL,
+    color: "#8B8B8B"
   }
 });
 
-export default function Message({ openChat, avatar, name, text, date, time }) {
+export default function Message({ avatar, text, time, isMy, isSameSender }) {
   return (
-    <TouchableOpacity onPress={openChat}>
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <View style={styles.content}>
-            {avatar ? (
-              <Image
-                source={{ uri: avatar }}
-                style={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
-              />
-            ) : (
-              <Avatar />
-            )}
-            <View style={styles.textContent}>
-              <Text style={styles.nameText}>{name}</Text>
-              <Text style={styles.messageText} numberOfLines={1}>
-                {text}
-              </Text>
+    <View
+      style={[
+        styles.container,
+        isSameSender ? { marginTop: -SPACING.SMALL } : {}
+      ]}
+    >
+      {isMy ? (
+        <>
+          <View style={styles.leftContent}>
+            {isSameSender ||
+              (avatar ? (
+                <Image
+                  source={{ uri: avatar }}
+                  style={{ width: AVATAR_ICON_SIZE, height: AVATAR_ICON_SIZE }}
+                />
+              ) : (
+                <AvatarIcon />
+              ))}
+            <View
+              style={[
+                styles.message,
+                {
+                  backgroundColor: "#F5F5F5",
+                  marginLeft:
+                    SPACING.SMALL + (isSameSender ? AVATAR_ICON_SIZE : 0)
+                }
+              ]}
+            >
+              <Text style={styles.messageText}>{text}</Text>
             </View>
           </View>
-          <View style={styles.content}>
-            <View style={styles.verticalLine} />
-            <View>
-              <Text style={styles.dateText}>{date}</Text>
-              <Text style={styles.timeText}>{time}</Text>
-            </View>
+          <Text style={styles.timeText}>{time}</Text>
+        </>
+      ) : (
+        <>
+          <Text style={styles.timeText}>{time}</Text>
+          <View style={[styles.message, { backgroundColor: "#70CADB" }]}>
+            <Text style={styles.messageText}>{text}</Text>
           </View>
-        </View>
-      </View>
-    </TouchableOpacity>
+        </>
+      )}
+    </View>
   );
 }

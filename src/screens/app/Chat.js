@@ -7,7 +7,7 @@ import {
   TextInput,
   TouchableOpacity
 } from "react-native";
-import { ChatMessage } from "../../components";
+import { Message } from "../../components";
 import { COLOR, SPACING, FONT_FAMILY, FONT_SIZE } from "../../theme";
 import {
   RightArrowIcon,
@@ -92,7 +92,7 @@ const messages = [
 export default function Chat() {
   const [message, setMessage] = useState("");
   const renderItem = ({ item, index }) => (
-    <ChatMessage
+    <Message
       key={item.id}
       avatar={item.avatar}
       text={item.text}

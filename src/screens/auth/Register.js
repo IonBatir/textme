@@ -4,7 +4,7 @@ import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
 import { Spinner, TextField } from "../../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
-import { MESSAGES_SCREEN } from "../../constants";
+import { CONVERSATIONS_SCREEN } from "../../constants";
 import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
@@ -69,7 +69,7 @@ export default function Register({ navigation }) {
             avatarURL: user.photoURL
           })
       )
-      .then(() => navigation.navigate(MESSAGES_SCREEN))
+      .then(() => navigation.navigate(CONVERSATIONS_SCREEN))
       .catch(error => {
         setLoading(false);
         const { userInfo } = error;
