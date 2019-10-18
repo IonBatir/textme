@@ -24,6 +24,10 @@ export default function Contacts({ navigation }) {
         querySnapshot.forEach(doc => users.push({ ...doc.data(), id: doc.id }));
         setContacts(users);
         setLoading(false);
+      })
+      .catch(error => {
+        console.log(error);
+        setLoading(false);
       });
   }, []);
 
