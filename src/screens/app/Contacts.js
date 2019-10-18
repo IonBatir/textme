@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, FlatList, StyleSheet } from "react-native";
-import { Header, Contact, Spinner } from "../../components";
+import firestore from "@react-native-firebase/firestore";
+import { Contact, Spinner } from "../../components";
 import { CHAT_SCREEN } from "../../constants";
 import { LIST_ITEM_HEIGHT } from "../../theme";
-import { fetchContacts } from "../../api";
 
 const styles = StyleSheet.create({
   container: {
@@ -11,26 +11,27 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Contacts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { contacts: [], loading: true };
-  }
+export default function Contacts({ navigation }) {
+  const [contacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  componentDidMount() {
-    fetchContacts().then(contacts =>
-      this.setState({ contacts, loading: false })
-    );
-    this.renderItem = this.renderItem.bind(this);
-  }
+  useEffect(() => {
+    firestore()
+      .collection("users")
+      .get()
+      .then(querySnapshot => {
+        const users = [];
+        querySnapshot.forEach(doc => users.push({ ...doc.data(), id: doc.id }));
+        setContacts(users);
+        setLoading(false);
+      });
+  }, []);
 
-  renderItem({ item }) {
-    const { navigation } = this.props;
-
+  function renderItem({ item }) {
     return (
       <Contact
         key={item.id}
-        openChat={() => navigation.navigate(CHAT_SCREEN, { name: item.name })}
+        openChat={() => navigation.navigate(CHAT_SCREEN, { contact: item })}
         avatar={item.avatarURL}
         name={item.name}
         status={item.status}
@@ -38,23 +39,19 @@ export default class Contacts extends React.Component {
     );
   }
 
-  render() {
-    const { contacts, loading } = this.state;
-
-    return loading ? (
-      <Spinner />
-    ) : (
-      <View style={styles.container}>
-        <FlatList
-          data={contacts}
-          renderItem={this.renderItem}
-          getItemLayout={(_, index) => ({
-            length: LIST_ITEM_HEIGHT,
-            offset: LIST_ITEM_HEIGHT * index,
-            index
-          })}
-        />
-      </View>
-    );
-  }
+  return loading ? (
+    <Spinner />
+  ) : (
+    <View style={styles.container}>
+      <FlatList
+        data={contacts}
+        renderItem={renderItem}
+        getItemLayout={(_, index) => ({
+          length: LIST_ITEM_HEIGHT,
+          offset: LIST_ITEM_HEIGHT * index,
+          index
+        })}
+      />
+    </View>
+  );
 }
