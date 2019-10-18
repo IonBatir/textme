@@ -60,6 +60,7 @@ export default function Login({ navigation }) {
       .signInWithEmailAndPassword(email.value, password.value)
       .then(() => navigation.navigate(MESSAGES_SCREEN))
       .catch(error => {
+        setLoading(false);
         const { userInfo } = error;
         if (userInfo.code.includes("email")) {
           setEmail(state => ({ ...state, error: userInfo.message }));
@@ -69,7 +70,6 @@ export default function Login({ navigation }) {
           setPassword(state => ({ ...state, error: userInfo.message }));
           return;
         }
-        setLoading(false);
         Alert.alert("Login Error", userInfo.message, [
           { text: "OK", onPress: () => {} }
         ]);

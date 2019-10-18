@@ -43,12 +43,12 @@ export default function ForgotPassword({ navigation }) {
         );
       })
       .catch(error => {
+        setLoading(false);
         const { userInfo } = error;
         if (userInfo.code.includes("email")) {
           setEmail(state => ({ ...state, error: userInfo.message }));
           return;
         }
-        setLoading(false);
         Alert.alert("Recover Password Error", userInfo.message, [
           { text: "OK", onPress: () => {} }
         ]);
