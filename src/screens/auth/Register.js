@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
-import { Spinner, TextField } from "../../components";
+import { Spinner, TextField, ErrorAlert } from "../../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
 import { CONVERSATIONS_SCREEN } from "../../constants";
 import commonStyles from "./styles";
@@ -81,9 +81,7 @@ export default function Register({ navigation }) {
           setPassword(state => ({ ...state, error: userInfo.message }));
           return;
         }
-        Alert.alert("Register Error", userInfo.message, [
-          { text: "OK", onPress: () => {} }
-        ]);
+        ErrorAlert(userInfo.message);
       });
   }
 

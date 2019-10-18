@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
 import auth from "@react-native-firebase/auth";
-import { TextField, Spinner } from "../../components";
+import { TextField, Spinner, ErrorAlert } from "../../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
 import { LOGIN_SCREEN } from "../../constants";
 import commonStyles from "./styles";
@@ -49,9 +49,7 @@ export default function ForgotPassword({ navigation }) {
           setEmail(state => ({ ...state, error: userInfo.message }));
           return;
         }
-        Alert.alert("Recover Password Error", userInfo.message, [
-          { text: "OK", onPress: () => {} }
-        ]);
+        ErrorAlert(userInfo.message);
       });
   }
 
