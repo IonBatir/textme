@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-import { FormComponent, TextField, Spinner } from "../../components";
+import auth from "@react-native-firebase/auth";
+import { TextField, Spinner } from "../../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
 import { LOGIN_SCREEN } from "../../constants";
-import { recoverPassword } from "../../api";
 import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
@@ -21,31 +21,21 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class ForgotPassword extends FormComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      form: { email: { value: "", error: null } },
-      loading: false
-    };
-    this.onRecoverPassword = this.onRecoverPassword.bind(this);
-  }
+export default function ForgotPassword({ navigation }) {
+  const [email, setEmail] = useState({ value: "", error: null });
+  const [loading, setLoading] = useState(false);
 
-  onRecoverPassword() {
-    const {
-      form: { email }
-    } = this.state;
-    const { navigation } = this.props;
-
+  function onRecoverPassword() {
     if (email.value.length === 0) {
-      this.setFieldError("email", "Please fill out this field");
+      setEmail(state => ({ ...state, error: "Please fill out this field" }));
       return;
     }
 
-    this.setState({ loading: true });
-    recoverPassword({ email: email.value })
+    setLoading(true);
+    auth()
+      .sendPasswordResetEmail(email.value)
       .then(() => {
-        this.setState({ loading: false });
+        setLoading(false);
         Alert.alert(
           "Recover Password",
           "We have sent you an email with instructions to reset your password.",
@@ -55,50 +45,43 @@ export default class ForgotPassword extends FormComponent {
       .catch(error => {
         const { userInfo } = error;
         if (userInfo.code.includes("email")) {
-          this.setFieldError("email", userInfo.message);
+          setEmail(state => ({ ...state, error: userInfo.message }));
           return;
         }
-        this.setState({ loading: false });
+        setLoading(false);
         Alert.alert("Recover Password Error", userInfo.message, [
           { text: "OK", onPress: () => {} }
         ]);
       });
   }
 
-  render() {
-    const {
-      form: { email },
-      loading
-    } = this.state;
-
-    return loading ? (
-      <Spinner />
-    ) : (
-      <View style={commonStyles.container}>
-        <Text style={commonStyles.title}>Forgot Password?</Text>
-        <Text style={commonStyles.subTitle}>
-          Please enter email to your account.
-        </Text>
-        <TextField
-          onChangeText={text => this.setFieldValue("email", text)}
-          onFocus={() => this.setFieldError("email", null)}
-          onSubmitEditing={this.onRecoverPassword}
-          value={email.value}
-          error={email.error}
-          placeholder="Email Address"
-          returnKeyType="go"
-          autoCompleteType="email"
-          keyboardType="email-address"
-          textContentType="emailAddress"
-          autoCapitalize="none"
-        />
-        <TouchableOpacity
-          style={styles.recoverButton}
-          onPress={this.onRecoverPassword}
-        >
-          <Text style={styles.recoverButtonText}>RECOVER PASSWORD</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+  return loading ? (
+    <Spinner />
+  ) : (
+    <View style={commonStyles.container}>
+      <Text style={commonStyles.title}>Forgot Password?</Text>
+      <Text style={commonStyles.subTitle}>
+        Please enter email to your account.
+      </Text>
+      <TextField
+        onChangeText={text => setEmail(state => ({ ...state, value: text }))}
+        onFocus={() => setEmail(state => ({ ...state, error: null }))}
+        onSubmitEditing={onRecoverPassword}
+        value={email.value}
+        error={email.error}
+        placeholder="Email Address"
+        returnKeyType="go"
+        autoCompleteType="email"
+        keyboardType="email-address"
+        textContentType="emailAddress"
+        autoCapitalize="none"
+      />
+      <TouchableOpacity
+        style={styles.recoverButton}
+        onPress={onRecoverPassword}
+      >
+        <Text style={styles.recoverButtonText}>RECOVER PASSWORD</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
