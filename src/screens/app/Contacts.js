@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View, FlatList, StyleSheet } from "react-native";
-import { Contact, Spinner } from "../../components";
+import { Contact, Spinner, ErrorAlert } from "../../components";
 import { CHAT_SCREEN } from "../../constants";
 import { LIST_ITEM_HEIGHT } from "../../theme";
-import { fetchContacts } from "../../api";
+import { fetchContacts, getConversationByPartnerId } from "../../api";
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +22,7 @@ export default function Contacts({ navigation }) {
         setLoading(false);
       })
       .catch(error => {
-        console.log(error);
+        ErrorAlert(error.userInfo.message);
         setLoading(false);
       });
   }, []);
@@ -31,7 +31,15 @@ export default function Contacts({ navigation }) {
     return (
       <Contact
         key={item.id}
-        openChat={() => navigation.navigate(CHAT_SCREEN, { contact: item })}
+        openChat={() => {
+          getConversationByPartnerId(item)
+            .then(conversation => {
+              navigation.navigate(CHAT_SCREEN, { conversation });
+            })
+            .catch(error => {
+              ErrorAlert(error.userInfo.message);
+            });
+        }}
         avatar={item.avatarURL}
         name={item.name}
         status={item.status}
