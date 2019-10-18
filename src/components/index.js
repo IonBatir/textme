@@ -6,4 +6,3 @@ export { default as Contact } from "./Contact";
 export { default as ChatMessage } from "./ChatMessage";
 export { default as Spinner } from "./Spinner";
 export { default as TextField } from "./TextField";
-export { default as FormComponent } from "./FormComponent";
