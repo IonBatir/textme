@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
-import { FormComponent, TextField, Spinner } from "../../components";
+import auth from "@react-native-firebase/auth";
+import { TextField, Spinner } from "../../components";
 import { SPACING, FONT_FAMILY, FONT_SIZE, COLOR } from "../../theme";
 import {
   FORGOT_PASSWORD_SCREEN,
   REGISTER_SCREEN,
   MESSAGES_SCREEN
 } from "../../constants";
-import { signIn, subscribeOnAuthStateChanged } from "../../api";
 import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
@@ -31,115 +31,88 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Login extends FormComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      form: {
-        email: { value: "", error: null },
-        password: { value: "", error: null }
-      },
-      loading: false
-    };
-    this.passwordInput = React.createRef();
-    this.onLogin = this.onLogin.bind(this);
-    this.unsubscribe = null;
-  }
+export default function Login({ navigation }) {
+  const passwordInput = useRef(null);
+  const [email, setEmail] = useState({ value: "", error: null });
+  const [password, setPassword] = useState({ value: "", error: null });
+  const [loading, setLoading] = useState(true);
 
-  componentDidMount() {
-    const { navigation } = this.props;
-    this.setState({ loading: true });
-    this.unsubscribe = subscribeOnAuthStateChanged(user =>
-      user
-        ? navigation.navigate(MESSAGES_SCREEN)
-        : this.setState({ loading: false })
-    );
-  }
+  useEffect(
+    () =>
+      auth().onAuthStateChanged(user =>
+        user ? navigation.navigate(MESSAGES_SCREEN) : setLoading(false)
+      ),
+    []
+  );
 
-  componentWillUnmount() {
-    if (this.unsubscribe) this.unsubscribe();
-  }
-
-  onLogin() {
-    const {
-      form: { email, password }
-    } = this.state;
-    const { navigation } = this.props;
-
+  function onLogin() {
     if (email.value.length === 0) {
-      this.setFieldError("email", "Please fill out this field");
+      setEmail(state => ({ ...state, error: "Please fill out this field" }));
       return;
     }
     if (password.value.length === 0) {
-      this.setFieldError("password", "Please fill out this field");
+      setPassword(state => ({ ...state, error: "Please fill out this field" }));
       return;
     }
 
-    this.setState({ loading: true });
-    signIn({ email: email.value, password: password.value })
+    setLoading(true);
+    auth()
+      .signInWithEmailAndPassword(email.value, password.value)
       .then(() => navigation.navigate(MESSAGES_SCREEN))
       .catch(error => {
         const { userInfo } = error;
         if (userInfo.code.includes("email")) {
-          this.setFieldError("email", userInfo.message);
+          setEmail(state => ({ ...state, error: userInfo.message }));
           return;
         }
         if (userInfo.code.includes("password")) {
-          this.setFieldError("password", userInfo.message);
+          setPassword(state => ({ ...state, error: userInfo.message }));
           return;
         }
-        this.setState({ loading: false });
+        setLoading(false);
         Alert.alert("Login Error", userInfo.message, [
           { text: "OK", onPress: () => {} }
         ]);
       });
   }
 
-  render() {
-    const {
-      form: { email, password },
-      loading
-    } = this.state;
-    const { navigation } = this.props;
-
-    return loading ? (
-      <Spinner />
-    ) : (
-      <View style={commonStyles.container}>
-        <Text style={commonStyles.title}>Welcome back!</Text>
-        <Text style={commonStyles.subTitle}>Please login to your account.</Text>
-        <TextField
-          onChangeText={text => this.setFieldValue("email", text)}
-          onFocus={() => this.setFieldError("email", null)}
-          onSubmitEditing={() => this.passwordInput.current.focus()}
-          value={email.value}
-          error={email.error}
-          placeholder="Email Address"
-          returnKeyType="next"
-          autoCompleteType="email"
-          keyboardType="email-address"
-          textContentType="emailAddress"
-          autoCapitalize="none"
-        />
-        <TextField
-          inputRef={this.passwordInput}
-          onChangeText={text => this.setFieldValue("password", text)}
-          onFocus={() => this.setFieldError("password", null)}
-          onSubmitEditing={this.onLogin}
-          value={password.value}
-          error={password.error}
-          placeholder="Password"
-          returnKeyType="go"
-          secureTextEntry
-          navigateToForgot={() => navigation.navigate(FORGOT_PASSWORD_SCREEN)}
-        />
-        <TouchableOpacity style={styles.loginButton} onPress={this.onLogin}>
-          <Text style={styles.loginButtonText}>LOGIN</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate(REGISTER_SCREEN)}>
-          <Text style={styles.registerButtonText}>REGISTER NOW</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+  return loading ? (
+    <Spinner />
+  ) : (
+    <View style={commonStyles.container}>
+      <Text style={commonStyles.title}>Welcome back!</Text>
+      <Text style={commonStyles.subTitle}>Please login to your account.</Text>
+      <TextField
+        onChangeText={text => setEmail(state => ({ ...state, value: text }))}
+        onFocus={() => setEmail(state => ({ ...state, error: null }))}
+        onSubmitEditing={() => passwordInput.current.focus()}
+        value={email.value}
+        error={email.error}
+        placeholder="Email Address"
+        returnKeyType="next"
+        autoCompleteType="email"
+        keyboardType="email-address"
+        textContentType="emailAddress"
+        autoCapitalize="none"
+      />
+      <TextField
+        inputRef={passwordInput}
+        onChangeText={text => setPassword(state => ({ ...state, value: text }))}
+        onFocus={() => setPassword(state => ({ ...state, error: null }))}
+        onSubmitEditing={onLogin}
+        value={password.value}
+        error={password.error}
+        placeholder="Password"
+        returnKeyType="go"
+        secureTextEntry
+        navigateToForgot={() => navigation.navigate(FORGOT_PASSWORD_SCREEN)}
+      />
+      <TouchableOpacity style={styles.loginButton} onPress={onLogin}>
+        <Text style={styles.loginButtonText}>LOGIN</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate(REGISTER_SCREEN)}>
+        <Text style={styles.registerButtonText}>REGISTER NOW</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
