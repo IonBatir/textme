@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		009C78DE2F2120386A17FE16 /* libPods-textmeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C6B6F2D7620606F63D9490 /* libPods-textmeTests.a */; };
 		00E356F31AD99517003FC87E /* textmeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* textmeTests.m */; };
+		0D276901754F2283C2F7AAEE /* libPods-textme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 042A27BD6E6800F79BC9BE15 /* libPods-textme.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1680CFCED415DC1655C3ED25 /* libPods-textme-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E5697275F02D9DE0CCA468 /* libPods-textme-tvOSTests.a */; };
+		16858374386900AB2A7AC398 /* libPods-textme-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D50E7A1BF35AB5C61DC6C876 /* libPods-textme-tvOS.a */; };
 		1D595C4BAA2C497E8586547A /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4BF4F7B8A448629951B792 /* Nunito-ExtraLight.ttf */; };
 		20D1D3EA7D12429AA9E707F8 /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55E74BD6D5FF4DD294D8DAF5 /* Nunito-BlackItalic.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -25,19 +25,19 @@
 		50CE6B9C393E4CFDB1B4C2AD /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 376CCD1EB8B94FDB94747985 /* Nunito-Black.ttf */; };
 		629AB27EAF8B4F47A156C4E1 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 934285A9194149728946BD25 /* Nunito-Light.ttf */; };
 		7A2FD7E7532B43148BBFBE02 /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEEDFE72593E4067A5EAD9D8 /* Nunito-BoldItalic.ttf */; };
+		7CBF1BA0CD8DD6D57F072181 /* libPods-textme-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B6ED6F7F22EFD7D3211F2D /* libPods-textme-tvOSTests.a */; };
 		80D5215518BC48A6B116A23A /* Nunito-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1586EA26D724778A92DD02B /* Nunito-RegularItalic.ttf */; };
 		81FD5BC53FC24FE99F44E1B1 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 176D5DC006F14C348628F715 /* Nunito-SemiBold.ttf */; };
 		8B4E24470AEF470D8A4DF82F /* Nunito-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14958CE202D44D72B698B95D /* Nunito-ExtraLightItalic.ttf */; };
 		9DDDF813EE384DC9959646DD /* Nunito-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36E643684B4142F5B5F4793F /* Nunito-SemiBoldItalic.ttf */; };
 		BD04E74BD9F149EBA4840296 /* Nunito-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0F71FEE25894927832DFE30 /* Nunito-LightItalic.ttf */; };
+		CB767F7668F10C7EA2AAF288 /* libPods-textmeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABC1D6F90E8BB29D38F5C6D /* libPods-textmeTests.a */; };
 		D1B459F2232FEF9000B62495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */; };
 		D1B459F3232FEF9000B62495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */; };
 		D1B459F4232FEF9000B62495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */; };
 		D1B459F5232FEF9000B62495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */; };
 		DCEE54FEEA9B44FDAA75D340 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AAE98DCA27C41FE972333CF /* Nunito-Regular.ttf */; };
-		E52EDB121C7E0051E307CF95 /* libPods-textme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D629C81BE54B5EB7C317B6F6 /* libPods-textme.a */; };
 		EE9429402E114945ABD9EAA0 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 050FC195A4504F9E995BD846 /* Nunito-Bold.ttf */; };
-		FFED166FEE426CE17F0175C8 /* libPods-textme-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC0CB265E8087270E9DA135 /* libPods-textme-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +62,8 @@
 		00E356EE1AD99517003FC87E /* textmeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = textmeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* textmeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = textmeTests.m; sourceTree = "<group>"; };
-		0188A77A574B21A479C4B8BB /* Pods-textme-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOS.release.xcconfig"; path = "Target Support Files/Pods-textme-tvOS/Pods-textme-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		042A27BD6E6800F79BC9BE15 /* libPods-textme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		050FC195A4504F9E995BD846 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Bold.ttf"; path = "../assets/fonts/Nunito-Bold.ttf"; sourceTree = "<group>"; };
-		05E5697275F02D9DE0CCA468 /* libPods-textme-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* textme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = textme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = textme/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = textme/AppDelegate.m; sourceTree = "<group>"; };
@@ -80,26 +79,27 @@
 		2D02E4901E0B4A5D006451C7 /* textme-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "textme-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36E643684B4142F5B5F4793F /* Nunito-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-SemiBoldItalic.ttf"; path = "../assets/fonts/Nunito-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		376CCD1EB8B94FDB94747985 /* Nunito-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Black.ttf"; path = "../assets/fonts/Nunito-Black.ttf"; sourceTree = "<group>"; };
-		471C2DA5B906CB0449021ED8 /* Pods-textme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme.release.xcconfig"; path = "Target Support Files/Pods-textme/Pods-textme.release.xcconfig"; sourceTree = "<group>"; };
-		4C4DC48367CD26070F281018 /* Pods-textme-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-textme-tvOSTests/Pods-textme-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		44BFBFB898477A476A8C8073 /* Pods-textme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme.debug.xcconfig"; path = "Target Support Files/Pods-textme/Pods-textme.debug.xcconfig"; sourceTree = "<group>"; };
+		4ABC1D6F90E8BB29D38F5C6D /* libPods-textmeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textmeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FCA583656D436A8F1D9268 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-ExtraBold.ttf"; path = "../assets/fonts/Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
-		53F9F1FD456A9230F9ED81CF /* Pods-textme-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-textme-tvOS/Pods-textme-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		55E74BD6D5FF4DD294D8DAF5 /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-BlackItalic.ttf"; path = "../assets/fonts/Nunito-BlackItalic.ttf"; sourceTree = "<group>"; };
-		67605C97378E534F055B7F63 /* Pods-textme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme.debug.xcconfig"; path = "Target Support Files/Pods-textme/Pods-textme.debug.xcconfig"; sourceTree = "<group>"; };
-		701FDDF0B27D32EF1CD778B8 /* Pods-textmeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textmeTests.debug.xcconfig"; path = "Target Support Files/Pods-textmeTests/Pods-textmeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		56B07AE79DEA5ABBD9D9CD24 /* Pods-textme-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOS.release.xcconfig"; path = "Target Support Files/Pods-textme-tvOS/Pods-textme-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		62D75611DEC0FE87C6F9D637 /* Pods-textme-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-textme-tvOS/Pods-textme-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		63016DC6CCC9B22B04034C68 /* Pods-textme-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-textme-tvOSTests/Pods-textme-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		934285A9194149728946BD25 /* Nunito-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Light.ttf"; path = "../assets/fonts/Nunito-Light.ttf"; sourceTree = "<group>"; };
-		99C6B6F2D7620606F63D9490 /* libPods-textmeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textmeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1586EA26D724778A92DD02B /* Nunito-RegularItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-RegularItalic.ttf"; path = "../assets/fonts/Nunito-RegularItalic.ttf"; sourceTree = "<group>"; };
-		A6F739FCF9C103FF9C39AFC9 /* Pods-textmeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textmeTests.release.xcconfig"; path = "Target Support Files/Pods-textmeTests/Pods-textmeTests.release.xcconfig"; sourceTree = "<group>"; };
-		AEC0CB265E8087270E9DA135 /* libPods-textme-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F71FEE25894927832DFE30 /* Nunito-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-LightItalic.ttf"; path = "../assets/fonts/Nunito-LightItalic.ttf"; sourceTree = "<group>"; };
+		BA1D2EBEAD07C81ED36A7875 /* Pods-textmeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textmeTests.release.xcconfig"; path = "Target Support Files/Pods-textmeTests/Pods-textmeTests.release.xcconfig"; sourceTree = "<group>"; };
 		BEEDFE72593E4067A5EAD9D8 /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-BoldItalic.ttf"; path = "../assets/fonts/Nunito-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C05CBA26AC8F282320B89732 /* Pods-textmeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textmeTests.debug.xcconfig"; path = "Target Support Files/Pods-textmeTests/Pods-textmeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1B459F1232FEF9000B62495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D629C81BE54B5EB7C317B6F6 /* libPods-textme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D50E7A1BF35AB5C61DC6C876 /* libPods-textme-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4BF4F7B8A448629951B792 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-ExtraLight.ttf"; path = "../assets/fonts/Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
-		E499538D2A6DFF9C0B71C7B0 /* Pods-textme-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-textme-tvOSTests/Pods-textme-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		E9B6ED6F7F22EFD7D3211F2D /* libPods-textme-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-textme-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F1636332F3FF7FB809DFA423 /* Pods-textme-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-textme-tvOSTests/Pods-textme-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4F5019BA86066D344C3ED3A /* Pods-textme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textme.release.xcconfig"; path = "Target Support Files/Pods-textme/Pods-textme.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				009C78DE2F2120386A17FE16 /* libPods-textmeTests.a in Frameworks */,
+				CB767F7668F10C7EA2AAF288 /* libPods-textmeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E52EDB121C7E0051E307CF95 /* libPods-textme.a in Frameworks */,
+				0D276901754F2283C2F7AAEE /* libPods-textme.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFED166FEE426CE17F0175C8 /* libPods-textme-tvOS.a in Frameworks */,
+				16858374386900AB2A7AC398 /* libPods-textme-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1680CFCED415DC1655C3ED25 /* libPods-textme-tvOSTests.a in Frameworks */,
+				7CBF1BA0CD8DD6D57F072181 /* libPods-textme-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,10 +175,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				D629C81BE54B5EB7C317B6F6 /* libPods-textme.a */,
-				AEC0CB265E8087270E9DA135 /* libPods-textme-tvOS.a */,
-				05E5697275F02D9DE0CCA468 /* libPods-textme-tvOSTests.a */,
-				99C6B6F2D7620606F63D9490 /* libPods-textmeTests.a */,
+				042A27BD6E6800F79BC9BE15 /* libPods-textme.a */,
+				D50E7A1BF35AB5C61DC6C876 /* libPods-textme-tvOS.a */,
+				E9B6ED6F7F22EFD7D3211F2D /* libPods-textme-tvOSTests.a */,
+				4ABC1D6F90E8BB29D38F5C6D /* libPods-textmeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,14 +242,14 @@
 		A83BB9D08828645EB1E8A342 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				67605C97378E534F055B7F63 /* Pods-textme.debug.xcconfig */,
-				471C2DA5B906CB0449021ED8 /* Pods-textme.release.xcconfig */,
-				53F9F1FD456A9230F9ED81CF /* Pods-textme-tvOS.debug.xcconfig */,
-				0188A77A574B21A479C4B8BB /* Pods-textme-tvOS.release.xcconfig */,
-				4C4DC48367CD26070F281018 /* Pods-textme-tvOSTests.debug.xcconfig */,
-				E499538D2A6DFF9C0B71C7B0 /* Pods-textme-tvOSTests.release.xcconfig */,
-				701FDDF0B27D32EF1CD778B8 /* Pods-textmeTests.debug.xcconfig */,
-				A6F739FCF9C103FF9C39AFC9 /* Pods-textmeTests.release.xcconfig */,
+				44BFBFB898477A476A8C8073 /* Pods-textme.debug.xcconfig */,
+				F4F5019BA86066D344C3ED3A /* Pods-textme.release.xcconfig */,
+				62D75611DEC0FE87C6F9D637 /* Pods-textme-tvOS.debug.xcconfig */,
+				56B07AE79DEA5ABBD9D9CD24 /* Pods-textme-tvOS.release.xcconfig */,
+				F1636332F3FF7FB809DFA423 /* Pods-textme-tvOSTests.debug.xcconfig */,
+				63016DC6CCC9B22B04034C68 /* Pods-textme-tvOSTests.release.xcconfig */,
+				C05CBA26AC8F282320B89732 /* Pods-textmeTests.debug.xcconfig */,
+				BA1D2EBEAD07C81ED36A7875 /* Pods-textmeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "textmeTests" */;
 			buildPhases = (
-				F48406214C057CDF2A831284 /* [CP] Check Pods Manifest.lock */,
+				5AEDB99FFA6E805A6271DA2A /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -280,14 +280,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "textme" */;
 			buildPhases = (
-				BCF1E31DB8A1D3928FF41696 /* [CP] Check Pods Manifest.lock */,
+				B7FAC1B62F4F11213D2128DA /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				FF4D4E23D31F5CB74C1B8D9A /* [CP-User] [RNFB] Core Configuration */,
-				B2BA560E9C8622538768845A /* [CP] Copy Pods Resources */,
+				1F5195D631CAADF4FD3DFE9E /* [CP] Copy Pods Resources */,
+				2CC5C61D811F8B1648BA1085 /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -302,7 +302,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "textme-tvOS" */;
 			buildPhases = (
-				24AEE507D4CBB9D54949B74D /* [CP] Check Pods Manifest.lock */,
+				A6F2BB3A5B4DDA5FC2F117EB /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -322,7 +322,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "textme-tvOSTests" */;
 			buildPhases = (
-				E5668DB2FE26CA8AA1DAA194 /* [CP] Check Pods Manifest.lock */,
+				4C555B2A44F1D4FD81A249CC /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -453,43 +453,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		24AEE507D4CBB9D54949B74D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-textme-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		B2BA560E9C8622538768845A /* [CP] Copy Pods Resources */ = {
+		1F5195D631CAADF4FD3DFE9E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -507,29 +471,31 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-textme/Pods-textme-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BCF1E31DB8A1D3928FF41696 /* [CP] Check Pods Manifest.lock */ = {
+		2CC5C61D811F8B1648BA1085 /* [CP-User] [RNFB] Core Configuration */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes usful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"firebase_crashlytics_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\n\n  # config.admob_delay_app_measurement_init\n  _ADMOB_DELAY_APP_MEASUREMENT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"admob_delay_app_measurement_init\")\n  if [[ $_ADMOB_DELAY_APP_MEASUREMENT == \"true\" ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GADDelayAppMeasurementInit\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"YES\")\n  fi\n\n  # config.admob_ios_app_id\n  _ADMOB_IOS_APP_ID=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"admob_ios_app_id\")\n  if [[ $_ADMOB_IOS_APP_ID ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GADApplicationIdentifier\")\n    _PLIST_ENTRY_TYPES+=(\"string\")\n    _PLIST_ENTRY_VALUES+=(\"$_ADMOB_IOS_APP_ID\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in ${_TARGET_PLIST} ${_DSYM_PLIST} ; do\n  if [[ -f ${plist} ]]; then\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n\n\n\n";
+		};
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
+			name = "Bundle React Native Code And Images";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-textme-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		E5668DB2FE26CA8AA1DAA194 /* [CP] Check Pods Manifest.lock */ = {
+		4C555B2A44F1D4FD81A249CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -551,7 +517,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F48406214C057CDF2A831284 /* [CP] Check Pods Manifest.lock */ = {
+		5AEDB99FFA6E805A6271DA2A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -567,6 +533,50 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-textmeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6F2BB3A5B4DDA5FC2F117EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-textme-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7FAC1B62F4F11213D2128DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-textme-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -610,16 +620,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		FF4D4E23D31F5CB74C1B8D9A /* [CP-User] [RNFB] Core Configuration */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] [RNFB] Core Configuration";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes usful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"firebase_crashlytics_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\n\n  # config.admob_delay_app_measurement_init\n  _ADMOB_DELAY_APP_MEASUREMENT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"admob_delay_app_measurement_init\")\n  if [[ $_ADMOB_DELAY_APP_MEASUREMENT == \"true\" ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GADDelayAppMeasurementInit\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"YES\")\n  fi\n\n  # config.admob_ios_app_id\n  _ADMOB_IOS_APP_ID=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"admob_ios_app_id\")\n  if [[ $_ADMOB_IOS_APP_ID ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GADApplicationIdentifier\")\n    _PLIST_ENTRY_TYPES+=(\"string\")\n    _PLIST_ENTRY_VALUES+=(\"$_ADMOB_IOS_APP_ID\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in ${_TARGET_PLIST} ${_DSYM_PLIST} ; do\n  if [[ -f ${plist} ]]; then\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -688,7 +688,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 701FDDF0B27D32EF1CD778B8 /* Pods-textmeTests.debug.xcconfig */;
+			baseConfigurationReference = C05CBA26AC8F282320B89732 /* Pods-textmeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -711,7 +711,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6F739FCF9C103FF9C39AFC9 /* Pods-textmeTests.release.xcconfig */;
+			baseConfigurationReference = BA1D2EBEAD07C81ED36A7875 /* Pods-textmeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -731,7 +731,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67605C97378E534F055B7F63 /* Pods-textme.debug.xcconfig */;
+			baseConfigurationReference = 44BFBFB898477A476A8C8073 /* Pods-textme.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -752,7 +752,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 471C2DA5B906CB0449021ED8 /* Pods-textme.release.xcconfig */;
+			baseConfigurationReference = F4F5019BA86066D344C3ED3A /* Pods-textme.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -772,7 +772,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53F9F1FD456A9230F9ED81CF /* Pods-textme-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 62D75611DEC0FE87C6F9D637 /* Pods-textme-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -800,7 +800,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0188A77A574B21A479C4B8BB /* Pods-textme-tvOS.release.xcconfig */;
+			baseConfigurationReference = 56B07AE79DEA5ABBD9D9CD24 /* Pods-textme-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -828,7 +828,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C4DC48367CD26070F281018 /* Pods-textme-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = F1636332F3FF7FB809DFA423 /* Pods-textme-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -855,7 +855,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E499538D2A6DFF9C0B71C7B0 /* Pods-textme-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 63016DC6CCC9B22B04034C68 /* Pods-textme-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
