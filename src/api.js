@@ -2,13 +2,11 @@
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
 
-const { uid } = auth().currentUser;
+const { currentUser } = auth();
+const uid = currentUser ? currentUser.uid : null;
 
 const usersRef = firestore().collection("users");
 const conversationsRef = firestore().collection("conversations");
-const userConversationsRef = firestore()
-  .collection("conversations")
-  .where("membersId", "array-contains", uid);
 
 export const fetchUser = userId =>
   usersRef
@@ -28,7 +26,8 @@ export const fetchContacts = () =>
   });
 
 export const fetchPersonalConversations = (successCallback, errorCallback) =>
-  userConversationsRef
+  conversationsRef
+    .where("membersId", "array-contains", uid)
     .where("member_count", "==", 2)
     .orderBy("lastTimestamp", "desc")
     .onSnapshot(
@@ -54,6 +53,7 @@ export const fetchPersonalConversations = (successCallback, errorCallback) =>
 
 export const fetchGroupConversations = (successCallback, errorCallback) =>
   conversationsRef
+    .where("membersId", "array-contains", uid)
     .where("member_count", ">", 2)
     .orderBy("member_count")
     .orderBy("lastTimestamp", "desc")
@@ -125,9 +125,9 @@ export const getConversationByPartnerId = partner =>
     });
 
 export const createConversation = partner =>
-  fetchUser(uid).then(async currentUser => {
+  fetchUser(uid).then(async curUser => {
     const members = [
-      { id: uid, name: currentUser.name, avatarURL: currentUser.avatarURL },
+      { id: uid, name: curUser.name, avatarURL: curUser.avatarURL },
       { id: partner.id, name: partner.name, avatarURL: partner.avatarURL }
     ];
     return conversationsRef
