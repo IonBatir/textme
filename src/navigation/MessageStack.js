@@ -13,9 +13,7 @@ export default createStackNavigator(
     [CONVERSATIONS_SCREEN]: {
       screen: Conversations,
       navigationOptions: {
-        header: ({ navigation }) => (
-          <Header toContacts={() => navigation.navigate(CONTACTS_SCREEN)} />
-        )
+        header: <Header />
       }
     },
     [CHAT_SCREEN]: Chat,
