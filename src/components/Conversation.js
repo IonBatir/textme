@@ -13,7 +13,7 @@ import { Avatar } from "../../assets/images";
 const styles = StyleSheet.create({
   container: {
     height: LIST_ITEM_HEIGHT,
-    margin: SPACING.MEDIUM
+    margin: SPACING.SMALL
   },
   row: {
     flex: 1,
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   textContent: {
+    width: "64%",
     paddingLeft: SPACING.SMALL
   },
   nameText: {
@@ -33,7 +34,6 @@ const styles = StyleSheet.create({
     color: "#3C444C"
   },
   messageText: {
-    maxWidth: "64%",
     fontFamily: FONT_FAMILY.NUNITO_LIGHT,
     fontSize: FONT_SIZE.SMALL,
     color: "#8B8B8B"
