@@ -84,7 +84,10 @@ export default function Chat({ navigation }) {
     if (conversation.id) {
       addMessage(conversation.id, message.value)
         .then(() => setMessage({ value: "", sending: false }))
-        .catch(error => ErrorAlert(error));
+        .catch(error => {
+          ErrorAlert(error);
+          setMessage(state => ({ ...state, sending: false }));
+        });
     } else {
       createConversation(partner)
         .then(data => {
@@ -92,7 +95,10 @@ export default function Chat({ navigation }) {
           return addMessage(data.id, message.value);
         })
         .then(() => setMessage({ value: "", sending: false }))
-        .catch(error => ErrorAlert(error));
+        .catch(error => {
+          ErrorAlert(error);
+          setMessage(state => ({ ...state, sending: false }));
+        });
     }
   }
 
