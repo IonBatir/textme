@@ -6,7 +6,8 @@ import {
   Text,
   FlatList,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from "react-native";
 import { Message, Spinner, ErrorAlert } from "../../components";
 import { COLOR, SPACING, FONT_FAMILY, FONT_SIZE } from "../../theme";
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
 });
 
 export default function Chat({ navigation }) {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState({ value: "", sending: false });
   const [messages, setMessages] = useState({ data: [], loading: true });
   const [conversation, setConversation] = useState(
     navigation.getParam("conversation") || { id: null }
@@ -78,17 +79,19 @@ export default function Chat({ navigation }) {
   );
 
   function sendMessage() {
+    if (message.value.length === 0) return;
+    setMessage(state => ({ ...state, sending: true }));
     if (conversation.id) {
-      addMessage(conversation.id, message)
-        .then(() => setMessage(""))
+      addMessage(conversation.id, message.value)
+        .then(() => setMessage({ value: "", sending: false }))
         .catch(error => ErrorAlert(error));
     } else {
       createConversation(partner)
         .then(data => {
           setConversation(data);
-          return addMessage(data.id, message);
+          return addMessage(data.id, message.value);
         })
-        .then(() => setMessage(""))
+        .then(() => setMessage({ value: "", sending: false }))
         .catch(error => ErrorAlert(error));
     }
   }
@@ -123,15 +126,21 @@ export default function Chat({ navigation }) {
         <View style={styles.textInputView}>
           <TextInput
             style={styles.textInput}
-            onChangeText={setMessage}
-            value={message}
+            onChangeText={value => setMessage(state => ({ ...state, value }))}
+            value={message.value}
             onSubmitEditing={sendMessage}
             placeholder="Type a message here"
             returnKeyType="send"
           />
-          <TouchableOpacity style={styles.touch} onPress={sendMessage}>
-            <RightArrowIcon />
-          </TouchableOpacity>
+          <View style={styles.touch}>
+            {message.sending ? (
+              <ActivityIndicator size="small" />
+            ) : (
+              <TouchableOpacity onPress={sendMessage}>
+                <RightArrowIcon />
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
         <View style={styles.icons}>
           <TouchableOpacity style={styles.touch} onPress={() => {}}>
