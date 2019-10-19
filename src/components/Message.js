@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { SPACING, FONT_SIZE, FONT_FAMILY, AVATAR_ICON_SIZE } from "../theme";
 import { AvatarIcon } from "../../assets/icons";
+import { getFormatedTime } from "../utils";
 
 const styles = StyleSheet.create({
   container: {
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginVertical: SPACING.MEDIUM,
-    marginHorizontal: SPACING.SMALL
+    marginHorizontal: SPACING.MEDIUM
   },
   leftContent: { flexDirection: "row" },
   message: {
@@ -30,7 +31,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Message({ avatar, text, time, isMy, isSameSender }) {
+export default function Message({
+  avatar,
+  text,
+  timestamp,
+  isMy,
+  isSameSender
+}) {
   return (
     <View
       style={[
@@ -39,6 +46,13 @@ export default function Message({ avatar, text, time, isMy, isSameSender }) {
       ]}
     >
       {isMy ? (
+        <>
+          <Text style={styles.timeText}>{getFormatedTime(timestamp)}</Text>
+          <View style={[styles.message, { backgroundColor: "#70CADB" }]}>
+            <Text style={styles.messageText}>{text}</Text>
+          </View>
+        </>
+      ) : (
         <>
           <View style={styles.leftContent}>
             {isSameSender ||
@@ -63,14 +77,7 @@ export default function Message({ avatar, text, time, isMy, isSameSender }) {
               <Text style={styles.messageText}>{text}</Text>
             </View>
           </View>
-          <Text style={styles.timeText}>{time}</Text>
-        </>
-      ) : (
-        <>
-          <Text style={styles.timeText}>{time}</Text>
-          <View style={[styles.message, { backgroundColor: "#70CADB" }]}>
-            <Text style={styles.messageText}>{text}</Text>
-          </View>
+          <Text style={styles.timeText}>{getFormatedTime(timestamp)}</Text>
         </>
       )}
     </View>
