@@ -68,7 +68,7 @@ export default function Chat({ navigation }) {
       fetchMessages(
         conversation,
         data => {
-          setMessages({ data, loading: false });
+          setMessages({ data: data.reverse(), loading: false });
         },
         error => {
           ErrorAlert(error);
@@ -104,7 +104,10 @@ export default function Chat({ navigation }) {
         text={item.text}
         timestamp={item.timestamp}
         isMy={item.my}
-        isSameSender={index > 0 && item.from === messages.data[index - 1].from}
+        isSameSender={
+          index !== messages.data.length - 1 &&
+          item.from === messages.data[index + 1].from
+        }
       />
     );
   }
@@ -120,7 +123,7 @@ export default function Chat({ navigation }) {
           </Text>
         </View>
       ) : (
-        <FlatList data={messages.data} renderItem={renderItem} />
+        <FlatList data={messages.data} renderItem={renderItem} inverted />
       )}
       <View style={styles.bottom}>
         <View style={styles.textInputView}>
