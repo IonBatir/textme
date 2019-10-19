@@ -18,7 +18,10 @@ export const fetchUser = userId =>
 export const fetchContacts = () =>
   usersRef.get().then(querySnapshot => {
     const users = [];
-    querySnapshot.forEach(doc => users.push({ ...doc.data(), id: doc.id }));
+    const { uid } = auth().currentUser;
+    querySnapshot.forEach(
+      doc => doc.id !== uid && users.push({ ...doc.data(), id: doc.id })
+    );
     return Promise.resolve(users);
   });
 
