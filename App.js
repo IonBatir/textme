@@ -15,5 +15,3 @@ export default function App() {
     </KeyboardAvoidingView>
   );
 }
-// eslint-disable-next-line no-console
-console.disableYellowBox = true;
