@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   SafeAreaView,
   View,
+  Text,
   FlatList,
   TextInput,
   TouchableOpacity
 } from "react-native";
-import { Message } from "../../components";
+import { Message, Spinner, ErrorAlert } from "../../components";
 import { COLOR, SPACING, FONT_FAMILY, FONT_SIZE } from "../../theme";
 import {
   RightArrowIcon,
@@ -16,6 +17,8 @@ import {
   PhotoCameraIcon,
   PictureIcon
 } from "../../../assets/icons";
+import { fetchMessages, createConversation, addMessage } from "../../api";
+import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
@@ -51,70 +54,84 @@ const styles = StyleSheet.create({
   }
 });
 
-const messages = [
-  {
-    id: "0",
-    text: "But I must explain to you how all this",
-    time: "10.11 AM",
-    my: true,
-    sender: "9"
-  },
-  {
-    id: "1",
-    text: "But I must explain to you how all this",
-    time: "10.11 AM",
-    my: true,
-    sender: "9"
-  },
-  {
-    id: "2",
-    text: "But I must explain to you how all this",
-    time: "10.11 AM",
-    my: false,
-    sender: "7"
-  },
-  {
-    id: "3",
-    text: "But I must explain to you how all this",
-    time: "10.11 AM",
-    my: false,
-    sender: "7"
-  },
-  {
-    id: "4",
-    text: "But I must explain to you how all this",
-    time: "10.11 AM",
-    my: true,
-    sender: "9"
-  }
-];
-
-export default function Chat() {
+export default function Chat({ navigation }) {
   const [message, setMessage] = useState("");
-  const renderItem = ({ item, index }) => (
-    <Message
-      key={item.id}
-      avatar={item.avatar}
-      text={item.text}
-      time={item.time}
-      isMy={item.my}
-      isSameSender={index > 0 && item.sender === messages[index - 1].sender}
-    />
+  const [messages, setMessages] = useState([]);
+  const [conversation, setConversation] = useState(
+    navigation.getParam("conversation") || { id: null }
+  );
+  const [loading, setLoading] = useState(true);
+  const partner = navigation.getParam("partner");
+
+  useEffect(
+    () =>
+      fetchMessages(
+        conversation,
+        data => {
+          setMessages(data);
+          setLoading(false);
+        },
+        error => {
+          ErrorAlert(error);
+          setLoading(false);
+        }
+      ),
+    [conversation.id]
   );
 
-  return (
+  function sendMessage() {
+    if (conversation.id) {
+      addMessage(conversation.id, message)
+        .then(() => setMessage(""))
+        .catch(error => ErrorAlert(error));
+    } else {
+      createConversation(partner)
+        .then(data => {
+          setConversation(data);
+          return addMessage(data.id, message);
+        })
+        .then(() => setMessage(""))
+        .catch(error => ErrorAlert(error));
+    }
+  }
+
+  function renderItem({ item, index }) {
+    return (
+      <Message
+        key={item.id}
+        avatar={item.avatar}
+        text={item.text}
+        timestamp={item.timestamp}
+        isMy={item.my}
+        isSameSender={index > 0 && item.from === messages[index - 1].from}
+      />
+    );
+  }
+
+  return loading ? (
+    <Spinner />
+  ) : (
     <SafeAreaView style={styles.container}>
-      <FlatList data={messages} renderItem={renderItem} />
+      {messages.length === 0 ? (
+        <View style={commonStyles.centerContainer}>
+          <Text style={commonStyles.text}>
+            No messages here yet. Say Hello!
+          </Text>
+        </View>
+      ) : (
+        <FlatList data={messages} renderItem={renderItem} />
+      )}
       <View style={styles.bottom}>
         <View style={styles.textInputView}>
           <TextInput
             style={styles.textInput}
             onChangeText={setMessage}
             value={message}
+            onSubmitEditing={sendMessage}
             placeholder="Type a message here"
             returnKeyType="send"
           />
-          <TouchableOpacity style={styles.touch} onPress={() => {}}>
+          <TouchableOpacity style={styles.touch} onPress={sendMessage}>
             <RightArrowIcon />
           </TouchableOpacity>
         </View>
@@ -137,6 +154,9 @@ export default function Chat() {
   );
 }
 
-Chat.navigationOptions = ({ navigation }) => ({
-  title: navigation.getParam("name")
-});
+Chat.navigationOptions = ({ navigation }) => {
+  const { conversation, partner } = navigation.state.params;
+  return {
+    title: conversation ? conversation.name : partner.name
+  };
+};

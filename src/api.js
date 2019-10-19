@@ -28,91 +28,136 @@ export const fetchContacts = () =>
   });
 
 export const fetchPersonalConversations = (successCallback, errorCallback) =>
-  userConversationsRef.where("member_count", "==", 2).onSnapshot(
-    querySnapshot => {
-      const conversations = [];
-      querySnapshot.forEach(doc => {
-        const { members, lastMessage, lastTimestamp } = doc.data();
-        const partner = members.find(member => member.id !== uid);
-        conversations.push({
-          id: doc.id,
-          name: partner.name,
-          avatar: partner.avatarURL,
-          lastMessage,
-          lastTimestamp: lastTimestamp && lastTimestamp.toDate()
+  userConversationsRef
+    .where("member_count", "==", 2)
+    .orderBy("lastTimestamp", "desc")
+    .onSnapshot(
+      querySnapshot => {
+        const conversations = [];
+        querySnapshot.forEach(doc => {
+          const { members, lastFrom, lastMessage, lastTimestamp } = doc.data();
+          const partner = members.find(member => member.id !== uid);
+          conversations.push({
+            id: doc.id,
+            members,
+            my: lastFrom === uid,
+            name: partner.name,
+            avatar: partner.avatarURL,
+            lastMessage,
+            lastTimestamp: lastTimestamp && lastTimestamp.toDate()
+          });
         });
-      });
-      successCallback(conversations);
-    },
-    error => errorCallback(error)
-  );
+        successCallback(conversations);
+      },
+      error => errorCallback(error)
+    );
 
 export const fetchGroupConversations = (successCallback, errorCallback) =>
-  conversationsRef.where("member_count", ">", 2).onSnapshot(
-    querySnapshot => {
-      const conversations = [];
-      querySnapshot.forEach(doc => {
-        const { name, avatarURL, lastMessage, lastTimestamp } = doc.data();
-        conversations.push({
-          id: doc.id,
-          name,
-          avatar: avatarURL,
-          lastMessage,
-          lastTimestamp
-        });
-      });
-      successCallback(conversations);
-    },
-    error => errorCallback(error)
-  );
-
-export const fetchMessages = (conversationId, successCallback, errorCallback) =>
   conversationsRef
-    .doc(conversationId)
+    .where("member_count", ">", 2)
+    .orderBy("member_count")
+    .orderBy("lastTimestamp", "desc")
+    .onSnapshot(
+      querySnapshot => {
+        const conversations = [];
+        querySnapshot.forEach(doc => {
+          const {
+            name,
+            members,
+            lastFrom,
+            avatarURL,
+            lastMessage,
+            lastTimestamp
+          } = doc.data();
+          conversations.push({
+            id: doc.id,
+            name,
+            members,
+            my: lastFrom === uid,
+            avatar: avatarURL,
+            lastMessage,
+            lastTimestamp: lastTimestamp && lastTimestamp.toDate()
+          });
+        });
+        successCallback(conversations);
+      },
+      error => errorCallback(error)
+    );
+
+export const fetchMessages = (conversation, successCallback, errorCallback) =>
+  conversationsRef
+    .doc(conversation.id)
     .collection("messages")
+    .orderBy("timestamp")
     .onSnapshot(
       querySnapshot => {
         const messages = [];
-        querySnapshot.forEach(doc =>
-          messages.push({ ...doc.data(), id: doc.id })
-        );
+        querySnapshot.forEach(doc => {
+          const { from, text, timestamp } = doc.data();
+          const partner = conversation.members.find(
+            member => member.id === from
+          );
+          messages.push({
+            id: doc.id,
+            from,
+            my: from === uid,
+            avatar: partner.avatarURL,
+            timestamp: timestamp.toDate(),
+            text
+          });
+        });
         successCallback(messages);
       },
       error => errorCallback(error)
     );
 
+export const getConversationByPartnerId = partner =>
+  conversationsRef
+    .where("membersId", "array-contains", uid)
+    .get()
+    .then(querySnapshot => {
+      let conversation;
+      querySnapshot.forEach(doc => {
+        const data = doc.data();
+        if (data.membersId.includes(partner.id)) conversation = data;
+      });
+      return Promise.resolve(conversation);
+    });
+
 export const createConversation = partner =>
-  fetchUser(uid).then(currentUser => {
-    conversationsRef
+  fetchUser(uid).then(async currentUser => {
+    const members = [
+      { id: uid, name: currentUser.name, avatarURL: currentUser.avatarURL },
+      { id: partner.id, name: partner.name, avatarURL: partner.avatarURL }
+    ];
+    return conversationsRef
       .add({
+        members,
         member_count: 2,
-        members: [
-          { id: uid, name: currentUser.name, avatarURL: currentUser.avatarURL },
-          { id: partner.id, name: partner.name, avatarURL: partner.avatarURL }
-        ],
         membersId: [uid, partner.id]
       })
-      .then(doc => {
-        return Promise.resolve({
-          ...doc.data(),
+      .then(doc =>
+        Promise.resolve({
           id: doc.id,
+          members,
           name: partner.name,
           avatar: partner.avatarURL
-        });
-      })
+        })
+      )
       .catch(error => Promise.reject(error));
   });
 
-export const getConversationByPartnerId = partner =>
-  userConversationsRef.get().then(querySnapshot => {
-    let conversation;
-    querySnapshot.forEach(doc => {
-      const data = doc.data();
-      if (data.membersId.includes(partner.id)) conversation = data;
-    });
-    return Promise.resolve(
-      conversation || {
-        name: partner.name
-      }
+export const addMessage = async (conversationId, text) => {
+  const timestamp = firestore.Timestamp.fromDate(new Date());
+  return conversationsRef
+    .doc(conversationId)
+    .collection("messages")
+    .add({ from: uid, text, timestamp })
+    .then(() =>
+      conversationsRef
+        .doc(conversationId)
+        .update({ lastFrom: uid, lastMessage: text, lastTimestamp: timestamp })
+        .then(() => Promise.resolve())
+        .catch(error => Promise.reject(error))
     );
-  });
+};
