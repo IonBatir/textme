@@ -2,9 +2,6 @@
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
 
-const { currentUser } = auth();
-const uid = currentUser ? currentUser.uid : null;
-
 const usersRef = firestore().collection("users");
 const conversationsRef = firestore().collection("conversations");
 
@@ -27,12 +24,13 @@ export const fetchContacts = () =>
 
 export const fetchPersonalConversations = (successCallback, errorCallback) =>
   conversationsRef
-    .where("membersId", "array-contains", uid)
+    .where("membersId", "array-contains", auth().currentUser.uid)
     .where("member_count", "==", 2)
     .orderBy("lastTimestamp", "desc")
     .onSnapshot(
       querySnapshot => {
         const conversations = [];
+        const { uid } = auth().currentUser;
         querySnapshot.forEach(doc => {
           const { members, lastFrom, lastMessage, lastTimestamp } = doc.data();
           const partner = members.find(member => member.id !== uid);
@@ -53,13 +51,14 @@ export const fetchPersonalConversations = (successCallback, errorCallback) =>
 
 export const fetchGroupConversations = (successCallback, errorCallback) =>
   conversationsRef
-    .where("membersId", "array-contains", uid)
+    .where("membersId", "array-contains", auth().currentUser.uid)
     .where("member_count", ">", 2)
     .orderBy("member_count")
     .orderBy("lastTimestamp", "desc")
     .onSnapshot(
       querySnapshot => {
         const conversations = [];
+        const { uid } = auth().currentUser;
         querySnapshot.forEach(doc => {
           const {
             name,
@@ -92,6 +91,7 @@ export const fetchMessages = (conversation, successCallback, errorCallback) =>
     .onSnapshot(
       querySnapshot => {
         const messages = [];
+        const { uid } = auth().currentUser;
         querySnapshot.forEach(doc => {
           const { from, text, timestamp } = doc.data();
           const partner = conversation.members.find(
@@ -113,7 +113,7 @@ export const fetchMessages = (conversation, successCallback, errorCallback) =>
 
 export const getConversationByPartnerId = partner =>
   conversationsRef
-    .where("membersId", "array-contains", uid)
+    .where("membersId", "array-contains", auth().currentUser.uid)
     .get()
     .then(querySnapshot => {
       let conversation;
@@ -125,7 +125,8 @@ export const getConversationByPartnerId = partner =>
     });
 
 export const createConversation = partner =>
-  fetchUser(uid).then(async curUser => {
+  fetchUser(auth().currentUser.uid).then(async curUser => {
+    const { uid } = auth().currentUser;
     const members = [
       { id: uid, name: curUser.name, avatarURL: curUser.avatarURL },
       { id: partner.id, name: partner.name, avatarURL: partner.avatarURL }
@@ -148,6 +149,7 @@ export const createConversation = partner =>
   });
 
 export const addMessage = async (conversationId, text) => {
+  const { uid } = auth().currentUser;
   const timestamp = firestore.Timestamp.fromDate(new Date());
   return conversationsRef
     .doc(conversationId)
