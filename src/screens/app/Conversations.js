@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList, StyleSheet, Text } from "react-native";
+import {
+  View,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity
+} from "react-native";
 import { Spinner, Conversation, ErrorAlert } from "../../components";
-import { CHAT_SCREEN } from "../../constants";
-import { LIST_ITEM_HEIGHT } from "../../theme";
+import { CHAT_SCREEN, CONTACTS_SCREEN } from "../../constants";
+import { LIST_ITEM_HEIGHT, SPACING } from "../../theme";
 import { fetchPersonalConversations } from "../../api";
+import { AddChatIcon } from "../../../assets/icons";
 import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  fab: {
+    position: "absolute",
+    right: SPACING.LARGE,
+    bottom: SPACING.LARGE
   }
 });
 
@@ -29,6 +41,17 @@ export default function Conversations({ navigation }) {
       ),
     []
   );
+
+  function Fab() {
+    return (
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => navigation.navigate(CONTACTS_SCREEN)}
+      >
+        <AddChatIcon />
+      </TouchableOpacity>
+    );
+  }
 
   function renderItem({ item }) {
     return (
@@ -53,6 +76,7 @@ export default function Conversations({ navigation }) {
         <Text style={commonStyles.text}>
           No conversations yet. Write to someone!
         </Text>
+        <Fab />
       </View>
     );
 
@@ -67,6 +91,7 @@ export default function Conversations({ navigation }) {
           index
         })}
       />
+      <Fab />
     </View>
   );
 }
