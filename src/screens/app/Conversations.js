@@ -24,7 +24,7 @@ export default function Conversations({ navigation }) {
           setLoading(false);
         },
         error => {
-          ErrorAlert(error.userInfo.message);
+          ErrorAlert(error);
           setLoading(false);
         }
       ),
@@ -40,7 +40,7 @@ export default function Conversations({ navigation }) {
         }}
         avatar={item.avatar}
         name={item.name}
-        text={item.lastMessage}
+        text={item.my ? `You: ${item.lastMessage}` : item.lastMessage}
         timestamp={item.lastTimestamp}
       />
     );

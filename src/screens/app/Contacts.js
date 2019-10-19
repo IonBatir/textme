@@ -22,7 +22,7 @@ export default function Contacts({ navigation }) {
         setLoading(false);
       })
       .catch(error => {
-        ErrorAlert(error.userInfo.message);
+        ErrorAlert(error);
         setLoading(false);
       });
   }, []);
@@ -34,10 +34,10 @@ export default function Contacts({ navigation }) {
         openChat={() => {
           getConversationByPartnerId(item)
             .then(conversation => {
-              navigation.navigate(CHAT_SCREEN, { conversation });
+              navigation.navigate(CHAT_SCREEN, { conversation, partner: item });
             })
             .catch(error => {
-              ErrorAlert(error.userInfo.message);
+              ErrorAlert(error);
             });
         }}
         avatar={item.avatarURL}

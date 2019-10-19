@@ -24,24 +24,28 @@ export default function Groups({ navigation }) {
           setLoading(false);
         },
         error => {
-          ErrorAlert(error.userInfo.message);
+          ErrorAlert(error);
           setLoading(false);
         }
       ),
     []
   );
 
-  const renderItem = ({ item }) => (
-    <Conversation
-      key={item.id}
-      openChat={() => navigation.navigate(CHAT_SCREEN, { conversation: item })}
-      avatar={item.avatar}
-      name={item.name}
-      text={item.text}
-      date={item.date}
-      time={item.time}
-    />
-  );
+  function renderItem({ item }) {
+    return (
+      <Conversation
+        key={item.id}
+        openChat={() => {
+          navigation.navigate(CHAT_SCREEN, { conversation: item });
+        }}
+        avatar={item.avatar}
+        name={item.name}
+        text={item.text}
+        date={item.date}
+        time={item.time}
+      />
+    );
+  }
 
   if (loading) return <Spinner />;
 
