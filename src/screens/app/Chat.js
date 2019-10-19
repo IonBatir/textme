@@ -56,11 +56,10 @@ const styles = StyleSheet.create({
 
 export default function Chat({ navigation }) {
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState({ data: [], loading: true });
   const [conversation, setConversation] = useState(
     navigation.getParam("conversation") || { id: null }
   );
-  const [loading, setLoading] = useState(true);
   const partner = navigation.getParam("partner");
 
   useEffect(
@@ -68,12 +67,11 @@ export default function Chat({ navigation }) {
       fetchMessages(
         conversation,
         data => {
-          setMessages(data);
-          setLoading(false);
+          setMessages({ data, loading: false });
         },
         error => {
           ErrorAlert(error);
-          setLoading(false);
+          setMessages({ data: [], loading: false });
         }
       ),
     [conversation.id]
@@ -103,23 +101,23 @@ export default function Chat({ navigation }) {
         text={item.text}
         timestamp={item.timestamp}
         isMy={item.my}
-        isSameSender={index > 0 && item.from === messages[index - 1].from}
+        isSameSender={index > 0 && item.from === messages.data[index - 1].from}
       />
     );
   }
 
-  return loading ? (
+  return messages.loading ? (
     <Spinner />
   ) : (
     <SafeAreaView style={styles.container}>
-      {messages.length === 0 ? (
+      {messages.data.length === 0 ? (
         <View style={commonStyles.centerContainer}>
           <Text style={commonStyles.text}>
             No messages here yet. Say Hello!
           </Text>
         </View>
       ) : (
-        <FlatList data={messages} renderItem={renderItem} />
+        <FlatList data={messages.data} renderItem={renderItem} />
       )}
       <View style={styles.bottom}>
         <View style={styles.textInputView}>

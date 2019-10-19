@@ -12,18 +12,14 @@ const styles = StyleSheet.create({
 });
 
 export default function Contacts({ navigation }) {
-  const [contacts, setContacts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [contacts, setContacts] = useState({ data: [], loading: true });
 
   useEffect(() => {
     fetchContacts()
-      .then(users => {
-        setContacts(users);
-        setLoading(false);
-      })
+      .then(data => setContacts({ data, loading: false }))
       .catch(error => {
+        setContacts({ data: [], loading: false });
         ErrorAlert(error);
-        setLoading(false);
       });
   }, []);
 
@@ -47,12 +43,12 @@ export default function Contacts({ navigation }) {
     );
   }
 
-  return loading ? (
+  return contacts.loading ? (
     <Spinner />
   ) : (
     <View style={styles.container}>
       <FlatList
-        data={contacts}
+        data={contacts.data}
         renderItem={renderItem}
         getItemLayout={(_, index) => ({
           length: LIST_ITEM_HEIGHT,

@@ -13,19 +13,20 @@ const styles = StyleSheet.create({
 });
 
 export default function Groups({ navigation }) {
-  const [conversations, setConversations] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [conversations, setConversations] = useState({
+    data: [],
+    loading: true
+  });
 
   useEffect(
     () =>
       fetchGroupConversations(
         data => {
-          setConversations(data);
-          setLoading(false);
+          setConversations({ data, loading: false });
         },
         error => {
           ErrorAlert(error);
-          setLoading(false);
+          setConversations({ data: [], loading: false });
         }
       ),
     []
@@ -47,19 +48,19 @@ export default function Groups({ navigation }) {
     );
   }
 
-  if (loading) return <Spinner />;
+  if (conversations.loading) return <Spinner />;
 
-  if (conversations.length === 0)
+  if (conversations.data.length === 0)
     return (
       <View style={commonStyles.centerContainer}>
-        <Text style={commonStyles.text}>No groups, yet!</Text>
+        <Text style={commonStyles.text}>No groups yet. Create one!</Text>
       </View>
     );
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={conversations}
+        data={conversations.data}
         renderItem={renderItem}
         getItemLayout={(_, index) => ({
           length: LIST_ITEM_HEIGHT,
