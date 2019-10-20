@@ -122,7 +122,8 @@ export const getConversationByPartnerId = partner =>
       let conversation;
       querySnapshot.forEach(doc => {
         const data = doc.data();
-        if (data.membersId.includes(partner.id)) conversation = data;
+        if (data.membersId.includes(partner.id))
+          conversation = { ...data, id: doc.id };
       });
       return Promise.resolve(conversation);
     });
