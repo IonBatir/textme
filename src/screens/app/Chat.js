@@ -141,11 +141,11 @@ export default function Chat({ navigation }) {
             placeholder="Type a message here"
             returnKeyType="send"
           />
-          <View style={styles.touch}>
+          <View>
             {message.sending ? (
-              <ActivityIndicator size="small" />
+              <ActivityIndicator style={styles.touch} size="small" />
             ) : (
-              <TouchableOpacity onPress={sendMessage}>
+              <TouchableOpacity style={styles.touch} onPress={sendMessage}>
                 <RightArrowIcon />
               </TouchableOpacity>
             )}
