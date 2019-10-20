@@ -1,11 +1,12 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
-import { Conversations, Chat, Contacts } from "../screens/app";
+import { Conversations, Chat, Contacts, Profile } from "../screens/app";
 import { Header } from "../components";
 import {
   CONVERSATIONS_SCREEN,
   CHAT_SCREEN,
-  CONTACTS_SCREEN
+  CONTACTS_SCREEN,
+  PROFILE_SCREEN
 } from "../constants";
 
 export default createStackNavigator(
@@ -13,7 +14,9 @@ export default createStackNavigator(
     [CONVERSATIONS_SCREEN]: {
       screen: Conversations,
       navigationOptions: {
-        header: <Header />
+        header: ({ navigation }) => (
+          <Header navigate={() => navigation.navigate(PROFILE_SCREEN)} />
+        )
       }
     },
     [CHAT_SCREEN]: Chat,
@@ -22,7 +25,8 @@ export default createStackNavigator(
       navigationOptions: {
         headerTitle: "Contacts"
       }
-    }
+    },
+    [PROFILE_SCREEN]: Profile
   },
   {
     initialRouteName: CONVERSATIONS_SCREEN,

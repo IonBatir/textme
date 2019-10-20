@@ -6,7 +6,7 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import { TextMeIcon, AvatarIcon } from "../../assets/icons";
+import { AvatarIcon } from "../../assets/icons";
 import {
   COLOR,
   SPACING,
@@ -25,33 +25,39 @@ const styles = StyleSheet.create({
   row: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: SPACING.MEDIUM
   },
   title: {
     fontFamily: FONT_FAMILY.NUNITO_BOLD,
     fontSize: FONT_SIZE.EXTRA_LARGE
+  },
+  right: {
+    position: "absolute",
+    right: SPACING.SMALL
   }
 });
 
-function Header({ label, toContacts }) {
+function Header({ label, navigate }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.row}>
-        <TextMeIcon />
         <Text style={styles.title}>{label}</Text>
-        <TouchableOpacity onPress={toContacts}>
-          <AvatarIcon />
-        </TouchableOpacity>
+        {navigate && (
+          <View style={styles.right}>
+            <TouchableOpacity onPress={navigate}>
+              <AvatarIcon />
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );
 }
 
 Header.defaultProps = {
-  label: APP_NAME,
-  toContacts: () => {}
+  label: APP_NAME
 };
 
 export default Header;
