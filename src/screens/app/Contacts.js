@@ -23,19 +23,21 @@ export default function Contacts({ navigation }) {
       });
   }, []);
 
+  function openChat(item) {
+    getConversationByPartnerId(item)
+      .then(conversation => {
+        navigation.navigate(CHAT_SCREEN, { conversation, partner: item });
+      })
+      .catch(error => {
+        ErrorAlert(error);
+      });
+  }
+
   function renderItem({ item }) {
     return (
       <Contact
         key={item.id}
-        openChat={() => {
-          getConversationByPartnerId(item)
-            .then(conversation => {
-              navigation.navigate(CHAT_SCREEN, { conversation, partner: item });
-            })
-            .catch(error => {
-              ErrorAlert(error);
-            });
-        }}
+        openChat={() => openChat(item)}
         avatar={item.avatarURL}
         name={item.name}
         status={item.status}
