@@ -50,3 +50,4 @@ export const LIST_ITEM_HEIGHT = 76;
 
 export const AVATAR_ICON_SIZE = 38;
 export const AVATAR_SIZE = 76;
+export const BIG_AVATAR_SIZE = 224;

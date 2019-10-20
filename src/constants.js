@@ -11,6 +11,7 @@ export const CHAT_SCREEN = "Chat";
 export const GROUPS_SCREEN = "Groups";
 export const SETTINGS_SCREEN = "Settings";
 export const CONTACTS_SCREEN = "Contacts";
+export const PROFILE_SCREEN = "Profile";
 
 export const AUTH_STACK = "AUTH_STACK";
 export const LOGIN_SCREEN = "Login";
