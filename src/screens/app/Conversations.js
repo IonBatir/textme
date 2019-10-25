@@ -14,9 +14,6 @@ import { AddChatIcon } from "../../../assets/icons";
 import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
   fab: {
     position: "absolute",
     right: SPACING.LARGE,
@@ -81,7 +78,7 @@ export default function Conversations({ navigation }) {
     );
 
   return (
-    <View style={styles.container}>
+    <View style={commonStyles.container}>
       <FlatList
         data={conversations.data}
         renderItem={renderItem}
