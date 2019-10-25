@@ -26,7 +26,12 @@ export default createStackNavigator(
         headerTitle: "Contacts"
       }
     },
-    [PROFILE_SCREEN]: Profile
+    [PROFILE_SCREEN]: {
+      screen: Profile,
+      navigationOptions: {
+        headerTitle: "Profile"
+      }
+    }
   },
   {
     initialRouteName: CONVERSATIONS_SCREEN,
