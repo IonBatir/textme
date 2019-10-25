@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
+  KeyboardAvoidingView,
+  ScrollView,
   View,
   TouchableOpacity,
   Image,
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
   },
   actionInput: {
     flex: 1,
+    paddingVertical: 0,
     marginLeft: SPACING.SMALL,
     fontFamily: FONT_FAMILY.NUNITO_REGULAR,
     fontSize: FONT_SIZE.EXTRA_LARGE,
@@ -158,45 +161,47 @@ export default function Profile() {
   return profile.loading ? (
     <Spinner />
   ) : (
-    <View style={styles.container}>
-      <View style={styles.top} />
-      <View style={styles.avatar}>
-        {profile.data.avatarURL ? (
-          <Image
-            source={{ uri: profile.data.avatarURL }}
-            style={{ width: BIG_AVATAR_SIZE, height: BIG_AVATAR_SIZE }}
-          />
-        ) : (
-          <BigAvatar />
-        )}
-      </View>
-      <Text style={styles.name}>{profile.data.name}</Text>
-      <Text style={styles.status}>{profile.data.status}</Text>
-      <View style={styles.actions}>
-        {actions.map(action => (
-          <View key={action.id} style={styles.action}>
-            {action.showInput ? (
-              <View style={styles.row}>
-                <Text style={styles.actionText}>{`${action.field}:`}</Text>
-                <TextInput
-                  style={styles.actionInput}
-                  onChangeText={action.onChange}
-                  onBlur={action.onBlur}
-                  value={action.value}
-                  editable={!action.loading}
-                  returnKeyType="done"
-                  autoFocus
-                />
-                {action.loading && <ActivityIndicator />}
-              </View>
-            ) : (
-              <TouchableOpacity onPress={action.action}>
-                <Text style={styles.actionText}>{action.name}</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        ))}
-      </View>
-    </View>
+    <ScrollView keyboardShouldPersistTaps="handled">
+      <KeyboardAvoidingView style={styles.container}>
+        <View style={styles.top} />
+        <View style={styles.avatar}>
+          {profile.data.avatarURL ? (
+            <Image
+              source={{ uri: profile.data.avatarURL }}
+              style={{ width: BIG_AVATAR_SIZE, height: BIG_AVATAR_SIZE }}
+            />
+          ) : (
+            <BigAvatar />
+          )}
+        </View>
+        <Text style={styles.name}>{profile.data.name}</Text>
+        <Text style={styles.status}>{profile.data.status}</Text>
+        <View style={styles.actions}>
+          {actions.map(action => (
+            <View key={action.id} style={styles.action}>
+              {action.showInput ? (
+                <View style={styles.row}>
+                  <Text style={styles.actionText}>{`${action.field}:`}</Text>
+                  <TextInput
+                    style={styles.actionInput}
+                    onChangeText={action.onChange}
+                    onBlur={action.onBlur}
+                    value={action.value}
+                    editable={!action.loading}
+                    returnKeyType="done"
+                    autoFocus
+                  />
+                  {action.loading && <ActivityIndicator />}
+                </View>
+              ) : (
+                <TouchableOpacity onPress={action.action}>
+                  <Text style={styles.actionText}>{action.name}</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          ))}
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
