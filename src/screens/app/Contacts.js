@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList, StyleSheet } from "react-native";
+import { View, FlatList } from "react-native";
 import { Contact, Spinner, ErrorAlert } from "../../components";
 import { CHAT_SCREEN } from "../../constants";
 import { LIST_ITEM_HEIGHT } from "../../theme";
 import { fetchContacts, getConversationByPartnerId } from "../../api";
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
+import commonStyles from "./styles";
 
 export default function Contacts({ navigation }) {
   const [contacts, setContacts] = useState({ data: [], loading: true });
@@ -48,7 +43,7 @@ export default function Contacts({ navigation }) {
   return contacts.loading ? (
     <Spinner />
   ) : (
-    <View style={styles.container}>
+    <View style={commonStyles.container}>
       <FlatList
         data={contacts.data}
         renderItem={renderItem}

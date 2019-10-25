@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import { Conversation, Spinner, ErrorAlert } from "../../components";
 import { CHAT_SCREEN } from "../../constants";
 import { LIST_ITEM_HEIGHT } from "../../theme";
 import { fetchGroupConversations } from "../../api";
 import commonStyles from "./styles";
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
 
 export default function Groups({ navigation }) {
   const [conversations, setConversations] = useState({
@@ -58,7 +52,7 @@ export default function Groups({ navigation }) {
     );
 
   return (
-    <View style={styles.container}>
+    <View style={commonStyles.container}>
       <FlatList
         data={conversations.data}
         renderItem={renderItem}

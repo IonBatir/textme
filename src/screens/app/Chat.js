@@ -22,7 +22,6 @@ import { fetchMessages, createConversation, addMessage } from "../../api";
 import commonStyles from "./styles";
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
   bottom: {
     justifyContent: "flex-end",
     width: "100%",
@@ -121,7 +120,7 @@ export default function Chat({ navigation }) {
   return messages.loading ? (
     <Spinner />
   ) : (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={commonStyles.container}>
       {messages.data.length === 0 ? (
         <View style={commonStyles.centerContainer}>
           <Text style={commonStyles.text}>
