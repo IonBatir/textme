@@ -11,9 +11,17 @@ export const fetchUser = userId =>
     .get()
     .then(doc =>
       doc.exists
-        ? Promise.resolve(doc.data())
+        ? Promise.resolve({ ...doc.data(), id: doc.id })
         : Promise.reject(new Error("No such document!"))
     );
+
+export const fetchProfile = () => fetchUser(auth().currentUser.uid);
+
+export const updateName = name =>
+  usersRef.doc(auth().currentUser.uid).set({ name }, { merge: true });
+
+export const updateStatus = status =>
+  usersRef.doc(auth().currentUser.uid).set({ status }, { merge: true });
 
 export const fetchContacts = () =>
   usersRef.get().then(querySnapshot => {
@@ -163,7 +171,5 @@ export const addMessage = async (conversationId, text) => {
       conversationsRef
         .doc(conversationId)
         .update({ lastFrom: uid, lastMessage: text, lastTimestamp: timestamp })
-        .then(() => Promise.resolve())
-        .catch(error => Promise.reject(error))
     );
 };
