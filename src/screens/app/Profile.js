@@ -63,9 +63,6 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY.NUNITO_REGULAR,
     fontSize: FONT_SIZE.EXTRA_LARGE,
     color: "#0E2A47"
-  },
-  activityIndicator: {
-    alignSelf: "flex-end"
   }
 });
 
@@ -190,9 +187,7 @@ export default function Profile() {
                   returnKeyType="done"
                   autoFocus
                 />
-                {action.loading && (
-                  <ActivityIndicator style={styles.activityIndicator} />
-                )}
+                {action.loading && <ActivityIndicator />}
               </View>
             ) : (
               <TouchableOpacity onPress={action.action}>
