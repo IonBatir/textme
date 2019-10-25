@@ -15,8 +15,7 @@ export default function App() {
       auth().onAuthStateChanged(user =>
         navigatorRef.current.dispatch(
           NavigationActions.navigate({
-            routeName: user ? CONVERSATIONS_SCREEN : LOGIN_SCREEN,
-            params: { user }
+            routeName: user ? CONVERSATIONS_SCREEN : LOGIN_SCREEN
           })
         )
       ),
