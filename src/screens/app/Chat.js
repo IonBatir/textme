@@ -142,7 +142,7 @@ export default function Chat({ navigation }) {
           />
           <View>
             {message.sending ? (
-              <ActivityIndicator style={styles.touch} size="small" />
+              <ActivityIndicator style={styles.touch} />
             ) : (
               <TouchableOpacity style={styles.touch} onPress={sendMessage}>
                 <RightArrowIcon />
