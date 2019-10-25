@@ -29,7 +29,7 @@ export default createStackNavigator(
     [PROFILE_SCREEN]: {
       screen: Profile,
       navigationOptions: {
-        headerTitle: "Profile"
+        headerTitle: "My Profile"
       }
     }
   },
