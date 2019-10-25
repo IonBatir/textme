@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import auth from "@react-native-firebase/auth";
 import { TextField, Spinner, ErrorAlert } from "../../components";
@@ -35,15 +35,7 @@ export default function Login({ navigation }) {
   const passwordInput = useRef(null);
   const [email, setEmail] = useState({ value: "", error: null });
   const [password, setPassword] = useState({ value: "", error: null });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(
-    () =>
-      auth().onAuthStateChanged(user =>
-        user ? navigation.navigate(CONVERSATIONS_SCREEN) : setLoading(false)
-      ),
-    []
-  );
+  const [loading, setLoading] = useState(false);
 
   function onLogin() {
     if (email.value.length === 0) {
