@@ -38,6 +38,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: SPACING.MEDIUM
   },
+  avatarImage: {
+    width: BIG_AVATAR_SIZE,
+    height: BIG_AVATAR_SIZE,
+    borderRadius: BIG_AVATAR_SIZE / 2
+  },
   name: {
     fontFamily: FONT_FAMILY.NUNITO_BOLD,
     fontSize: FONT_SIZE.EXTRA_EXTRA_LARGE,
@@ -171,7 +176,8 @@ export default function Profile() {
           storageOptions: {
             skipBackup: true
           },
-          noData: true
+          noData: true,
+          quality: 0.1
         };
 
         ImagePicker.showImagePicker(options, response => {
@@ -207,8 +213,8 @@ export default function Profile() {
         <View style={styles.avatar}>
           {profile.data.avatarURL ? (
             <Image
+              style={styles.avatarImage}
               source={{ uri: profile.data.avatarURL }}
-              style={{ width: BIG_AVATAR_SIZE, height: BIG_AVATAR_SIZE }}
             />
           ) : (
             <BigAvatar />

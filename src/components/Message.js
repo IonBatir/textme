@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
     marginHorizontal: SPACING.MEDIUM
   },
   leftContent: { flexDirection: "row" },
+  avatarImage: {
+    width: AVATAR_ICON_SIZE,
+    height: AVATAR_ICON_SIZE,
+    borderRadius: AVATAR_ICON_SIZE / 2
+  },
   message: {
     maxWidth: "80%",
     justifyContent: "center",
@@ -57,10 +62,7 @@ export default function Message({
           <View style={styles.leftContent}>
             {isSameSender ||
               (avatar ? (
-                <Image
-                  source={{ uri: avatar }}
-                  style={{ width: AVATAR_ICON_SIZE, height: AVATAR_ICON_SIZE }}
-                />
+                <Image style={styles.avatarImage} source={{ uri: avatar }} />
               ) : (
                 <AvatarIcon />
               ))}

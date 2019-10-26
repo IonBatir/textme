@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
   textContent: {
     paddingLeft: SPACING.SMALL
   },
+  avatarImage: {
+    width: AVATAR_SIZE,
+    height: AVATAR_SIZE,
+    borderRadius: AVATAR_SIZE / 2
+  },
   nameText: {
     fontFamily: FONT_FAMILY.NUNITO_SEMI_BOLD,
     fontSize: FONT_SIZE.EXTRA_LARGE,
@@ -40,14 +45,10 @@ function Contact({ openChat, avatar, name, status }) {
       <View style={styles.container}>
         <View style={styles.row}>
           {avatar ? (
-            <Image
-              source={{ uri: avatar }}
-              style={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
-            />
+            <Image style={styles.avatarImage} source={{ uri: avatar }} />
           ) : (
             <Avatar />
           )}
-          <Image source={avatar} />
           <View style={styles.textContent}>
             <Text style={styles.nameText}>{name}</Text>
             <Text style={styles.statusText}>{status}</Text>

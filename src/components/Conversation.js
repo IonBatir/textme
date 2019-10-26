@@ -24,6 +24,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center"
   },
+  avatarImage: {
+    width: AVATAR_SIZE,
+    height: AVATAR_SIZE,
+    borderRadius: AVATAR_SIZE / 2
+  },
   textContent: {
     width: "64%",
     paddingLeft: SPACING.SMALL
@@ -72,10 +77,7 @@ export default function Conversation({
         <View style={styles.row}>
           <View style={styles.content}>
             {avatar ? (
-              <Image
-                source={{ uri: avatar }}
-                style={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
-              />
+              <Image style={styles.avatarImage} source={{ uri: avatar }} />
             ) : (
               <Avatar />
             )}
