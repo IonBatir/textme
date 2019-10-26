@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
+import storage from "@react-native-firebase/storage";
 
 const usersRef = firestore().collection("users");
 const conversationsRef = firestore().collection("conversations");
@@ -22,6 +23,24 @@ export const updateName = name =>
 
 export const updateStatus = status =>
   usersRef.doc(auth().currentUser.uid).set({ status }, { merge: true });
+
+export const updateAvatarURL = avatarURL =>
+  usersRef.doc(auth().currentUser.uid).set({ avatarURL }, { merge: true });
+
+export const uploadAvatar = avatar => {
+  const fileName = `${auth().currentUser.uid}.${avatar.fileName
+    .split(".")
+    .pop()}`;
+  const avatarRef = storage().ref(`avatars/${fileName}`);
+  return avatarRef
+    .putFile(avatar.path)
+    .then(() => avatarRef.getDownloadURL())
+    .then(url =>
+      updateAvatarURL(url)
+        .then(() => Promise.resolve(url))
+        .catch(error => Promise.reject(error))
+    );
+};
 
 export const fetchContacts = () =>
   usersRef.get().then(querySnapshot => {

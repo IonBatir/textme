@@ -10,10 +10,16 @@ import {
   TextInput,
   ActivityIndicator
 } from "react-native";
+import ImagePicker from "react-native-image-picker";
 import { ErrorAlert, Spinner } from "../../components";
 import { BIG_AVATAR_SIZE, SPACING, FONT_FAMILY, FONT_SIZE } from "../../theme";
 import { BigAvatar } from "../../../assets/images";
-import { fetchProfile, updateName, updateStatus } from "../../api";
+import {
+  fetchProfile,
+  updateName,
+  updateStatus,
+  uploadAvatar
+} from "../../api";
 
 const styles = StyleSheet.create({
   container: {
@@ -155,7 +161,41 @@ export default function Profile() {
           });
       }
     },
-    { id: "2", name: "Upload avatar", showInput: false, action: () => {} }
+    {
+      id: "2",
+      name: "Upload avatar",
+      showInput: false,
+      action: () => {
+        const options = {
+          title: "Select Avatar",
+          storageOptions: {
+            skipBackup: true
+          },
+          noData: true
+        };
+
+        ImagePicker.showImagePicker(options, response => {
+          if (!response.didCancel || !response.error) {
+            setProfile(state => ({ ...state, loading: true }));
+            uploadAvatar(response)
+              .then(url => {
+                setProfile(state => ({
+                  ...state,
+                  data: {
+                    ...state.data,
+                    avatarURL: url
+                  },
+                  loading: false
+                }));
+              })
+              .catch(error => {
+                setProfile(state => ({ ...state, loading: false }));
+                ErrorAlert(error);
+              });
+          }
+        });
+      }
+    }
   ];
 
   return profile.loading ? (
