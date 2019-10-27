@@ -125,7 +125,10 @@ export default function Chat({ navigation }) {
         <View style={styles.textInputView}>
           <TextInput
             style={styles.textInput}
-            onChangeText={value => setMessage(state => ({ ...state, value }))}
+            onChangeText={value => {
+              if (message.sending) return;
+              setMessage(state => ({ ...state, value }));
+            }}
             value={message.value}
             onSubmitEditing={sendMessage}
             placeholder="Type a message here"
