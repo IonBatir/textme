@@ -69,11 +69,12 @@ export default function Chat({ navigation }) {
   );
 
   function sendMessage() {
-    if (message.value.length === 0) return;
-    setMessage(state => ({ ...state, sending: true }));
+    const text = message.value;
+    if (text.length === 0) return;
+    setMessage({ value: "", sending: true });
     if (conversation.id) {
-      addMessage(conversation.id, message.value)
-        .then(() => setMessage({ value: "", sending: false }))
+      addMessage(conversation.id, text)
+        .then(() => setMessage(state => ({ ...state, sending: false })))
         .catch(error => {
           ErrorAlert(error);
           setMessage(state => ({ ...state, sending: false }));
@@ -82,9 +83,9 @@ export default function Chat({ navigation }) {
       createConversation(partner)
         .then(data => {
           setConversation(data);
-          return addMessage(data.id, message.value);
+          return addMessage(data.id, text);
         })
-        .then(() => setMessage({ value: "", sending: false }))
+        .then(() => setMessage(state => ({ ...state, sending: false })))
         .catch(error => {
           ErrorAlert(error);
           setMessage(state => ({ ...state, sending: false }));
@@ -125,10 +126,7 @@ export default function Chat({ navigation }) {
         <View style={styles.textInputView}>
           <TextInput
             style={styles.textInput}
-            onChangeText={value => {
-              if (message.sending) return;
-              setMessage(state => ({ ...state, value }));
-            }}
+            onChangeText={value => setMessage(state => ({ ...state, value }))}
             value={message.value}
             onSubmitEditing={sendMessage}
             placeholder="Type a message here"
