@@ -11,13 +11,7 @@ import {
 } from "react-native";
 import { Message, Spinner, ErrorAlert } from "../../components";
 import { COLOR, SPACING, FONT_FAMILY, FONT_SIZE } from "../../theme";
-import {
-  RightArrowIcon,
-  SmileIcon,
-  AttachmentIcon,
-  PhotoCameraIcon,
-  PictureIcon
-} from "../../../assets/icons";
+import { RightArrowIcon } from "../../../assets/icons";
 import { fetchMessages, createConversation, addMessage } from "../../api";
 import commonStyles from "./styles";
 
@@ -28,7 +22,8 @@ const styles = StyleSheet.create({
     paddingTop: SPACING.MEDIUM,
     paddingHorizontal: SPACING.MEDIUM,
     borderTopColor: COLOR.HORIZONTAL_LINE,
-    borderTopWidth: 0.5
+    borderTopWidth: 0.5,
+    marginBottom: SPACING.MEDIUM
   },
   textInputView: {
     height: 50,
@@ -45,22 +40,18 @@ const styles = StyleSheet.create({
     color: "#8B8B8B",
     paddingHorizontal: SPACING.MEDIUM
   },
-  icons: {
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
   touch: {
     padding: SPACING.MEDIUM
   }
 });
 
 export default function Chat({ navigation }) {
+  const partner = navigation.getParam("partner");
   const [message, setMessage] = useState({ value: "", sending: false });
   const [messages, setMessages] = useState({ data: [], loading: true });
   const [conversation, setConversation] = useState(
     navigation.getParam("conversation") || { id: null }
   );
-  const partner = navigation.getParam("partner");
 
   useEffect(
     () =>
@@ -149,20 +140,6 @@ export default function Chat({ navigation }) {
               </TouchableOpacity>
             )}
           </View>
-        </View>
-        <View style={styles.icons}>
-          <TouchableOpacity style={styles.touch} onPress={() => {}}>
-            <SmileIcon />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.touch} onPress={() => {}}>
-            <AttachmentIcon />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.touch} onPress={() => {}}>
-            <PhotoCameraIcon />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.touch} onPress={() => {}}>
-            <PictureIcon />
-          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

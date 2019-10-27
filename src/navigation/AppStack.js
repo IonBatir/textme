@@ -1,48 +1,43 @@
 import React from "react";
-import { createBottomTabNavigator } from "react-navigation-tabs";
-import MessageStack from "./MessageStack";
-import GroupStack from "./GroupStack";
-import { Settings } from "../screens/app";
-import { MESSAGE_STACK, GROUP_STACK, SETTINGS_SCREEN } from "../constants";
+import { createStackNavigator } from "react-navigation-stack";
+import { Conversations, Chat, Contacts, Profile } from "../screens/app";
+import { Header } from "../components";
 import {
-  SPACING,
-  FONT_SIZE,
-  FONT_FAMILY,
-  BOTTOM_NAVIGATOR_HEIGHT
-} from "../theme";
-import { ChatIcon, GroupsIcon, SettingsIcon } from "../../assets/icons";
+  CONVERSATIONS_SCREEN,
+  CHAT_SCREEN,
+  CONTACTS_SCREEN,
+  PROFILE_SCREEN
+} from "../constants";
 
-export default createBottomTabNavigator(
+export default createStackNavigator(
   {
-    [MESSAGE_STACK]: {
-      screen: MessageStack,
+    [CONVERSATIONS_SCREEN]: {
+      screen: Conversations,
       navigationOptions: {
-        tabBarLabel: "Chat",
-        tabBarIcon: <ChatIcon />
+        header: ({ navigation }) => (
+          <Header navigate={() => navigation.navigate(PROFILE_SCREEN)} />
+        )
       }
     },
-    [GROUP_STACK]: {
-      screen: GroupStack,
-      navigationOptions: { tabBarLabel: "Groups", tabBarIcon: <GroupsIcon /> }
-    },
-    [SETTINGS_SCREEN]: {
-      screen: Settings,
+    [CHAT_SCREEN]: Chat,
+    [CONTACTS_SCREEN]: {
+      screen: Contacts,
       navigationOptions: {
-        tabBarIcon: <SettingsIcon />
+        headerTitle: "Contacts"
+      }
+    },
+    [PROFILE_SCREEN]: {
+      screen: Profile,
+      navigationOptions: {
+        headerTitle: "My Profile"
       }
     }
   },
   {
-    initialRouteName: MESSAGE_STACK,
-    tabBarOptions: {
-      style: {
-        height: BOTTOM_NAVIGATOR_HEIGHT,
-        paddingVertical: SPACING.SMALL
-      },
-      labelStyle: {
-        fontFamily: FONT_FAMILY.NUNITO_LIGHT,
-        fontSize: FONT_SIZE.SMALL
-      }
-    }
+    initialRouteName: CONVERSATIONS_SCREEN,
+    headerMode: "screen",
+    navigationOptions: ({ navigation }) => ({
+      tabBarVisible: navigation.state.index === 0
+    })
   }
 );
