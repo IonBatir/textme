@@ -16,7 +16,7 @@ import { BIG_AVATAR_SIZE, SPACING, FONT_FAMILY, FONT_SIZE } from "../../theme";
 import { BigAvatar } from "../../../assets/images";
 import {
   fetchProfile,
-  updateName,
+  updateProfile,
   updateStatus,
   uploadAvatar
 } from "../../api";
@@ -121,7 +121,7 @@ export default function Profile() {
           return;
         }
         setName(state => ({ ...state, loading: true }));
-        updateName(name.value)
+        updateProfile({ name: name.value })
           .then(() => {
             setProfile(state => ({
               ...state,
@@ -177,11 +177,11 @@ export default function Profile() {
             skipBackup: true
           },
           noData: true,
-          quality: 0.1
+          quality: 0.5
         };
 
         ImagePicker.showImagePicker(options, response => {
-          if (!response.didCancel || !response.error) {
+          if (!response.didCancel && !response.error) {
             setProfile(state => ({ ...state, loading: true }));
             uploadAvatar(response)
               .then(url => {

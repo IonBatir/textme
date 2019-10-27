@@ -6,7 +6,7 @@ import storage from "@react-native-firebase/storage";
 const usersRef = firestore().collection("users");
 const conversationsRef = firestore().collection("conversations");
 
-export const fetchUser = userId =>
+const fetchUser = userId =>
   usersRef
     .doc(userId)
     .get()
@@ -18,25 +18,43 @@ export const fetchUser = userId =>
 
 export const fetchProfile = () => fetchUser(auth().currentUser.uid);
 
-export const updateName = name =>
-  usersRef.doc(auth().currentUser.uid).set({ name }, { merge: true });
-
 export const updateStatus = status =>
-  usersRef.doc(auth().currentUser.uid).set({ status }, { merge: true });
+  usersRef.doc(auth().currentUser.uid).update({ status });
 
-export const updateAvatarURL = avatarURL =>
-  usersRef.doc(auth().currentUser.uid).set({ avatarURL }, { merge: true });
+export const updateProfile = async profile => {
+  const { uid } = auth().currentUser;
+  return conversationsRef
+    .where("membersId", "array-contains", uid)
+    .get()
+    .then(querySnapshot => {
+      const conversations = [];
+      querySnapshot.forEach(doc =>
+        conversations.push({ ...doc.data(), id: doc.id })
+      );
+      const promises = conversations.map(conversation =>
+        conversationsRef.doc(conversation.id).update({
+          members: conversation.members.map(member =>
+            member.id === uid ? { ...member, ...profile } : member
+          )
+        })
+      );
+      return Promise.all([
+        usersRef.doc(auth().currentUser.uid).update(profile),
+        ...promises
+      ]);
+    });
+};
 
-export const uploadAvatar = avatar => {
+export const uploadAvatar = async avatar => {
   const fileName = `${auth().currentUser.uid}.${avatar.fileName
     .split(".")
     .pop()}`;
   const avatarRef = storage().ref(`avatars/${fileName}`);
   return avatarRef
-    .putFile(avatar.path)
+    .putFile(avatar.uri)
     .then(() => avatarRef.getDownloadURL())
     .then(url =>
-      updateAvatarURL(url)
+      updateProfile({ avatarURL: url })
         .then(() => Promise.resolve(url))
         .catch(error => Promise.reject(error))
     );
